@@ -85,6 +85,74 @@ citadel.builder.infra.health        — VPS + service health beat
 
 ---
 
+## Mission System
+
+Builder missions reward infrastructure reliability, successful deploys, and system quality.
+
+| Mission | Description | XP | Unlock |
+|---------|-------------|-----|--------|
+| First Scaffold | Scaffold a new guild repo via guild_tools | 100 | Default |
+| CI All Green | All 4 CI stages pass (lint → test → build → docker) | 150 | Default |
+| Docker Published | Push a guild image to GHCR successfully | 200 | Default |
+| CF Phase Complete | Complete a Cloudflare setup phase | 300 | Architect rank |
+| Zero Downtime | Zero unplanned outages for 30 days | 500 | Architect rank |
+| SDK Release | Cut a new guild-sdk version | 400 | Architect rank |
+| CML Throughput | Process 100 CML tasks in a single sprint | 350 | Engineer rank |
+
+**Daily missions (reset 00:00 UTC):**
+- Emit a `citadel.builder.deploy.complete` event — 25 XP
+- Pass a NATS health check — 25 XP
+
+Builder guild CAPS scores are weighted toward **reliability** (P axis) and **execution** (A axis).
+High CAPS unlocks autonomous deployment authority in the CML loop.
+
+---
+
+## Guild Expectations
+
+**Members:**
+- Monitor CI status daily — failures require a comment within 2 hours
+- Maintain CAPS composite score ≥ 0.70 for deploy authority
+- Complete Builder onboarding (CML + Docker primer) within 7 days of placement
+- Engage in `#infra-ops` and `#deploy-log` lobby channels
+
+**Contributors:**
+- All infrastructure changes require a rollback plan documented in the PR
+- Docker images must pass `docker scan` with no critical CVEs
+- Cloudflare config changes must go through the `cf-setup` dry-run first
+- Code review turnaround: 24 hours for infra-critical changes
+
+**Guild Lead (Chief Architect):**
+- Daily CML health check posted to `#announcements`
+- Coordinate cross-guild deployments with affected guild leads
+- Own the guild-sdk roadmap and semver releases
+
+---
+
+## Contributing
+
+**Branch naming:**
+```
+feat/<srs-code>/<short-description>
+fix/<srs-code>/<short-description>
+infra/<srs-code>/<short-description>
+```
+
+**PR checklist:**
+- [ ] SRS code referenced (e.g., `SRS: BLD-CML-005`)
+- [ ] `npm test` passes + `docker build` verified locally
+- [ ] Rollback procedure documented for infra changes
+- [ ] `.env.example` updated if new env vars required
+- [ ] NATS stream definitions updated if new subjects added
+
+**Commit format:** `<type>(<srs-code>): <description>`
+Example: `infra(BLD-CML-005): add NATS JetStream consumer for cml.task`
+
+**SAKE compliance:** New automation modules require a `.sake` file stub.
+See [guild-sdk](https://github.com/citadel-nexus/guild-sdk) for the format.
+
+---
+
 ## Getting Started
 
 ```bash
