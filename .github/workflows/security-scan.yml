@@ -1,0 +1,40 @@
+name: Security Scan - guild-builder
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  codeql:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+      - uses: github/codeql-action/autobuild@v3
+      - uses: github/codeql-action/analyze@v3
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Detect secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          extra_args: --only-verified
+      - name: Check private imports
+        run: |
+          if grep -r "@citadel-nexus/core" src/ 2>/dev/null; then
+            echo "FAIL: private package import detected"; exit 1
+          fi
+          if grep -rE "147\.93\." src/ .env.example 2>/dev/null; then
+            echo "FAIL: hardcoded internal endpoint detected"; exit 1
+          fi
+          echo "OK: security checks passed"

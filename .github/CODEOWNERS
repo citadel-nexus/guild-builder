@@ -1,0 +1,5 @@
+# Guild code owners — all PRs require review from the guild lead team
+* @citadel-nexus/guild-builder-leads
+
+# Guild SDK public interface
+src/index.ts @citadel-nexus/sdk-core
