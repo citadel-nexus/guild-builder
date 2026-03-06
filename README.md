@@ -97,7 +97,7 @@ npm run dev
 ## Environment Variables
 
 ```
-NATS_URL=nats://147.93.43.117:4222
+NATS_URL=nats://<your-nats-host>:4222
 GITHUB_TOKEN=<ghp_...>
 CF_API_TOKEN=<key>
 CF_ZONE_ID=<id>
