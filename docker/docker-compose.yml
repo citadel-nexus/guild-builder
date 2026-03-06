@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  guild-builder:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8443:8443"
+    environment:
+      - NATS_URL=nats://nats:4222
+      - GUILD_PORT=8443
+      - GUILD_NAME=builder
+    depends_on:
+      - nats
+  nats:
+    image: nats:2.10-alpine
+    ports:
+      - "4222:4222"

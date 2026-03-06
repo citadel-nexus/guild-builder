@@ -1,0 +1,16 @@
+{
+  "name": "@citadel-guilds/guild-builder",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "@citadel-guilds/sdk": "^0.1.0",
+    "nats": "^2.19.0"
+  }
+}
