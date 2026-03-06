@@ -1,0 +1,22 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install
+        run: npm ci
+      - name: Lint
+        run: npm run lint || true
+      - name: Build
+        run: npm run build
+      - name: Publish image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: echo "publish placeholder"
