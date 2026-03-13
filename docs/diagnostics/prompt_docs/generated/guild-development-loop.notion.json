@@ -1,0 +1,246 @@
+{
+  "children": [
+    {
+      "object": "block",
+      "paragraph": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Documents the control-plane code blocks that route community GitHub work into the protected GitLab review lane, assign seats, and prevent duplicate seat execution on the command bus."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "type": "paragraph"
+    },
+    {
+      "heading_2": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Seat Command Claim Lock"
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "heading_2"
+    },
+    {
+      "object": "block",
+      "paragraph": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Prevents two seat commanders from executing the same command transmission when both the broadcast and per-seat NATS subjects deliver the same tx_id."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "type": "paragraph"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "The commander now attempts a conditional Supabase patch from status=open to status=claimed before running docker exec."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "If the patch returns no row, the consumer treats the command as already claimed and exits without executing it."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "This keeps the command bus compatible with both subject patterns while eliminating duplicate execution."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    },
+    {
+      "heading_2": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Signed GitHub Community Intake"
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "heading_2"
+    },
+    {
+      "object": "block",
+      "paragraph": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Accepts GitHub issue and pull request webhooks, verifies the HMAC signature, maps the repo back to a guild, and derives the protected GitLab review branch name."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "type": "paragraph"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Only signed GitHub events are accepted through X-Hub-Signature-256 validation."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Each public guild repo is resolved back to a canonical guild slug before seat assignment or review-link generation happens."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "The branch name is deterministic so repeated updates land in the same protected review lane for the same GitHub object."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    },
+    {
+      "heading_2": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "GitLab Review Intake Artifact"
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "heading_2"
+    },
+    {
+      "object": "block",
+      "paragraph": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Writes a machine-readable intake artifact into the protected review branch so seats, reviewers, and later automation all have the same source packet."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "type": "paragraph"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "The intake artifact lives under community_intake/<guild>/<event>-<number>.json in the protected branch."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Prompt documentation for the same system is generated into docs/diagnostics/prompt_docs/generated so GitHub review and Notion sync can derive from the same manifest."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    },
+    {
+      "bulleted_list_item": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "This gives the guild diagnostics surface a concrete artifact to verify rather than just checking environment variables."
+            },
+            "type": "text"
+          }
+        ]
+      },
+      "object": "block",
+      "type": "bulleted_list_item"
+    }
+  ],
+  "metadata": {
+    "github_repo": "citadel-nexus/guild-builder",
+    "guild": "builder",
+    "slug": "guild-development-loop",
+    "source_branch": "main",
+    "system": "citadel-ide-extension"
+  },
+  "parent": {},
+  "properties": {
+    "title": [
+      {
+        "text": {
+          "content": "Guild Development Loop Prompt Docs"
+        },
+        "type": "text"
+      }
+    ]
+  }
+}
