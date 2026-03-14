@@ -1,16 +1,32 @@
 {
   "name": "@citadel-guilds/builder",
+  "description": "Public Builder Guild service scaffold for Citadel Nexus infrastructure and automation.",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/citadel-nexus/guild-builder.git"
+  },
+  "homepage": "https://citadel-nexus.com/guilds/builders",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/index.ts",
     "test": "vitest run",
-    "lint": "eslint src/"
+    "lint": "tsc --noEmit",
+    "start": "node dist/index.js"
   },
   "dependencies": {
-    "@citadel-guilds/sdk": "^0.1.0",
     "nats": "^2.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
   }
 }

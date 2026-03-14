@@ -158,17 +158,28 @@ See [guild-sdk](https://github.com/citadel-nexus/guild-sdk) for the format.
 ```bash
 npm install
 cp .env.example .env
-# Fill GITHUB_TOKEN, CF_API_TOKEN, CF_ZONE_ID
+# Fill only the environment values you actually use for local development
 npm run dev
+```
+
+Tested baseline:
+- Node.js 18+
+- npm 9+
+
+Useful local checks:
+
+```bash
+npm run lint
+npm test
+npm run build
 ```
 
 ## Environment Variables
 
 ```
 NATS_URL=nats://<your-nats-host>:4222
-GITHUB_TOKEN=<ghp_...>
-CF_API_TOKEN=<key>
-CF_ZONE_ID=<id>
+NATS_TOKEN=<optional-token>
 SUPABASE_SERVICE_ROLE_KEY=<key>
 GUILD_PORT=8443
+GUILD_NAME=builder
 ```

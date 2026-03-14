@@ -1,9 +1,9 @@
-import  GuildClient  from '@citadel-guilds/sdk';
+import GuildClient from './guild-client.js';
 
 const guild = new GuildClient({
   name: 'builder',
   natsPrefix: 'citadel.builder',
-  port: 8443,
+  port: Number(process.env.GUILD_PORT || 8443),
 });
 
 guild.start();
