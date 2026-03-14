@@ -6,7 +6,7 @@
 - GitHub repo: `citadel-nexus/guild-builder`
 - Notion parent page: `unassigned`
 
-Documents the control-plane code blocks that route community GitHub work into the protected GitLab review lane, assign seats, and prevent duplicate seat execution on the command bus.
+Documents the control-plane code blocks that route community GitHub work into the protected GitLab review lane, assign seat-specific briefs, publish prompt docs, and prevent duplicate seat execution on the command bus.
 
 ## Blocks
 
@@ -42,7 +42,7 @@ Notes:
 
 Block ID: `github-community-intake`
 
-Accepts GitHub issue and pull request webhooks, verifies the HMAC signature, maps the repo back to a guild, and derives the protected GitLab review branch name.
+Accepts GitHub issue and pull request webhooks, verifies the HMAC signature, maps the repo back to a guild, derives the protected GitLab review branch name, and emits seat-specific acceptance criteria.
 
 Code paths:
 - `src/api/routes/ide_routes.py`
@@ -51,6 +51,7 @@ Explanation:
 - Only signed GitHub events are accepted through X-Hub-Signature-256 validation.
 - Each public guild repo is resolved back to a canonical guild slug before seat assignment or review-link generation happens.
 - The branch name is deterministic so repeated updates land in the same protected review lane for the same GitHub object.
+- The intake now emits seat_missions with objective, acceptance criteria, context, and suggested commands.
 
 Inputs:
 - GitHub webhook headers
@@ -68,7 +69,7 @@ Tests:
 
 Block ID: `gitlab-review-artifact`
 
-Writes a machine-readable intake artifact into the protected review branch so seats, reviewers, and later automation all have the same source packet.
+Writes a machine-readable intake artifact into the protected review branch so seats, reviewers, and later automation all have the same source packet, then mirrors the explanation layer into GitHub docs and a Notion-ready payload.
 
 Code paths:
 - `src/api/routes/ide_routes.py`
@@ -92,3 +93,6 @@ Outputs:
 Tests:
 - `tests/unit/test_guild_dev_loop_routes.py`
 - `tests/unit/test_prompt_docs_ops.py`
+
+Notes:
+- Live Notion publishing is gated on NOTION_PARENT_PAGE_ID plus a Notion token.
