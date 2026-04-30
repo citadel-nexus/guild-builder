@@ -182,4 +182,54 @@ NATS_TOKEN=<optional-token>
 SUPABASE_SERVICE_ROLE_KEY=<key>
 GUILD_PORT=8443
 GUILD_NAME=builder
+
+# Tenant provisioning orchestrator (off by default)
+PROVISION_ORCHESTRATOR=off
+PROVISION_INBOUND_SUBJECT=
+PROVISION_OUTBOUND_PREFIX=
 ```
+
+---
+
+## Tenant Provisioning Orchestrator (public spine)
+
+`src/provision/` is the public spine of dispatch
+**TENANT-PROVISION-FABRIC-001 §6**. It runs the per-tenant provisioning
+pipeline as an ordered list of pluggable `Stage`s, with idempotency and
+NATS event emission baked in. Vendor-specific stage bodies (Cal.com,
+Mautic, Twenty, Customer.io, email-bank, tenant-agent, tenant-mcp,
+cockpit-ui, workflow-mesh) live in CNWB on private GitLab — this repo
+exposes the contract they bind to.
+
+Public PRs are welcome against:
+- The `Stage` interface and orchestrator behavior
+- The `IdempotencyStore` contract and alternative implementations
+- The `SubjectFormatter` and additional subject conventions
+- New stub stages or test helpers
+
+```ts
+import {
+  ProvisionOrchestrator,
+  defaultStageRegistry,
+  InMemoryIdempotencyStore,
+  type Stage,
+} from '@citadel-guilds/builder/provision';
+
+const myStage: Stage = {
+  name: 'calcom',
+  run: async (ctx) => ({ status: 'ok', data: { orgId: '...' } }),
+};
+
+const orchestrator = new ProvisionOrchestrator({
+  stages: [myStage, ...defaultStageRegistry().slice(1)],
+  idempotency: new InMemoryIdempotencyStore(),
+  publish: (event) => console.log(event.kind, event.tenantId, event.stage),
+});
+
+await orchestrator.run({ tenantId: 'bcx', industry: 'cosmetology', tier: 'growth' });
+```
+
+Activate the inbound/outbound NATS bridge at process start by setting
+`PROVISION_ORCHESTRATOR=on` and providing the inbound subject + outbound
+prefix from your operator subject canon — the spine never hardcodes
+either.

@@ -27,6 +27,7 @@ void maybeStartProvisionBridge()
     const message = err instanceof Error ? err.message : String(err);
     console.warn(`[builder] provision orchestrator failed to start: ${message}`);
   });
+dd/feat/SRS-BOT-TRACKER-001/bot-tracker
 
 if (process.env.BOT_TRACKER_DISABLED !== '1' && process.env.NATS_URL) {
   startBotListener({
@@ -38,3 +39,5 @@ if (process.env.BOT_TRACKER_DISABLED !== '1' && process.env.NATS_URL) {
 } else if (!process.env.NATS_URL) {
   console.log('[bots] NATS_URL unset — tracker UI runs but receives no events');
 }
+=======
+ main

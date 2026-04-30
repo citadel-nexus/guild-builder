@@ -1,0 +1,199 @@
+# TaskIR — SRS-PROVISION-ORCHESTRATOR-001
+#
+# Worked example of the TaskIR convention: each SRS is a graph of nodes
+# any agent can parse identically. Nodes carry srs_code, dispatch_id,
+# door, and gate so CGRF + VCC Dispatch Protocol can verify them
+# automatically.
+#
+# This file is descriptive (post-merge state), not prescriptive — it
+# documents what was built, what it depends on, and what gates it.
+
+id: SRS-PROVISION-ORCHESTRATOR-001
+dispatch: TENANT-PROVISION-FABRIC-001
+phase: "§6 Provisioning Orchestrator"
+guild: builder
+repo: github.com/citadel-nexus/guild-builder
+status: complete
+public_contract: true
+
+# Inputs the orchestrator spine reacts to (operator-controlled).
+inputs:
+  - kind: env
+    name: PROVISION_ORCHESTRATOR
+    values: [on, off]
+    default: off
+    purpose: gate that activates the NATS bridge at process start
+  - kind: env
+    name: PROVISION_INBOUND_SUBJECT
+    purpose: subject the walk-in pipeline emits when a tenant is provisioned
+    notes: never literal in code — required when PROVISION_ORCHESTRATOR=on
+  - kind: env
+    name: PROVISION_OUTBOUND_PREFIX
+    purpose: prefix for per-stage and terminal provision events
+    notes: composed by SubjectFormatter; matches dispatch §A.5/§F.1
+
+# Outputs (the public API surface of this SRS).
+outputs:
+  - ProvisionOrchestrator
+  - InMemoryIdempotencyStore
+  - IdempotencyStore        # interface
+  - Stage                   # interface
+  - StageResult             # type
+  - ProvisionEvent          # type
+  - ProvisionEventPublisher # type
+  - DEFAULT_STAGE_NAMES
+  - defaultStageRegistry
+  - makeStubStage
+  - ProvisionNatsBridge
+  - NatsLikeClient          # interface (transport-agnostic)
+  - defaultSubjectFormatter
+  - SubjectFormatter        # type
+
+# Nodes form a DAG. depends_on references node ids in this file.
+nodes:
+  - id: types
+    kind: contract
+    paths: [src/provision/types.ts]
+    door: A
+    notes: |
+      The public types every other node and every consumer (vendor stage
+      body, custom IdempotencyStore, alternate SubjectFormatter) imports.
+
+  - id: idempotency
+    kind: contract
+    paths: [src/provision/idempotency.ts]
+    depends_on: [types]
+    door: A
+    notes: |
+      IdempotencyStore interface + InMemoryIdempotencyStore. Production
+      deployments swap for a Supabase- or Redis-backed store via the
+      orchestrator constructor.
+
+  - id: stages
+    kind: contract
+    paths: [src/provision/stages/index.ts]
+    depends_on: [types]
+    door: A
+    notes: |
+      DEFAULT_STAGE_NAMES holds the 9 phases from dispatch §F.1 in order:
+      calcom, mautic, twenty, customer_io, email_bank, tenant_agent,
+      tenant_mcp, cockpit_ui, workflow_mesh. makeStubStage builds a
+      placeholder Stage that returns status=stub. defaultStageRegistry
+      returns the full set.
+
+  - id: orchestrator
+    kind: runner
+    paths: [src/provision/orchestrator.ts]
+    depends_on: [types, idempotency, stages]
+    door: A
+    gate:
+      tests:
+        - tests/provision/orchestrator.test.ts
+        - tests/provision/orchestrator-failure.test.ts
+        - tests/provision/idempotency.test.ts
+    invariants:
+      - never throws on stage failure
+      - never re-runs a successfully cached stage
+      - retries previously failed stages on subsequent runs
+      - rejects duplicate stage names at construction
+      - per-call publish override is supported
+
+  - id: subject_formatter
+    kind: transport
+    paths: [src/provision/subject-formatter.ts]
+    depends_on: [types]
+    door: A
+    gate:
+      tests: [tests/provision/subject-formatter.test.ts]
+    invariants:
+      - default output matches dispatch §A.5 / §F.1 subject canon
+      - prefix is operator-supplied, never literal in code
+
+  - id: nats_bridge
+    kind: transport
+    paths: [src/provision/nats-bridge.ts]
+    depends_on: [orchestrator, subject_formatter]
+    door: A
+    gate:
+      tests: [tests/provision/nats-bridge.test.ts]
+    invariants:
+      - transport-agnostic — accepts any NatsLikeClient
+      - tolerates camelCase tenantId and snake_case tenant_id payloads
+      - parse errors are isolated; bridge stays alive
+
+  - id: auto_start
+    kind: bootstrap
+    paths:
+      - src/provision/auto-start.ts
+      - src/index.ts
+    depends_on: [nats_bridge]
+    door: A
+    gate:
+      tests: [tests/provision/auto-start.test.ts]
+    invariants:
+      - off by default (PROVISION_ORCHESTRATOR != on => no-op)
+      - refuses to start with missing required env
+      - rejection from connect() does not crash the guild process
+
+  - id: barrel
+    kind: api
+    paths: [src/provision/index.ts]
+    depends_on:
+      - types
+      - idempotency
+      - stages
+      - orchestrator
+      - subject_formatter
+      - nats_bridge
+    door: A
+    notes: |
+      Public re-export surface. Consumers should import from
+      `@citadel-guilds/builder/provision` rather than reaching into
+      individual files.
+
+  - id: sake_stub
+    kind: governance
+    paths: [src/provision/.sake]
+    depends_on: [types]
+    door: A
+    notes: SAKE descriptor for the module per CONTRIBUTING.md
+
+# CGRF posture for this SRS
+cgrf:
+  hard_no:
+    - "@citadel-nexus/core imports"
+    - hardcoded NATS subjects
+    - hardcoded Supabase URLs
+    - secrets in code
+    - vendor stage bodies in this repo
+  enforced_by:
+    - .github/PULL_REQUEST_TEMPLATE.md checklist
+    - CI lint + test gates
+    - this TaskIR file
+
+# Future contributions
+extensions:
+  - kind: stub_stage
+    description: |
+      A new community-contributed stub stage (e.g. for an additional
+      vendor not in DEFAULT_STAGE_NAMES). Use makeStubStage and pass
+      via ProvisionOrchestrator constructor.
+    requires_dispatch: false
+  - kind: idempotency_store
+    description: |
+      A new IdempotencyStore implementation (Redis, Supabase, etc).
+      Must satisfy the interface contract and pass an idempotency
+      test parallel to tests/provision/idempotency.test.ts.
+    requires_dispatch: false
+  - kind: subject_formatter
+    description: |
+      Alternate SubjectFormatter for a different subject canon. Default
+      formatter is preserved as the canonical export; alternates are
+      additive.
+    requires_dispatch: false
+  - kind: vendor_stage_body
+    description: |
+      Concrete Cal.com / Mautic / Twenty / etc. stage implementation.
+    target_repo: gitlab.citadel-nexus.com/guilds/CNWB
+    requires_dispatch: true
+    do_not_land_here: true
