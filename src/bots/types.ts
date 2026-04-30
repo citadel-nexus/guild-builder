@@ -11,6 +11,7 @@ export type BotKind =
   | 'seat' // human-bound IDE seat (IDE1, CD1, CMAX-B, COPILOT, W1, W2)
   | 'workflow' // GitHub Action / CI bot
   | 'webhook' // inbound integration callback
+  | 'sentinel' // security signal source (Wazuh, Suricata, Nemesis, honeypots)
   | 'unknown';
 
 export type BotStatus = 'idle' | 'active' | 'error' | 'offline';

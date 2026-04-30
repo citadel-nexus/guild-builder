@@ -60,6 +60,7 @@ aside h2 { margin: 0; padding: 12px 16px; font-size: 11px; letter-spacing: 0.18e
 .event.error .action { color: var(--critical); }
 .legend { position: absolute; bottom: 14px; left: 14px; font-size: 10px; color: var(--muted); display: flex; gap: 14px; pointer-events: none; }
 .legend .swatch { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+.legend .swatch-sentinel { width: 9px; height: 9px; border-radius: 0; transform: rotate(45deg); background: var(--primary); margin-right: 4px; }
 .empty { padding: 14px 16px; color: var(--muted); font-size: 11px; }
 </style>
 </head>
@@ -77,6 +78,7 @@ aside h2 { margin: 0; padding: 12px 16px; font-size: 11px; letter-spacing: 0.18e
     <span><span class="swatch" style="background:var(--warning)"></span>idle</span>
     <span><span class="swatch" style="background:var(--critical)"></span>error</span>
     <span><span class="swatch" style="background:#2a2f37"></span>offline</span>
+    <span><span class="swatch swatch-sentinel"></span>sentinel</span>
   </div>
 </main>
 <aside>
@@ -213,9 +215,20 @@ const SCRIPT = String.raw`(() => {
       ctx.fillStyle = color;
       ctx.shadowColor = color;
       ctx.shadowBlur = bot.status === 'active' ? 10 : 4;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2);
-      ctx.fill();
+      if (bot.kind === 'sentinel') {
+        // Diamond marker so security signals stand out from agent dots.
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y - 4.2);
+        ctx.lineTo(p.x + 4.2, p.y);
+        ctx.lineTo(p.x, p.y + 4.2);
+        ctx.lineTo(p.x - 4.2, p.y);
+        ctx.closePath();
+        ctx.fill();
+      } else {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
       ctx.shadowBlur = 0;
       ctx.fillStyle = 'rgba(230,237,243,0.85)';
       ctx.font = '10px ui-monospace, monospace';

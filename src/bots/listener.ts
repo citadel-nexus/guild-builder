@@ -52,6 +52,7 @@ const VALID_KINDS: ReadonlySet<BotKind> = new Set([
   'seat',
   'workflow',
   'webhook',
+  'sentinel',
   'unknown',
 ]);
 const VALID_STATUSES: ReadonlySet<BotStatus> = new Set(['idle', 'active', 'error', 'offline']);

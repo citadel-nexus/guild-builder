@@ -9,6 +9,7 @@ type GuildClientOptions = {
   port: number;
   botRegistry?: BotRegistry;
   botSubjects?: SubjectConfig;
+  ingestToken?: string;
 };
 
 export default class GuildClient {
@@ -17,6 +18,7 @@ export default class GuildClient {
   private readonly port: number;
   private readonly botRegistry: BotRegistry;
   private readonly botSubjects: SubjectConfig;
+  private readonly ingestToken: string | undefined;
   private server: Server | null = null;
 
   constructor(options: GuildClientOptions) {
@@ -25,6 +27,7 @@ export default class GuildClient {
     this.port = options.port;
     this.botRegistry = options.botRegistry ?? new BotRegistry();
     this.botSubjects = options.botSubjects ?? loadSubjectConfig();
+    this.ingestToken = options.ingestToken ?? process.env.BOT_TRACKER_INGEST_TOKEN;
   }
 
   /** Exposed so the entry point (or tests) can wire a NATS listener to it. */
@@ -47,6 +50,7 @@ export default class GuildClient {
         tryHandleBotRoute(req, res, {
           registry: this.botRegistry,
           config: this.botSubjects,
+          ingestToken: this.ingestToken,
         })
       ) {
         return;
@@ -74,6 +78,15 @@ export default class GuildClient {
           bot_tracker: {
             subjects: this.botSubjects.patterns,
             dashboard: '/bots',
+            ingest: {
+              endpoints: [
+                '/bots/ingest',
+                '/bots/ingest/wazuh',
+                '/bots/ingest/suricata',
+                '/bots/ingest/nemesis',
+              ],
+              auth_required: this.ingestToken !== undefined,
+            },
           },
         }),
       );

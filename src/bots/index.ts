@@ -7,6 +7,18 @@ export { startBotListener, parseBody, type BotListenerHandle, type BotListenerOp
 export { attachSseClient, type SseHandle } from './sse.js';
 export { tryHandleBotRoute, type BotRouteContext } from './routes.js';
 export {
+  fromGenericPayload,
+  fromNemesisAudit,
+  fromSuricataEve,
+  fromWazuhAlert,
+  severityWordToStatus,
+  suricataSeverityToStatus,
+  translate,
+  wazuhLevelToStatus,
+  type ParsedSentinelEvent,
+  type SentinelSource,
+} from './sentinel.js';
+export {
   loadSubjectConfig,
   describeSubjects,
   parseActionFromSubject,
