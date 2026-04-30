@@ -1,0 +1,62 @@
+# Citadel Nexus — Builder Guild · SRS Registry
+#
+# Single source of truth for SRS codes that own files in THIS repository.
+# CNWB-side SRS codes (private GitLab) are tracked separately in
+# shared/governance/srs_registry.yml on GitLab — do NOT mirror them here.
+#
+# Schema per entry:
+#   ep:            parent dispatch / epic id
+#   status:        draft | planned | in_progress | complete | verified | deprecated
+#   paths:         repo-relative file paths owned by this SRS
+#   depends_on:    list of SRS codes this entry requires
+#   dispatch:      VCC dispatch id (Notion VCC Dispatches DB)
+#   pr:            link to the PR that landed (if applicable)
+#   notes:         freeform context for future agents
+#
+# When you add or change code under src/, update the entry here in the same PR.
+
+SRS-PROVISION-ORCHESTRATOR-001:
+  ep: TENANT-PROVISION-FABRIC-001
+  status: complete
+  dispatch: TENANT-PROVISION-FABRIC-001
+  pr: https://github.com/citadel-nexus/guild-builder/pull/6
+  phase: "§6 Provisioning Orchestrator"
+  paths:
+    - src/provision/types.ts
+    - src/provision/idempotency.ts
+    - src/provision/orchestrator.ts
+    - src/provision/stages/index.ts
+    - src/provision/subject-formatter.ts
+    - src/provision/nats-bridge.ts
+    - src/provision/auto-start.ts
+    - src/provision/index.ts
+    - src/provision/.sake
+  tests:
+    - tests/provision/orchestrator.test.ts
+    - tests/provision/orchestrator-failure.test.ts
+    - tests/provision/idempotency.test.ts
+    - tests/provision/subject-formatter.test.ts
+    - tests/provision/nats-bridge.test.ts
+    - tests/provision/stages.test.ts
+    - tests/provision/auto-start.test.ts
+  exports:
+    - ProvisionOrchestrator
+    - InMemoryIdempotencyStore
+    - defaultStageRegistry
+    - makeStubStage
+    - DEFAULT_STAGE_NAMES
+    - ProvisionNatsBridge
+    - defaultSubjectFormatter
+  env:
+    - PROVISION_ORCHESTRATOR
+    - PROVISION_INBOUND_SUBJECT
+    - PROVISION_OUTBOUND_PREFIX
+  public_contract: true
+  notes: |
+    Public spine for TENANT-PROVISION-FABRIC-001 §6. Vendor stage bodies
+    (Cal.com, Mautic, Twenty, Customer.io, email-bank, tenant-agent,
+    tenant-mcp, cockpit-ui, workflow-mesh) live in CNWB on private GitLab
+    and plug in by implementing the Stage interface from
+    src/provision/types.ts. Public PRs against this repo target the spine,
+    new stub stages, IdempotencyStore implementations, or alternate
+    SubjectFormatters. Vendor implementations DO NOT belong in this repo.
