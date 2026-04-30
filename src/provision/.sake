@@ -1,0 +1,41 @@
+# SAKE module stub — TENANT-PROVISION-FABRIC-001 spine
+#
+# This is a minimal SAKE descriptor for the orchestrator module. The
+# concrete schema lives in guild-sdk; this stub satisfies the PR
+# checklist requirement until the SDK ships a generator.
+
+module: provision
+guild: builder
+srs:
+  - SRS-PROVISION-ORCHESTRATOR-001
+dispatch: TENANT-PROVISION-FABRIC-001
+phase: '6'
+owns:
+  - src/provision/orchestrator.ts
+  - src/provision/types.ts
+  - src/provision/idempotency.ts
+  - src/provision/stages/
+  - src/provision/nats-bridge.ts
+  - src/provision/subject-formatter.ts
+nats:
+  inbound:
+    - subject_env: PROVISION_INBOUND_SUBJECT
+      description: |
+        Walk-in pipeline emits one tenant-provisioned event per new tenant.
+        Subject is configured by the operator; this guild does not hardcode it.
+  outbound:
+    - subject_env: PROVISION_OUTBOUND_PREFIX
+      description: |
+        Per-stage and terminal provision events. Subject shape is composed
+        by the SubjectFormatter, defaulting to the pattern in dispatch §F.1:
+        {prefix}.{tenantId}.provision.{stage|started|complete|failed}.{outcome}
+extends:
+  - dispatch:WALK-IN-001
+public_contract: true
+notes: |
+  Spine only. Stage bodies (calcom, mautic, twenty, customer_io, email_bank,
+  tenant_agent, tenant_mcp, cockpit_ui, workflow_mesh) live in their own
+  service repos and plug in by implementing the Stage interface from
+  src/provision/types.ts. Public PRs against this repo should target the
+  spine (orchestrator, idempotency, subject formatter, stage interface) or
+  add new stub stages — vendor implementations belong in CNWB.
