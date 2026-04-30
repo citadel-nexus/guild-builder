@@ -1,0 +1,71 @@
+module: bots
+srs: SRS-BOT-TRACKER-001
+owner: builder-guild
+description: |
+  Real-time tracking surface for autonomous agents (Bits AI, USO_MCP,
+  Bits Codex, BITS-CODEGEN seat, IDE coding agents, GitHub Action
+  workflow bots) and security signal sources (Wazuh, Suricata, Nemesis,
+  honeypots, Cloudflare Workers) acting inside the guild system.
+
+  Subscribes to bot-activity NATS subjects, accepts sentinel events via
+  HTTP webhook, maintains an in-memory registry of recent events +
+  last-seen status per bot, and exposes:
+
+    GET  /bots                  — html dashboard (vanilla canvas2d)
+    GET  /bots/snapshot         — current state as JSON
+    GET  /bots/stream           — Server-Sent Events stream of bot events
+    POST /bots/ingest           — generic BotEvent shape
+    POST /bots/ingest/wazuh     — Wazuh alert JSON
+    POST /bots/ingest/suricata  — Suricata EVE JSON line
+    POST /bots/ingest/nemesis   — Nemesis audit summary
+
+inputs:
+  nats_subjects:
+    default: citadel.builder.bot.>
+    canonical_payload:
+      bot_id: string (required, falls back to subject segment)
+      bot_name: string (optional)
+      bot_kind: agent | seat | workflow | webhook | sentinel | unknown
+      action: string (optional, falls back to subject suffix)
+      status: idle | active | error | offline
+      geo: { lat, lon }
+      payload: object
+  http_webhooks:
+    wazuh:    POST /bots/ingest/wazuh    (Wazuh alert JSON)
+    suricata: POST /bots/ingest/suricata (Suricata EVE alert)
+    nemesis:  POST /bots/ingest/nemesis  (Nemesis audit summary)
+    generic:  POST /bots/ingest          (already-shaped BotEvent)
+  env:
+    NATS_URL: required for the listener (UI runs without it)
+    NATS_PREFIX: guild prefix, defaults to citadel.builder
+    BOT_TRACKER_SUBJECTS: comma-separated override list
+    BOT_TRACKER_DISABLED: "1" disables the listener (tests / dry-runs)
+    BOT_TRACKER_INGEST_TOKEN: optional shared secret for ingest routes
+
+outputs:
+  http_routes:
+    - GET /bots
+    - GET /bots/snapshot
+    - GET /bots/stream
+    - POST /bots/ingest
+    - POST /bots/ingest/wazuh
+    - POST /bots/ingest/suricata
+    - POST /bots/ingest/nemesis
+  in_memory:
+    BotRegistry: snapshot() + subscribe(listener)
+
+dependencies:
+  runtime:
+    - nats   # already approved single-dep policy
+  dev: []
+
+notes:
+  - No new runtime dependencies. Visualization is vanilla Canvas2D
+    served inline; no three.js, no CDN.
+  - Subject patterns are env-driven per AGENTS.md / CLAUDE.md rules.
+  - Geo for un-located bots is deterministic per bot_id so the UI
+    does not jitter between snapshots.
+  - Sentinel translators (src/bots/sentinel.ts) accept vendor-specific
+    shapes and normalize to the BotEvent input. Unknown / malformed
+    payloads return 422 — the listener stays lenient, the HTTP layer
+    is strict so bad publishers get an immediate signal.
