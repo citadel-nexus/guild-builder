@@ -50,6 +50,8 @@ Implemented:
 - Badge unlock runtime and condition checks (`badge-system.ts`)
 - Multi-channel broadcast coordinator + integration wrappers (`multi-channel-broadcast.ts`)
 - Skill tracking persistence and analytics (`skill-tracker.ts`)
+- Lingo profile analysis and rendering surfaces (`lingo.ts`)
+- Cognitive/preflight status registries and formatters (`cognitive-systems.ts`)
 - Agent template factory contracts (`agent-factory.ts`)
 - Auto-installation environment scaffolding (`auto-installation.ts`)
 - Secure key vault contract (`secure-key-vault.ts`)
@@ -193,6 +195,8 @@ Stage 1 now includes public-safe runtime engines that mirror source semantics wi
 - `BadgeSystem` (condition-based badge unlock and XP award)
 - `MultiChannelBroadcaster` (Discord/Slack/Notion/Linear/GitLab wrappers)
 - `SkillTracker` (tracked skill usage persistence and mastery stats)
+- `LingoAdapter` (user language profiling and topic/slang trends)
+- `CognitiveSystemsRegistry` (extended system availability + preflight summaries)
 - `ZayaraEngagementEngine` (promotion messaging)
 
 All external service behavior remains routed through public stubs.

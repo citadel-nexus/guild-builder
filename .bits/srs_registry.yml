@@ -89,6 +89,8 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/insight.ts
     - src/agents/nexus-tamagotchi/skill-tree-system.ts
     - src/agents/nexus-tamagotchi/skill-tracker.ts
+    - src/agents/nexus-tamagotchi/lingo.ts
+    - src/agents/nexus-tamagotchi/cognitive-systems.ts
     - src/agents/nexus-tamagotchi/progression.ts
     - src/agents/nexus-tamagotchi/agent-factory.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
@@ -127,6 +129,9 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/insight.test.ts
     - tests/agents/nexus-tamagotchi/skill-tree-system.test.ts
     - tests/agents/nexus-tamagotchi/skill-tracker.test.ts
+    - tests/agents/nexus-tamagotchi/lingo.test.ts
+    - tests/agents/nexus-tamagotchi/cognitive-systems.test.ts
+    - tests/agents/nexus-tamagotchi/index.test.ts
     - tests/agents/nexus-tamagotchi/agent-factory.test.ts
     - tests/agents/nexus-tamagotchi/auto-installation.test.ts
     - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
@@ -157,6 +162,8 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - InsightEngine
     - SkillTreeSystem
     - SkillTracker
+    - LingoAdapter
+    - CognitiveSystemsRegistry
     - AgentFactory
     - AutoInstallationSystem
     - MultiChannelBroadcaster
