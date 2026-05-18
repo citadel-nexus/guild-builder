@@ -1,5 +1,6 @@
 import { connect, type NatsConnection } from 'nats';
 
+import { BadgeSystem } from './badge-system.js';
 import { GuardianAuditTrail } from './audit.js';
 import { AuthorityGate } from './authority.js';
 import { BrotherhoodSystem } from './brotherhood.js';
@@ -16,10 +17,12 @@ import { IntegrationsManager } from './integrations-manager.js';
 import { InsightEngine } from './insight.js';
 import { LeaderboardSystem } from './leaderboard.js';
 import { MissionEngine } from './missions.js';
+import { MultiChannelBroadcaster } from './multi-channel-broadcast.js';
 import { OutcomeXPEngine } from './outcome-xp.js';
 import { QuestSystem } from './quests.js';
 import { ReflexEngine } from './reflex-engine.js';
 import { SkillTreeSystem } from './skill-tree-system.js';
+import { SkillTracker } from './skill-tracker.js';
 import { FunctionRewardsMap } from './function-rewards.js';
 import { ZayaraEngagementEngine } from './engagement.js';
 import {
@@ -85,8 +88,11 @@ export class NexusTamagotchiRuntime {
   readonly questSystem: QuestSystem;
   readonly outcomeXpEngine: OutcomeXPEngine;
   readonly leaderboardSystem: LeaderboardSystem;
+  readonly badgeSystem: BadgeSystem;
+  readonly multiChannelBroadcaster: MultiChannelBroadcaster;
   readonly insightEngine: InsightEngine;
   readonly skillTreeSystem: SkillTreeSystem;
+  readonly skillTracker: SkillTracker;
   readonly engagementEngine = new ZayaraEngagementEngine();
   readonly srsValidator = new OperationalSRSValidator();
   private readonly state: AgentState;
@@ -108,8 +114,14 @@ export class NexusTamagotchiRuntime {
     this.questSystem = new QuestSystem(this.brotherhood);
     this.outcomeXpEngine = new OutcomeXPEngine(this.integrationsManager);
     this.leaderboardSystem = new LeaderboardSystem(this.integrationsManager);
-    this.insightEngine = new InsightEngine(this.brotherhood);
+    this.badgeSystem = new BadgeSystem(this.brotherhood);
+    this.multiChannelBroadcaster = new MultiChannelBroadcaster(
+      this.integrationsManager,
+      this.integrationRouter,
+    );
+    this.insightEngine = new InsightEngine(this.brotherhood, this.integrationsManager);
     this.skillTreeSystem = new SkillTreeSystem(this.brotherhood);
+    this.skillTracker = new SkillTracker(config.agentId);
     this.state = initialState(config.agentId);
   }
 
@@ -175,7 +187,10 @@ export {
 };
 
 export * from './audit.js';
+export * from './agent-factory.js';
+export * from './auto-installation.js';
 export * from './authority.js';
+export * from './badge-system.js';
 export * from './brotherhood.js';
 export * from './council.js';
 export * from './diagnostics.js';
@@ -189,12 +204,14 @@ export * from './leaderboard.js';
 export * from './memory.js';
 export * from './missions.js';
 export * from './models.js';
+export * from './multi-channel-broadcast.js';
 export * from './outcome-xp.js';
 export * from './professor-network.js';
 export * from './progression.js';
 export * from './quests.js';
 export * from './reflex-engine.js';
 export * from './secure-key-vault.js';
+export * from './skill-tracker.js';
 export * from './skill-tree-system.js';
 export * from './srs.js';
 export * from './types.js';

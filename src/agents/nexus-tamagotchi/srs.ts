@@ -95,6 +95,12 @@ export const SRS_GAMIFICATION_REQUIREMENTS: Record<string, SrsRequirement> = {
     'Daily, weekly, and epic quest support',
     'engagement',
   ),
+  'SRS-GAMIFY-005': makeRequirement(
+    'SRS-GAMIFY-005',
+    'Tracked Skills',
+    'Persist unlocked skills with usage analytics',
+    'progression',
+  ),
 };
 
 export const SRS_COUNCIL_REQUIREMENTS: Record<string, SrsRequirement> = {
@@ -217,6 +223,30 @@ export const SRS_DIAGNOSTIC_REQUIREMENTS: Record<string, SrsRequirement> = {
   ),
 };
 
+export const SRS_FACTORY_REQUIREMENTS: Record<string, SrsRequirement> = {
+  'SRS-FACTORY-001': makeRequirement(
+    'SRS-FACTORY-001',
+    'Agent Factory',
+    'Template-driven agent creation and registry',
+    'core',
+  ),
+};
+
+export const SRS_INSTALLATION_REQUIREMENTS: Record<string, SrsRequirement> = {
+  'SRS-INSTALL-001': makeRequirement(
+    'SRS-INSTALL-001',
+    'Auto-Installation',
+    'Environment validation and file scaffolding',
+    'distribution',
+  ),
+  'SRS-INSTALL-002': makeRequirement(
+    'SRS-INSTALL-002',
+    'Installation Scaffolding',
+    'Incremental scaffolding for required runtime files',
+    'distribution',
+  ),
+};
+
 export const SRS_REGISTRY: Record<string, SrsRequirement> = {
   ...SRS_AGENT_REQUIREMENTS,
   ...SRS_BROTHERHOOD_REQUIREMENTS,
@@ -233,6 +263,8 @@ export const SRS_REGISTRY: Record<string, SrsRequirement> = {
   ...SRS_COGNITIVE_REQUIREMENTS,
   ...SRS_TELEMETRY_REQUIREMENTS,
   ...SRS_DIAGNOSTIC_REQUIREMENTS,
+  ...SRS_FACTORY_REQUIREMENTS,
+  ...SRS_INSTALLATION_REQUIREMENTS,
 };
 
 export function validateSrsCoverage(implementedCodes: string[]): Record<string, boolean> {

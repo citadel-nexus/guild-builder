@@ -27,4 +27,17 @@ describe('InsightEngine', () => {
     expect(suggestions.length).toBeGreaterThan(0);
     expect(suggestions.some((item) => item.area === 'Energy')).toBe(true);
   });
+
+  it('generates weekly report from interaction history', () => {
+    const brotherhood = new BrotherhoodSystem('agent-insight-3');
+    const engine = new InsightEngine(brotherhood);
+    const interactions = new Array(6).fill({ event: 'interaction' });
+
+    const report = engine.generateWeeklyReport(interactions, 120, 12, 1);
+    expect(report.interactions).toBe(6);
+    expect(report.xpEarned).toBe(120);
+    expect(report.tpEarned).toBe(12);
+    expect(report.rankChanges).toBe(1);
+    expect(engine.reports.length).toBe(1);
+  });
 });

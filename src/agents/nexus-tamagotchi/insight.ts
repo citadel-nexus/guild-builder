@@ -1,6 +1,14 @@
 import type { NexusAgentVitals } from './models.js';
 import type { BrotherhoodSystem } from './brotherhood.js';
 
+type InsightEventTracker = {
+  trackEvent: (
+    eventName: string,
+    properties?: Record<string, unknown>,
+    userId?: string,
+  ) => Promise<void>;
+};
+
 export type InsightRecord = {
   id: string;
   title: string;
@@ -31,7 +39,10 @@ export class InsightEngine {
   readonly insights: InsightRecord[] = [];
   readonly reports: WeeklyReport[] = [];
 
-  constructor(private readonly brotherhood: BrotherhoodSystem) {}
+  constructor(
+    private readonly brotherhood: BrotherhoodSystem,
+    private readonly integrations?: InsightEventTracker,
+  ) {}
 
   analyzeInteractionPatterns(
     interactions: Array<Record<string, unknown>>,
@@ -116,6 +127,49 @@ export class InsightEngine {
       suggestions: input.suggestions ? [...input.suggestions] : [],
     };
     this.reports.push(report);
+    return report;
+  }
+
+  generateWeeklyReport(
+    interactions: Array<Record<string, unknown>>,
+    xpEarned: number,
+    tpEarned: number,
+    rankChanges: number = 0,
+  ): WeeklyReport {
+    const now = new Date();
+    const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const insights = this.analyzeInteractionPatterns(interactions);
+    const suggestions: GrowthSuggestion[] = [
+      {
+        area: 'Consistency',
+        suggestion: 'Maintain daily interactions for streak bonuses.',
+        priority: 'medium',
+      },
+    ];
+
+    const report = this.buildWeeklyReport({
+      periodStart: weekAgo.toISOString(),
+      periodEnd: now.toISOString(),
+      interactions: interactions.length,
+      xpEarned,
+      tpEarned,
+      rankChanges,
+      insights,
+      suggestions,
+    });
+
+    if (this.integrations) {
+      void this.integrations.trackEvent(
+        'weekly_report_generated',
+        {
+          interactions: report.interactions,
+          xp_earned: report.xpEarned,
+          insights_count: report.insights.length,
+        },
+        'agent',
+      );
+    }
+
     return report;
   }
 

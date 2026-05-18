@@ -47,6 +47,11 @@ Implemented:
 - Outcome-weighted XP scoring (`outcome-xp.ts`)
 - Leaderboard and insight engines (`leaderboard.ts`, `insight.ts`)
 - Runtime skill unlock system (`skill-tree-system.ts`)
+- Badge unlock runtime and condition checks (`badge-system.ts`)
+- Multi-channel broadcast coordinator + integration wrappers (`multi-channel-broadcast.ts`)
+- Skill tracking persistence and analytics (`skill-tracker.ts`)
+- Agent template factory contracts (`agent-factory.ts`)
+- Auto-installation environment scaffolding (`auto-installation.ts`)
 - Secure key vault contract (`secure-key-vault.ts`)
 - Web enrichment client contract (`web-enrichment.ts`)
 - Auto-start entrypoint (`maybeStartNexusTamagotchi`)
@@ -185,6 +190,9 @@ Stage 1 now includes public-safe runtime engines that mirror source semantics wi
 - `LeaderboardSystem` (ranking snapshot and sync contract)
 - `InsightEngine` (pattern and suggestion generation)
 - `SkillTreeSystem` (unlock gating and tree progress)
+- `BadgeSystem` (condition-based badge unlock and XP award)
+- `MultiChannelBroadcaster` (Discord/Slack/Notion/Linear/GitLab wrappers)
+- `SkillTracker` (tracked skill usage persistence and mastery stats)
 - `ZayaraEngagementEngine` (promotion messaging)
 
 All external service behavior remains routed through public stubs.

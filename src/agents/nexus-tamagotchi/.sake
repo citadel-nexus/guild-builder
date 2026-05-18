@@ -22,11 +22,16 @@ owns:
   - src/agents/nexus-tamagotchi/quests.ts
   - src/agents/nexus-tamagotchi/outcome-xp.ts
   - src/agents/nexus-tamagotchi/leaderboard.ts
+  - src/agents/nexus-tamagotchi/badge-system.ts
   - src/agents/nexus-tamagotchi/insight.ts
   - src/agents/nexus-tamagotchi/skill-tree-system.ts
+  - src/agents/nexus-tamagotchi/skill-tracker.ts
   - src/agents/nexus-tamagotchi/progression.ts
+  - src/agents/nexus-tamagotchi/agent-factory.ts
   - src/agents/nexus-tamagotchi/integration-router.ts
   - src/agents/nexus-tamagotchi/integrations-manager.ts
+  - src/agents/nexus-tamagotchi/multi-channel-broadcast.ts
+  - src/agents/nexus-tamagotchi/auto-installation.ts
   - src/agents/nexus-tamagotchi/professor-network.ts
   - src/agents/nexus-tamagotchi/web-enrichment.ts
   - src/agents/nexus-tamagotchi/secure-key-vault.ts

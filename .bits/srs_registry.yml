@@ -85,11 +85,16 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/quests.ts
     - src/agents/nexus-tamagotchi/outcome-xp.ts
     - src/agents/nexus-tamagotchi/leaderboard.ts
+    - src/agents/nexus-tamagotchi/badge-system.ts
     - src/agents/nexus-tamagotchi/insight.ts
     - src/agents/nexus-tamagotchi/skill-tree-system.ts
+    - src/agents/nexus-tamagotchi/skill-tracker.ts
     - src/agents/nexus-tamagotchi/progression.ts
+    - src/agents/nexus-tamagotchi/agent-factory.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
     - src/agents/nexus-tamagotchi/integrations-manager.ts
+    - src/agents/nexus-tamagotchi/multi-channel-broadcast.ts
+    - src/agents/nexus-tamagotchi/auto-installation.ts
     - src/agents/nexus-tamagotchi/professor-network.ts
     - src/agents/nexus-tamagotchi/web-enrichment.ts
     - src/agents/nexus-tamagotchi/secure-key-vault.ts
@@ -118,10 +123,15 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/quests.test.ts
     - tests/agents/nexus-tamagotchi/outcome-xp.test.ts
     - tests/agents/nexus-tamagotchi/leaderboard.test.ts
+    - tests/agents/nexus-tamagotchi/badge-system.test.ts
     - tests/agents/nexus-tamagotchi/insight.test.ts
     - tests/agents/nexus-tamagotchi/skill-tree-system.test.ts
+    - tests/agents/nexus-tamagotchi/skill-tracker.test.ts
+    - tests/agents/nexus-tamagotchi/agent-factory.test.ts
+    - tests/agents/nexus-tamagotchi/auto-installation.test.ts
     - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
     - tests/agents/nexus-tamagotchi/web-enrichment.test.ts
+    - tests/agents/nexus-tamagotchi/multi-channel-broadcast.test.ts
     - tests/agents/nexus-tamagotchi/integration-router.test.ts
     - tests/agents/nexus-tamagotchi/srs.test.ts
   exports:
@@ -143,8 +153,13 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - QuestSystem
     - OutcomeXPEngine
     - LeaderboardSystem
+    - BadgeSystem
     - InsightEngine
     - SkillTreeSystem
+    - SkillTracker
+    - AgentFactory
+    - AutoInstallationSystem
+    - MultiChannelBroadcaster
     - ZayaraEngagementEngine
     - SecureKeyVault
     - AgentState
