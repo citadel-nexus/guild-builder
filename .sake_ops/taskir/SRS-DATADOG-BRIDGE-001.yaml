@@ -1,0 +1,98 @@
+# TaskIR — SRS-DATADOG-BRIDGE-001
+
+id: SRS-DATADOG-BRIDGE-001
+dispatch: TENANT-PROVISION-FABRIC-001
+phase: "§6 Provisioning Orchestrator"
+guild: builder
+repo: github.com/citadel-nexus/guild-builder
+status: in_progress
+public_contract: true
+
+inputs:
+  - kind: env
+    name: DATADOG_BRIDGE
+    values: [on, off]
+    default: off
+  - kind: env
+    name: DATADOG_NATS_PREFIX
+    default: citadel.builder.datadog
+  - kind: env
+    name: DD_API_KEY
+    purpose: Datadog API authentication
+  - kind: env
+    name: DD_APP_KEY
+    purpose: Datadog application authentication
+
+outputs:
+  - maybeStartDatadogBridge
+  - DatadogBridgeClient
+  - SecurityWatcher
+  - LlmObserver
+  - AutomationEngine
+  - IntegrationBridge
+  - DatadogBridgeSubjects
+
+nodes:
+  - id: config
+    kind: bootstrap
+    paths:
+      - src/agents/datadog-bridge/config.ts
+      - src/agents/datadog-bridge/subjects.ts
+      - src/agents/datadog-bridge/types.ts
+
+  - id: client
+    kind: transport
+    paths:
+      - src/agents/datadog-bridge/client.ts
+      - src/agents/datadog-bridge/codec.ts
+    depends_on: [config]
+
+  - id: watchers
+    kind: runner
+    paths:
+      - src/agents/datadog-bridge/watchers/security-watcher.ts
+      - src/agents/datadog-bridge/watchers/llm-observer.ts
+    depends_on: [client]
+
+  - id: automation
+    kind: transport
+    paths:
+      - src/agents/datadog-bridge/automation-engine.ts
+    depends_on: [client]
+
+  - id: integrations
+    kind: transport
+    paths:
+      - src/agents/datadog-bridge/integrations/integration-bridge.ts
+      - src/agents/datadog-bridge/integrations/posthog.ts
+      - src/agents/datadog-bridge/integrations/customerio.ts
+      - src/agents/datadog-bridge/integrations/gitlab.ts
+      - src/agents/datadog-bridge/integrations/stripe.ts
+    depends_on: [client]
+
+  - id: runtime
+    kind: bootstrap
+    paths:
+      - src/agents/datadog-bridge/auto-start.ts
+      - src/agents/datadog-bridge/index.ts
+      - src/index.ts
+    depends_on: [watchers, automation, integrations]
+
+  - id: docs
+    kind: contract
+    paths:
+      - docs/agents/datadog-bridge/README.md
+      - docs/agents/datadog-bridge/ARCHITECTURE.md
+      - docs/agents/datadog-bridge/RUNBOOK.md
+      - src/agents/datadog-bridge/.sake
+      - .env.example
+
+cgrf:
+  hard_no:
+    - "@citadel-nexus/core imports"
+    - hardcoded NATS subjects
+    - hardcoded tenant vendor URLs
+    - secrets in code
+  enforced_by:
+    - .github/PULL_REQUEST_TEMPLATE.md checklist
+    - CI lint + test gates
