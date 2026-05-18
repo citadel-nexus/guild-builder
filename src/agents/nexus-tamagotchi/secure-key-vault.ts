@@ -4,7 +4,13 @@ import {
   createHash,
   randomBytes,
 } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  unlinkSync,
+  writeFileSync,
+} from 'node:fs';
 import { hostname } from 'node:os';
 import { join } from 'node:path';
 
@@ -25,6 +31,7 @@ type StoredKeyRecord = {
 type KeyStatus = {
   configured: boolean;
   source: 'env' | 'vault' | 'none';
+  validationStatus?: 'unchecked' | 'valid' | 'invalid';
   updatedAt?: string;
 };
 
@@ -167,9 +174,36 @@ export class SecureKeyVault {
     this.keyStatus[service] = {
       configured: true,
       source: 'vault',
+      validationStatus: 'unchecked',
       updatedAt: encrypted.updatedAt,
     };
     return true;
+  }
+
+  storeKey(service: string, value: string): {
+    success: boolean;
+    message: string;
+    status: 'stored' | 'error';
+    maskedKey?: string;
+  } {
+    const success = this.setKey(service, value);
+    if (!success) {
+      return {
+        success: false,
+        message: `Unable to store key for ${service}`,
+        status: 'error',
+      };
+    }
+    const metadata = SecureKeyVault.SUPPORTED_SERVICES[service];
+    if (metadata) {
+      process.env[metadata.envVar] = value;
+    }
+    return {
+      success: true,
+      message: `Key stored for ${service}`,
+      status: 'stored',
+      maskedKey: this.getMaskedKey(service),
+    };
   }
 
   getKey(service: string): string | undefined {
@@ -183,6 +217,7 @@ export class SecureKeyVault {
       this.keyStatus[service] = {
         configured: true,
         source: 'env',
+        validationStatus: 'unchecked',
       };
       return envValue.trim();
     }
@@ -201,6 +236,7 @@ export class SecureKeyVault {
       this.keyStatus[service] = {
         configured: true,
         source: 'vault',
+        validationStatus: this.keyStatus[service]?.validationStatus ?? 'unchecked',
         updatedAt: parsed.updatedAt,
       };
       return value;
@@ -247,6 +283,169 @@ export class SecureKeyVault {
     return missing;
   }
 
+  validateKey(service: string): {
+    success: boolean;
+    status: 'valid' | 'invalid' | 'not_found';
+    message: string;
+  } {
+    const value = this.getKey(service);
+    if (!value) {
+      return {
+        success: false,
+        status: 'not_found',
+        message: 'Key not found',
+      };
+    }
+    const valid = value.trim().length >= 12;
+    this.keyStatus[service] = {
+      ...(this.keyStatus[service] ?? { configured: true, source: 'vault' }),
+      validationStatus: valid ? 'valid' : 'invalid',
+    };
+    return {
+      success: valid,
+      status: valid ? 'valid' : 'invalid',
+      message: valid ? 'Key format looks valid' : 'Key format is too short',
+    };
+  }
+
+  validateAll(): Record<
+    string,
+    {
+      success: boolean;
+      status: 'valid' | 'invalid' | 'not_found';
+      message: string;
+    }
+  > {
+    const output: Record<
+      string,
+      {
+        success: boolean;
+        status: 'valid' | 'invalid' | 'not_found';
+        message: string;
+      }
+    > = {};
+    for (const service of Object.keys(SecureKeyVault.SUPPORTED_SERVICES)) {
+      output[service] = this.validateKey(service);
+    }
+    return output;
+  }
+
+  getAllStatus(): Record<
+    string,
+    {
+      source: 'env' | 'vault' | 'none';
+      status: 'missing' | 'unchecked' | 'valid' | 'invalid';
+      displayName: string;
+      category: SupportedService['category'];
+      required: boolean;
+      maskedKey?: string;
+    }
+  > {
+    const output: Record<
+      string,
+      {
+        source: 'env' | 'vault' | 'none';
+        status: 'missing' | 'unchecked' | 'valid' | 'invalid';
+        displayName: string;
+        category: SupportedService['category'];
+        required: boolean;
+        maskedKey?: string;
+      }
+    > = {};
+
+    for (const [service, metadata] of Object.entries(
+      SecureKeyVault.SUPPORTED_SERVICES,
+    )) {
+      const status = this.keyStatus[service];
+      if (!status || !status.configured) {
+        output[service] = {
+          source: 'none',
+          status: 'missing',
+          displayName: metadata.displayName,
+          category: metadata.category,
+          required: metadata.required,
+        };
+        continue;
+      }
+
+      output[service] = {
+        source: status.source,
+        status: status.validationStatus ?? 'unchecked',
+        displayName: metadata.displayName,
+        category: metadata.category,
+        required: metadata.required,
+        maskedKey: this.getMaskedKey(service),
+      };
+    }
+
+    return output;
+  }
+
+  getContextSummary(): string {
+    const status = this.getAllStatus();
+    const lines: string[] = ['API Key Status:'];
+    const categories = new Map<SupportedService['category'], string[]>();
+    for (const [service, entry] of Object.entries(status)) {
+      const current = categories.get(entry.category) ?? [];
+      const icon =
+        entry.status === 'valid'
+          ? '✓'
+          : entry.status === 'unchecked'
+            ? '○'
+            : entry.status === 'invalid'
+              ? '✗'
+              : '—';
+      current.push(
+        `${icon} ${entry.displayName} (${service}): ${entry.status}`,
+      );
+      categories.set(entry.category, current);
+    }
+
+    for (const [category, items] of categories.entries()) {
+      lines.push(``);
+      lines.push(`${category.toUpperCase()}:`);
+      lines.push(...items.map((item) => `  ${item}`));
+    }
+    return lines.join('\n');
+  }
+
+  promptForKey(service: string): string {
+    const metadata = SecureKeyVault.SUPPORTED_SERVICES[service];
+    if (!metadata) {
+      return `Unknown service: ${service}`;
+    }
+    return [
+      `To enable ${metadata.displayName}, provide an API key.`,
+      `Environment variable: ${metadata.envVar}`,
+      `You can set it via secure runtime configuration.`,
+    ].join('\n');
+  }
+
+  removeKey(service: string): { success: boolean; message: string } {
+    const metadata = SecureKeyVault.SUPPORTED_SERVICES[service];
+    if (!metadata) {
+      return {
+        success: false,
+        message: `Unknown service: ${service}`,
+      };
+    }
+
+    const path = this.pathFor(service);
+    if (existsSync(path)) {
+      try {
+        unlinkSync(path);
+      } catch {
+        writeFileSync(path, '', 'utf8');
+      }
+    }
+    delete this.keyStatus[service];
+    delete process.env[metadata.envVar];
+    return {
+      success: true,
+      message: `Removed key for ${service}`,
+    };
+  }
+
   private deriveKey(agentId: string): Buffer {
     const material = `${hostname()}:${agentId}:nexus-vault`;
     const digest = createHash('sha256').update(material).digest();
@@ -291,6 +490,7 @@ export class SecureKeyVault {
         this.keyStatus[service] = {
           configured: true,
           source: 'env',
+          validationStatus: 'unchecked',
         };
       }
     }
@@ -306,6 +506,7 @@ export class SecureKeyVault {
         this.keyStatus[service] = {
           configured: true,
           source: 'vault',
+          validationStatus: 'unchecked',
         };
       }
     }

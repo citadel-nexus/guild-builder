@@ -65,15 +65,34 @@ SRS-NEXUS-TAMAGOTCHI-001:
   ep: AGENT-TAMAGOTCHI-001
   status: in_progress
   dispatch: AGENT-TAMAGOTCHI-001
-  phase: "§1 Core Types, Progression, and Governance Foundation"
+  phase: "§1 Extended Foundations: Runtime Systems and Governance"
   paths:
     - src/agents/nexus-tamagotchi/types.ts
     - src/agents/nexus-tamagotchi/data/badges.ts
     - src/agents/nexus-tamagotchi/data/professors.ts
     - src/agents/nexus-tamagotchi/data/skills.ts
     - src/agents/nexus-tamagotchi/data/reflexes.ts
+    - src/agents/nexus-tamagotchi/models.ts
+    - src/agents/nexus-tamagotchi/memory.ts
+    - src/agents/nexus-tamagotchi/diagnostics.ts
+    - src/agents/nexus-tamagotchi/gamification.ts
+    - src/agents/nexus-tamagotchi/brotherhood.ts
+    - src/agents/nexus-tamagotchi/authority.ts
+    - src/agents/nexus-tamagotchi/function-rewards.ts
+    - src/agents/nexus-tamagotchi/reflex-engine.ts
+    - src/agents/nexus-tamagotchi/engagement.ts
+    - src/agents/nexus-tamagotchi/missions.ts
+    - src/agents/nexus-tamagotchi/quests.ts
+    - src/agents/nexus-tamagotchi/outcome-xp.ts
+    - src/agents/nexus-tamagotchi/leaderboard.ts
+    - src/agents/nexus-tamagotchi/insight.ts
+    - src/agents/nexus-tamagotchi/skill-tree-system.ts
     - src/agents/nexus-tamagotchi/progression.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
+    - src/agents/nexus-tamagotchi/integrations-manager.ts
+    - src/agents/nexus-tamagotchi/professor-network.ts
+    - src/agents/nexus-tamagotchi/web-enrichment.ts
+    - src/agents/nexus-tamagotchi/secure-key-vault.ts
     - src/agents/nexus-tamagotchi/srs.ts
     - src/agents/nexus-tamagotchi/audit.ts
     - src/agents/nexus-tamagotchi/council.ts
@@ -85,6 +104,24 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/audit.test.ts
     - tests/agents/nexus-tamagotchi/progression.test.ts
     - tests/agents/nexus-tamagotchi/council.test.ts
+    - tests/agents/nexus-tamagotchi/models.test.ts
+    - tests/agents/nexus-tamagotchi/memory.test.ts
+    - tests/agents/nexus-tamagotchi/diagnostics.test.ts
+    - tests/agents/nexus-tamagotchi/gamification.test.ts
+    - tests/agents/nexus-tamagotchi/professor-network.test.ts
+    - tests/agents/nexus-tamagotchi/brotherhood.test.ts
+    - tests/agents/nexus-tamagotchi/authority.test.ts
+    - tests/agents/nexus-tamagotchi/function-rewards.test.ts
+    - tests/agents/nexus-tamagotchi/reflex-engine.test.ts
+    - tests/agents/nexus-tamagotchi/engagement.test.ts
+    - tests/agents/nexus-tamagotchi/missions.test.ts
+    - tests/agents/nexus-tamagotchi/quests.test.ts
+    - tests/agents/nexus-tamagotchi/outcome-xp.test.ts
+    - tests/agents/nexus-tamagotchi/leaderboard.test.ts
+    - tests/agents/nexus-tamagotchi/insight.test.ts
+    - tests/agents/nexus-tamagotchi/skill-tree-system.test.ts
+    - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
+    - tests/agents/nexus-tamagotchi/web-enrichment.test.ts
     - tests/agents/nexus-tamagotchi/integration-router.test.ts
     - tests/agents/nexus-tamagotchi/srs.test.ts
   exports:
@@ -98,6 +135,18 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - CitadelIntegrationRouter
     - OperationalSRSValidator
     - SRS_REGISTRY
+    - BrotherhoodSystem
+    - AuthorityGate
+    - FunctionRewardsMap
+    - ReflexEngine
+    - MissionEngine
+    - QuestSystem
+    - OutcomeXPEngine
+    - LeaderboardSystem
+    - InsightEngine
+    - SkillTreeSystem
+    - ZayaraEngagementEngine
+    - SecureKeyVault
     - AgentState
     - AgentEvent
   env:
@@ -106,12 +155,12 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - NEXUS_NATS_PREFIX
   public_contract: true
   notes: |
-    Stage 1 of N for the Nexus Tamagotchi agent. This stage ports the core
-    type system, badge/professor/skill registries, MCP progression sheet,
-    SHA-256 audit trail, and council governance stub from the Python original
-    (citadel_nexus_pro.py, 100K+ LOC). Future stages add: gamification engine,
-    memory system (Mira), cognitive architecture, reflex execution, insight
-    engine, and full NATS event bus integration.
+    Stage 1 of N for the Nexus Tamagotchi agent now includes expanded public
+    runtime foundations from the Python original (citadel_nexus_pro.py):
+    progression map, SRS validation surface, memory primitives, gamification,
+    authority gating, mission/quest lifecycle, outcome XP scoring, leaderboard,
+    insight generation, professor routing, and secure key-vault contracts.
+    Vendor-specific or tenant-bound integrations remain stubbed.
 
     CGRF: All vendor implementations are stubs. No secrets, no private imports.
     Real implementations live in CNWB on private GitLab.

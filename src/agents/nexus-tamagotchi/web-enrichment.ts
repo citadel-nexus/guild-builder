@@ -4,6 +4,59 @@ type WebEnrichmentUsage = {
   totalTokens?: number;
 };
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
+}
+
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((item) => typeof item === 'string');
+}
+
+function parseUsage(value: unknown): WebEnrichmentUsage | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+  const output: WebEnrichmentUsage = {};
+  if (typeof value.inputTokens === 'number') {
+    output.inputTokens = value.inputTokens;
+  }
+  if (typeof value.outputTokens === 'number') {
+    output.outputTokens = value.outputTokens;
+  }
+  if (typeof value.totalTokens === 'number') {
+    output.totalTokens = value.totalTokens;
+  }
+  return Object.keys(output).length > 0 ? output : undefined;
+}
+
+function parseWebEnrichmentPayload(value: unknown): {
+  response?: string;
+  citations?: string[];
+  model?: string;
+  usage?: WebEnrichmentUsage;
+} {
+  if (!isRecord(value)) {
+    return {};
+  }
+  const output: {
+    response?: string;
+    citations?: string[];
+    model?: string;
+    usage?: WebEnrichmentUsage;
+  } = {};
+  if (typeof value.response === 'string') {
+    output.response = value.response;
+  }
+  if (isStringArray(value.citations)) {
+    output.citations = [...value.citations];
+  }
+  if (typeof value.model === 'string') {
+    output.model = value.model;
+  }
+  output.usage = parseUsage(value.usage);
+  return output;
+}
+
 export type WebEnrichmentResult = {
   success: boolean;
   response?: string;
@@ -97,12 +150,7 @@ export class PerplexityClient {
         };
       }
 
-      const data = (await response.json()) as {
-        response?: string;
-        citations?: string[];
-        model?: string;
-        usage?: WebEnrichmentUsage;
-      };
+      const data = parseWebEnrichmentPayload(await response.json());
 
       this.requestCount += 1;
       this.lastRequest = new Date().toISOString();

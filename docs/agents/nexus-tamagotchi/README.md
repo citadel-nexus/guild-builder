@@ -36,13 +36,25 @@ Implemented:
 - SRS declarations + operational validator (`srs.ts`)
 - SHA-256 guardian audit chain (`audit.ts`)
 - Constitutional council stub pipeline (`council.ts`)
+- Domain model layer (`models.ts`)
+- Memory and cognitive domain primitives (`memory.ts`)
+- Gamification and brotherhood progression engines (`gamification.ts`, `brotherhood.ts`)
+- Authority gating runtime (`authority.ts`)
+- Reflex runtime engine (`reflex-engine.ts`)
+- Engagement promotion messaging (`engagement.ts`)
+- Function reward map (`function-rewards.ts`)
+- Mission and quest lifecycle engines (`missions.ts`, `quests.ts`)
+- Outcome-weighted XP scoring (`outcome-xp.ts`)
+- Leaderboard and insight engines (`leaderboard.ts`, `insight.ts`)
+- Runtime skill unlock system (`skill-tree-system.ts`)
+- Secure key vault contract (`secure-key-vault.ts`)
+- Web enrichment client contract (`web-enrichment.ts`)
 - Auto-start entrypoint (`maybeStartNexusTamagotchi`)
 
 Deferred to future stages:
 
-- live memory system (Mira/FAISS),
-- cognitive architecture runtime loops,
-- outcome-weighted reward execution,
+- live Mira-compatible memory orchestration,
+- deep cognitive architecture runtime loops,
 - full NATS command/event bus behavior,
 - external integration implementations.
 
@@ -98,7 +110,12 @@ Each skill includes tier, TP cost, prerequisites, and numeric effects.
 
 ### Quests and missions
 
-`types.ts` defines daily/weekly/epic quest contracts and mission priority/status contracts used by future runtime stages.
+`missions.ts` and `quests.ts` provide executable lifecycle foundations:
+
+- template-backed mission/quest generation
+- progress updates by metric key
+- completion checks and reward emission payloads
+- XP handoff through `BrotherhoodSystem`
 
 ## Professor network (28 domains)
 
@@ -127,6 +144,15 @@ Each professor has:
 
 Every decision is appended to the guardian audit chain with SHA-256 linkage.
 
+## Authority gating
+
+`authority.ts` introduces an XP-gated authorization runtime:
+
+- tiers: `OBSERVE -> ASSIST -> EXECUTE -> GOVERN -> META`
+- action policy map for common operations
+- explicit allow/deny reasoning and history
+- hard `require(action)` guard for enforcement call sites
+
 ## Guardian audit trail
 
 `audit.ts` provides:
@@ -140,13 +166,39 @@ Hashing uses `node:crypto` SHA-256 and validates chain integrity end-to-end.
 
 ## Reflex engine foundation
 
-`REFLEX_PATTERNS` defines deterministic trigger-response rules that can run without LLM calls. Each reflex includes:
+`REFLEX_PATTERNS` defines deterministic trigger-response rules, while `reflex-engine.ts` provides runtime trigger handling. Each reflex includes:
 
 - pattern (regex string)
 - category
 - priority
 - required authority tier
 - XP award on trigger
+
+## Runtime progression surfaces
+
+Stage 1 now includes public-safe runtime engines that mirror source semantics without private vendor logic:
+
+- `BrotherhoodSystem` (XP/TP/rank progression)
+- `FunctionRewardsMap` (function-level rewards + cooldowns)
+- `MissionEngine` and `QuestSystem` (engagement loops)
+- `OutcomeXPEngine` (signal-weighted reward multiplier)
+- `LeaderboardSystem` (ranking snapshot and sync contract)
+- `InsightEngine` (pattern and suggestion generation)
+- `SkillTreeSystem` (unlock gating and tree progress)
+- `ZayaraEngagementEngine` (promotion messaging)
+
+All external service behavior remains routed through public stubs.
+
+## Secure key-vault and web enrichment
+
+`secure-key-vault.ts` provides encrypted-at-rest local key handling for public development flows:
+
+- encrypted key persistence
+- masked key display
+- required-service checks
+- validation status tracking
+
+`web-enrichment.ts` exposes a configurable fetch-based enrichment client. Endpoint and credentials are environment-driven (`NEXUS_WEB_ENRICHMENT_ENDPOINT`, `NEXUS_WEB_ENRICHMENT_API_KEY`) and never hardcoded.
 
 ## MCP progression sheet
 

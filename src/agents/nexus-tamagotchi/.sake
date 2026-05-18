@@ -9,8 +9,27 @@ phase: '1'
 owns:
   - src/agents/nexus-tamagotchi/types.ts
   - src/agents/nexus-tamagotchi/data/
+  - src/agents/nexus-tamagotchi/models.ts
+  - src/agents/nexus-tamagotchi/memory.ts
+  - src/agents/nexus-tamagotchi/diagnostics.ts
+  - src/agents/nexus-tamagotchi/gamification.ts
+  - src/agents/nexus-tamagotchi/brotherhood.ts
+  - src/agents/nexus-tamagotchi/authority.ts
+  - src/agents/nexus-tamagotchi/function-rewards.ts
+  - src/agents/nexus-tamagotchi/reflex-engine.ts
+  - src/agents/nexus-tamagotchi/engagement.ts
+  - src/agents/nexus-tamagotchi/missions.ts
+  - src/agents/nexus-tamagotchi/quests.ts
+  - src/agents/nexus-tamagotchi/outcome-xp.ts
+  - src/agents/nexus-tamagotchi/leaderboard.ts
+  - src/agents/nexus-tamagotchi/insight.ts
+  - src/agents/nexus-tamagotchi/skill-tree-system.ts
   - src/agents/nexus-tamagotchi/progression.ts
   - src/agents/nexus-tamagotchi/integration-router.ts
+  - src/agents/nexus-tamagotchi/integrations-manager.ts
+  - src/agents/nexus-tamagotchi/professor-network.ts
+  - src/agents/nexus-tamagotchi/web-enrichment.ts
+  - src/agents/nexus-tamagotchi/secure-key-vault.ts
   - src/agents/nexus-tamagotchi/srs.ts
   - src/agents/nexus-tamagotchi/audit.ts
   - src/agents/nexus-tamagotchi/council.ts

@@ -1,6 +1,8 @@
 import { connect, type NatsConnection } from 'nats';
 
 import { GuardianAuditTrail } from './audit.js';
+import { AuthorityGate } from './authority.js';
+import { BrotherhoodSystem } from './brotherhood.js';
 import { ConstitutionalCouncil } from './council.js';
 import { BADGE_REGISTRY } from './data/badges.js';
 import { PROFESSOR_REGISTRY } from './data/professors.js';
@@ -10,6 +12,16 @@ import {
   CITADEL_ROUTER,
   CitadelIntegrationRouter,
 } from './integration-router.js';
+import { IntegrationsManager } from './integrations-manager.js';
+import { InsightEngine } from './insight.js';
+import { LeaderboardSystem } from './leaderboard.js';
+import { MissionEngine } from './missions.js';
+import { OutcomeXPEngine } from './outcome-xp.js';
+import { QuestSystem } from './quests.js';
+import { ReflexEngine } from './reflex-engine.js';
+import { SkillTreeSystem } from './skill-tree-system.js';
+import { FunctionRewardsMap } from './function-rewards.js';
+import { ZayaraEngagementEngine } from './engagement.js';
 import {
   MCPProgressionSheet,
   PROGRESSION_SHEET,
@@ -64,6 +76,18 @@ export class NexusTamagotchiRuntime {
   readonly auditTrail = new GuardianAuditTrail();
   readonly council = new ConstitutionalCouncil(this.auditTrail);
   readonly integrationRouter: CitadelIntegrationRouter;
+  readonly integrationsManager: IntegrationsManager;
+  readonly brotherhood: BrotherhoodSystem;
+  readonly authorityGate: AuthorityGate;
+  readonly reflexEngine: ReflexEngine;
+  readonly functionRewards = new FunctionRewardsMap();
+  readonly missionEngine: MissionEngine;
+  readonly questSystem: QuestSystem;
+  readonly outcomeXpEngine: OutcomeXPEngine;
+  readonly leaderboardSystem: LeaderboardSystem;
+  readonly insightEngine: InsightEngine;
+  readonly skillTreeSystem: SkillTreeSystem;
+  readonly engagementEngine = new ZayaraEngagementEngine();
   readonly srsValidator = new OperationalSRSValidator();
   private readonly state: AgentState;
 
@@ -73,6 +97,19 @@ export class NexusTamagotchiRuntime {
     env: NodeJS.ProcessEnv = process.env,
   ) {
     this.integrationRouter = new CitadelIntegrationRouter(env);
+    this.integrationsManager = new IntegrationsManager(
+      env,
+      this.integrationRouter,
+    );
+    this.brotherhood = new BrotherhoodSystem(config.agentId);
+    this.authorityGate = new AuthorityGate(this.brotherhood);
+    this.reflexEngine = new ReflexEngine(config.agentId);
+    this.missionEngine = new MissionEngine(this.brotherhood);
+    this.questSystem = new QuestSystem(this.brotherhood);
+    this.outcomeXpEngine = new OutcomeXPEngine(this.integrationsManager);
+    this.leaderboardSystem = new LeaderboardSystem(this.integrationsManager);
+    this.insightEngine = new InsightEngine(this.brotherhood);
+    this.skillTreeSystem = new SkillTreeSystem(this.brotherhood);
     this.state = initialState(config.agentId);
   }
 
@@ -138,16 +175,27 @@ export {
 };
 
 export * from './audit.js';
+export * from './authority.js';
+export * from './brotherhood.js';
 export * from './council.js';
 export * from './diagnostics.js';
+export * from './engagement.js';
+export * from './function-rewards.js';
 export * from './gamification.js';
 export * from './integration-router.js';
 export * from './integrations-manager.js';
+export * from './insight.js';
+export * from './leaderboard.js';
 export * from './memory.js';
+export * from './missions.js';
 export * from './models.js';
+export * from './outcome-xp.js';
 export * from './professor-network.js';
 export * from './progression.js';
+export * from './quests.js';
+export * from './reflex-engine.js';
 export * from './secure-key-vault.js';
+export * from './skill-tree-system.js';
 export * from './srs.js';
 export * from './types.js';
 export * from './web-enrichment.js';
