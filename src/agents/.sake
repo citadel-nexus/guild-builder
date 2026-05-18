@@ -1,0 +1,17 @@
+# SAKE module stub — shared agent spines
+#
+# Minimal descriptor for shared agent utilities in this public repository.
+
+module: agents
+guild: builder
+srs:
+  - SRS-VAULT-CLIENT-001
+dispatch: TENANT-PROVISION-FABRIC-001
+phase: '0'
+owns:
+  - src/agents/shared/vault-client.ts
+  - src/agents/shared/resolve-config.ts
+public_contract: true
+notes: |
+  Public credential-resolution spine. Runtime credential mappings, tenant
+  vault key naming, and CNWB environment overlays remain private.
