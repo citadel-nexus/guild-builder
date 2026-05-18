@@ -201,3 +201,26 @@ export type DatadogBridgeClient = {
   ) => Promise<DatadogApiResult<DatadogDashboardSnapshot>>;
   listServices: () => Promise<DatadogApiResult<DatadogServiceDefinitionsData>>;
 };
+
+export type OutboundPublishResult = {
+  publisher: string;
+  ok: boolean;
+  error?: string;
+};
+
+export type OutboundPublisher = {
+  name: string;
+  publish: (event: DatadogEvent) => Promise<OutboundPublishResult>;
+};
+
+export type PostHogOutboundConfig = {
+  host: string;
+  apiKey: string;
+  distinctIdPrefix?: string;
+};
+
+export type CustomerIoOutboundConfig = {
+  region: 'us' | 'eu';
+  siteId: string;
+  trackApiKey: string;
+};
