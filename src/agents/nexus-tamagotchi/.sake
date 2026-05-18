@@ -28,6 +28,9 @@ owns:
   - src/agents/nexus-tamagotchi/skill-tracker.ts
   - src/agents/nexus-tamagotchi/lingo.ts
   - src/agents/nexus-tamagotchi/cognitive-systems.ts
+  - src/agents/nexus-tamagotchi/distribution.ts
+  - src/agents/nexus-tamagotchi/backend-auth.ts
+  - src/agents/nexus-tamagotchi/short-term-memory.ts
   - src/agents/nexus-tamagotchi/progression.ts
   - src/agents/nexus-tamagotchi/agent-factory.ts
   - src/agents/nexus-tamagotchi/integration-router.ts

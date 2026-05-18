@@ -91,6 +91,9 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/skill-tracker.ts
     - src/agents/nexus-tamagotchi/lingo.ts
     - src/agents/nexus-tamagotchi/cognitive-systems.ts
+    - src/agents/nexus-tamagotchi/distribution.ts
+    - src/agents/nexus-tamagotchi/backend-auth.ts
+    - src/agents/nexus-tamagotchi/short-term-memory.ts
     - src/agents/nexus-tamagotchi/progression.ts
     - src/agents/nexus-tamagotchi/agent-factory.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
@@ -132,6 +135,9 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/lingo.test.ts
     - tests/agents/nexus-tamagotchi/cognitive-systems.test.ts
     - tests/agents/nexus-tamagotchi/index.test.ts
+    - tests/agents/nexus-tamagotchi/distribution.test.ts
+    - tests/agents/nexus-tamagotchi/backend-auth.test.ts
+    - tests/agents/nexus-tamagotchi/short-term-memory.test.ts
     - tests/agents/nexus-tamagotchi/agent-factory.test.ts
     - tests/agents/nexus-tamagotchi/auto-installation.test.ts
     - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
@@ -164,6 +170,10 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - SkillTracker
     - LingoAdapter
     - CognitiveSystemsRegistry
+    - DistributionFramework
+    - CitadelAuthClient
+    - OfflineSyncStrategy
+    - ShortTermMemoryBuffer
     - AgentFactory
     - AutoInstallationSystem
     - MultiChannelBroadcaster

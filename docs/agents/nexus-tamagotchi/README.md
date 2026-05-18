@@ -52,6 +52,9 @@ Implemented:
 - Skill tracking persistence and analytics (`skill-tracker.ts`)
 - Lingo profile analysis and rendering surfaces (`lingo.ts`)
 - Cognitive/preflight status registries and formatters (`cognitive-systems.ts`)
+- Distribution planning and service scaffolding contracts (`distribution.ts`)
+- Backend auth, feature-tier gating, and offline sync contracts (`backend-auth.ts`)
+- Short-term memory buffer with semantic search and pruning (`short-term-memory.ts`)
 - Agent template factory contracts (`agent-factory.ts`)
 - Auto-installation environment scaffolding (`auto-installation.ts`)
 - Secure key vault contract (`secure-key-vault.ts`)
@@ -197,6 +200,9 @@ Stage 1 now includes public-safe runtime engines that mirror source semantics wi
 - `SkillTracker` (tracked skill usage persistence and mastery stats)
 - `LingoAdapter` (user language profiling and topic/slang trends)
 - `CognitiveSystemsRegistry` (extended system availability + preflight summaries)
+- `DistributionFramework` (cross-platform service installation planning)
+- `CitadelAuthClient` + `OfflineSyncStrategy` (auth/session/sync foundations)
+- `ShortTermMemoryBuffer` (JSONL-backed STM with semantic retrieval)
 - `ZayaraEngagementEngine` (promotion messaging)
 
 All external service behavior remains routed through public stubs.
