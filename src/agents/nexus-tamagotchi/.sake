@@ -35,6 +35,12 @@ owns:
   - src/agents/nexus-tamagotchi/domain-learning.ts
   - src/agents/nexus-tamagotchi/context-rehydration.ts
   - src/agents/nexus-tamagotchi/self-awareness.ts
+  - src/agents/nexus-tamagotchi/memory-graph.ts
+  - src/agents/nexus-tamagotchi/ui-system.ts
+  - src/agents/nexus-tamagotchi/workshop.ts
+  - src/agents/nexus-tamagotchi/analytics-automation.ts
+  - src/agents/nexus-tamagotchi/cognitive-integration.ts
+  - src/agents/nexus-tamagotchi/extended-knowledge-graph.ts
   - src/agents/nexus-tamagotchi/progression.ts
   - src/agents/nexus-tamagotchi/agent-factory.ts
   - src/agents/nexus-tamagotchi/integration-router.ts

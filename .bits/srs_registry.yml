@@ -98,6 +98,12 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/domain-learning.ts
     - src/agents/nexus-tamagotchi/context-rehydration.ts
     - src/agents/nexus-tamagotchi/self-awareness.ts
+    - src/agents/nexus-tamagotchi/memory-graph.ts
+    - src/agents/nexus-tamagotchi/ui-system.ts
+    - src/agents/nexus-tamagotchi/workshop.ts
+    - src/agents/nexus-tamagotchi/analytics-automation.ts
+    - src/agents/nexus-tamagotchi/cognitive-integration.ts
+    - src/agents/nexus-tamagotchi/extended-knowledge-graph.ts
     - src/agents/nexus-tamagotchi/progression.ts
     - src/agents/nexus-tamagotchi/agent-factory.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
@@ -146,6 +152,12 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/domain-learning.test.ts
     - tests/agents/nexus-tamagotchi/context-rehydration.test.ts
     - tests/agents/nexus-tamagotchi/self-awareness.test.ts
+    - tests/agents/nexus-tamagotchi/memory-graph.test.ts
+    - tests/agents/nexus-tamagotchi/ui-system.test.ts
+    - tests/agents/nexus-tamagotchi/workshop.test.ts
+    - tests/agents/nexus-tamagotchi/analytics-automation.test.ts
+    - tests/agents/nexus-tamagotchi/cognitive-integration.test.ts
+    - tests/agents/nexus-tamagotchi/extended-knowledge-graph.test.ts
     - tests/agents/nexus-tamagotchi/agent-factory.test.ts
     - tests/agents/nexus-tamagotchi/auto-installation.test.ts
     - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
@@ -187,6 +199,14 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - DomainLearningEngine
     - ContextRehydrator
     - SelfAwarenessModule
+    - MemoryGraphRenderer
+    - ResponseLengthConfig
+    - AgentChatServer
+    - WorkshopIntegration
+    - AgentAnalytics
+    - AutomationEngine
+    - integrateCognitiveSystems
+    - KnowledgeGraph
     - AgentFactory
     - AutoInstallationSystem
     - MultiChannelBroadcaster

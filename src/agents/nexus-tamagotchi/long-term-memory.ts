@@ -83,6 +83,13 @@ export type FAISSSearchResult = {
   rank: number;
 };
 
+export type FAISSVectorRecord = {
+  vectorId: string;
+  vector: number[];
+  metadata: Record<string, unknown>;
+  timestamp: string;
+};
+
 export class AgentFAISSWrapper {
   static readonly VECTOR_DIM = 1536;
   static readonly HNSW_THRESHOLD = 1000;
@@ -313,6 +320,23 @@ export class AgentFAISSWrapper {
       usingHnsw: this.usingHnsw,
       uniqueFingerprints: this.fingerprints.size,
     };
+  }
+
+  getVectorRecords(): FAISSVectorRecord[] {
+    const records: FAISSVectorRecord[] = [];
+    for (const [vectorId, entry] of this.idMap.entries()) {
+      const vector = this.vectors[entry.index];
+      if (!vector) {
+        continue;
+      }
+      records.push({
+        vectorId,
+        vector: [...vector],
+        metadata: cloneMetadata(entry.metadata),
+        timestamp: entry.timestamp,
+      });
+    }
+    return records;
   }
 
   private normalizeVector(vector: number[]): number[] | undefined {
