@@ -123,6 +123,31 @@ SRS-DATADOG-BRIDGE-001:
     LLM polling, automation command handling, and integration forwarding
     through NATS subjects with env-driven prefixes.
 
+SRS-VAULT-CLIENT-001:
+  ep: OBSERVABILITY-BRIDGE-001
+  status: complete
+  phase: "§0 Credential Resolution Spine"
+  paths:
+    - src/agents/shared/vault-client.ts
+    - src/agents/shared/resolve-config.ts
+    - src/agents/.sake
+  tests:
+    - tests/agents/shared/vault-client.test.ts
+  exports:
+    - VaultClient
+    - resolveConfig
+    - resolveConfigs
+  env:
+    - SUPABASE_URL
+    - SUPABASE_SERVICE_ROLE_KEY
+  public_contract: true
+  notes: |
+    Runtime credential resolution from Supabase Vault. The ONE bootstrap
+    secret (SUPABASE_SERVICE_ROLE_KEY) is provided via env var in the
+    deployment config. All other secrets (DD_API_KEY, POSTHOG_KEY, etc.)
+    are fetched from Vault at agent boot. This is the public spine —
+    vault key names and tenant mappings live in CNWB.
+
 SRS-NEXUS-TAMAGOTCHI-001:
   ep: AGENT-TAMAGOTCHI-001
   status: in_progress
