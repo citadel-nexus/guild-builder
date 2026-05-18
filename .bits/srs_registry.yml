@@ -61,6 +61,68 @@ SRS-PROVISION-ORCHESTRATOR-001:
     new stub stages, IdempotencyStore implementations, or alternate
     SubjectFormatters. Vendor implementations DO NOT belong in this repo.
 
+SRS-DATADOG-BRIDGE-001:
+  ep: TENANT-PROVISION-FABRIC-001
+  status: in_progress
+  dispatch: TENANT-PROVISION-FABRIC-001
+  phase: "§6 Provisioning Orchestrator"
+  paths:
+    - src/agents/datadog-bridge/types.ts
+    - src/agents/datadog-bridge/config.ts
+    - src/agents/datadog-bridge/codec.ts
+    - src/agents/datadog-bridge/subjects.ts
+    - src/agents/datadog-bridge/client.ts
+    - src/agents/datadog-bridge/watchers/security-watcher.ts
+    - src/agents/datadog-bridge/watchers/llm-observer.ts
+    - src/agents/datadog-bridge/automation-engine.ts
+    - src/agents/datadog-bridge/integrations/integration-bridge.ts
+    - src/agents/datadog-bridge/integrations/posthog.ts
+    - src/agents/datadog-bridge/integrations/customerio.ts
+    - src/agents/datadog-bridge/integrations/gitlab.ts
+    - src/agents/datadog-bridge/integrations/stripe.ts
+    - src/agents/datadog-bridge/auto-start.ts
+    - src/agents/datadog-bridge/index.ts
+    - src/agents/datadog-bridge/.sake
+    - docs/agents/datadog-bridge/README.md
+    - docs/agents/datadog-bridge/ARCHITECTURE.md
+    - docs/agents/datadog-bridge/RUNBOOK.md
+    - .env.example
+    - src/index.ts
+  tests:
+    - tests/agents/datadog-bridge/watchers/security-watcher.test.ts
+    - tests/agents/datadog-bridge/watchers/llm-observer.test.ts
+    - tests/agents/datadog-bridge/automation-engine.test.ts
+    - tests/agents/datadog-bridge/integrations/posthog.test.ts
+    - tests/agents/datadog-bridge/integrations/customerio.test.ts
+    - tests/agents/datadog-bridge/integrations/gitlab.test.ts
+    - tests/agents/datadog-bridge/integrations/stripe.test.ts
+  exports:
+    - maybeStartDatadogBridge
+    - DatadogBridgeClient
+    - SecurityWatcher
+    - LlmObserver
+    - AutomationEngine
+    - IntegrationBridge
+    - createDefaultIntegrations
+    - buildDatadogBridgeSubjects
+  env:
+    - DATADOG_BRIDGE
+    - DD_API_KEY
+    - DD_APP_KEY
+    - DD_SITE
+    - DATADOG_NATS_PREFIX
+    - DATADOG_POLL_INTERVAL_MS
+    - DATADOG_SECURITY_ENABLED
+    - DATADOG_LLM_ENABLED
+    - DATADOG_AUTOMATION_ENABLED
+    - DATADOG_INTEGRATIONS_ENABLED
+    - DATADOG_BRIDGE_DEBUG
+  public_contract: true
+  notes: |
+    Datadog observability bridge for Builder Guild. Provides security and
+    LLM polling, automation command handling, and integration forwarding
+    through NATS subjects with env-driven prefixes.
+
 SRS-VAULT-CLIENT-001:
   ep: OBSERVABILITY-BRIDGE-001
   status: complete
