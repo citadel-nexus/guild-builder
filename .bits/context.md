@@ -23,6 +23,10 @@ and tell the operator — that work belongs on GitLab, not here.
   spine = this repo's surface).
 - **Repo state:** spine + 9-stage stub registry + NATS bridge + auto-start
   + 7 vitest files all merged. CI gates `npm run lint` + `npm test`.
+- **SRS-DATADOG-BRIDGE-001** — in progress (Datadog NATS bridge: monitor
+  watcher, security, LLM observer, automation, integrations)
+- **Vault Client spine** — added to `src/agents/shared/` for runtime credential
+  resolution from Supabase Vault
 
 ## In flight (NOT in this repo)
 
