@@ -47,6 +47,10 @@ owns:
   - src/agents/nexus-tamagotchi/configuration-manager.ts
   - src/agents/nexus-tamagotchi/advanced-quest-engine.ts
   - src/agents/nexus-tamagotchi/extended-professor-network.ts
+  - src/agents/nexus-tamagotchi/comprehensive-skill-tree.ts
+  - src/agents/nexus-tamagotchi/comprehensive-achievement-system.ts
+  - src/agents/nexus-tamagotchi/comprehensive-leaderboard-system.ts
+  - src/agents/nexus-tamagotchi/api-integration-layer.ts
   - src/agents/nexus-tamagotchi/progression.ts
   - src/agents/nexus-tamagotchi/agent-factory.ts
   - src/agents/nexus-tamagotchi/integration-router.ts

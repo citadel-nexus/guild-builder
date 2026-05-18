@@ -61,4 +61,41 @@ describe("extended-professor-network", () => {
     expect(stats.consultations).toBe(1);
     expect(stats.findings).toBe(1);
   });
+
+  it("publishes findings and exposes professor lists/stats", () => {
+    const storageDir = mkdtempSync(join(tmpdir(), "nexus-prof-meta-"));
+    tempDirs.push(storageDir);
+    const network = new ExtendedProfessorNetwork({ storageDir });
+
+    const publishResult = network.publishFinding(
+      ProfessorSpecialty.SOFTWARE_ENGINEERING,
+      "Use typed interfaces for runtime contracts",
+      { source: "test" },
+    );
+    expect(publishResult.success).toBe(true);
+    expect(publishResult.findingId).toBeDefined();
+
+    const ratingResult = network.rateConsultation(
+      ProfessorSpecialty.SOFTWARE_ENGINEERING,
+      4.6,
+    );
+    expect(ratingResult).toBe(true);
+
+    const stats = network.getProfessorStats();
+    expect(
+      stats[ProfessorSpecialty.SOFTWARE_ENGINEERING]?.findings,
+    ).toBeGreaterThan(0);
+    expect(
+      stats[ProfessorSpecialty.SOFTWARE_ENGINEERING]?.rating,
+    ).toBeGreaterThan(0);
+
+    const professors = network.getAllProfessors();
+    expect(professors.length).toBeGreaterThan(0);
+    expect(professors[0]).toMatchObject({
+      key: expect.any(String),
+      name: expect.any(String),
+      specialty: expect.any(String),
+      avatar: expect.any(String),
+    });
+  });
 });

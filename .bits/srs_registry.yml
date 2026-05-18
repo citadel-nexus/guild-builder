@@ -110,6 +110,10 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/configuration-manager.ts
     - src/agents/nexus-tamagotchi/advanced-quest-engine.ts
     - src/agents/nexus-tamagotchi/extended-professor-network.ts
+    - src/agents/nexus-tamagotchi/comprehensive-skill-tree.ts
+    - src/agents/nexus-tamagotchi/comprehensive-achievement-system.ts
+    - src/agents/nexus-tamagotchi/comprehensive-leaderboard-system.ts
+    - src/agents/nexus-tamagotchi/api-integration-layer.ts
     - src/agents/nexus-tamagotchi/progression.ts
     - src/agents/nexus-tamagotchi/agent-factory.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
@@ -170,6 +174,10 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/configuration-manager.test.ts
     - tests/agents/nexus-tamagotchi/advanced-quest-engine.test.ts
     - tests/agents/nexus-tamagotchi/extended-professor-network.test.ts
+    - tests/agents/nexus-tamagotchi/comprehensive-skill-tree.test.ts
+    - tests/agents/nexus-tamagotchi/comprehensive-achievement-system.test.ts
+    - tests/agents/nexus-tamagotchi/comprehensive-leaderboard-system.test.ts
+    - tests/agents/nexus-tamagotchi/api-integration-layer.test.ts
     - tests/agents/nexus-tamagotchi/agent-factory.test.ts
     - tests/agents/nexus-tamagotchi/auto-installation.test.ts
     - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
@@ -226,6 +234,10 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - QuestEngine
     - MissionGenerator
     - ExtendedProfessorNetwork
+    - ComprehensiveSkillTreeSystem
+    - ComprehensiveAchievementSystem
+    - ComprehensiveLeaderboardSystem
+    - APIIntegrationLayer
     - AgentFactory
     - AutoInstallationSystem
     - MultiChannelBroadcaster

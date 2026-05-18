@@ -71,6 +71,10 @@ Implemented:
 - Environment/file-backed runtime configuration manager (`configuration-manager.ts`)
 - Advanced quest and mission generation engine (`advanced-quest-engine.ts`)
 - Extended professor specialization network (`extended-professor-network.ts`)
+- Comprehensive skill progression tree runtime (`comprehensive-skill-tree.ts`)
+- Achievement and badge progression runtime (`comprehensive-achievement-system.ts`)
+- Multi-metric leaderboard and competition runtime (`comprehensive-leaderboard-system.ts`)
+- API client + webhook integration layer (`api-integration-layer.ts`)
 - Agent template factory contracts (`agent-factory.ts`)
 - Auto-installation environment scaffolding (`auto-installation.ts`)
 - Secure key vault contract (`secure-key-vault.ts`)
@@ -235,6 +239,10 @@ Stage 1 now includes public-safe runtime engines that mirror source semantics wi
 - `ConfigurationManager` (default/file/env configuration layering)
 - `QuestEngine` + `MissionGenerator` (advanced objective/reward loop)
 - `ExtendedProfessorNetwork` (specialty profiles + query routing)
+- `ComprehensiveSkillTreeSystem` (tiered unlock progression with persistence)
+- `ComprehensiveAchievementSystem` (criteria-driven badges with rarity rewards)
+- `ComprehensiveLeaderboardSystem` (global + competition ranking surfaces)
+- `APIIntegrationLayer` (retry/rate-limit/circuit-breaker integration clients)
 - `ZayaraEngagementEngine` (promotion messaging)
 
 All external service behavior remains routed through public stubs.

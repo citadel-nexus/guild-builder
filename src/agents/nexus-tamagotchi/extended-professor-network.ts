@@ -93,6 +93,15 @@ export type ProfessorConsultation = {
   question: string;
 };
 
+export type PublishedFinding = {
+  id: string;
+  timestamp: string;
+  professor: string;
+  specialty: ProfessorSpecialty;
+  finding: string;
+  context: Record<string, unknown>;
+};
+
 export type ExtendedProfessorNetworkOptions = {
   storageDir?: string;
   now?: () => Date;
@@ -107,7 +116,7 @@ export class ExtendedProfessorNetwork {
 
   readonly consultationHistory: ProfessorConsultation[] = [];
 
-  readonly findings: Array<Record<string, unknown>> = [];
+  readonly findings: PublishedFinding[] = [];
 
   constructor(options: ExtendedProfessorNetworkOptions = {}) {
     this.storageDir =
@@ -207,31 +216,125 @@ export class ExtendedProfessorNetwork {
     title: string,
     content: string,
   ): void {
-    const profile = this.professors.get(specialty);
-    if (!profile) {
-      return;
-    }
-    profile.findingsPublished += 1;
-    this.findings.push({
-      id: randomUUID(),
-      timestamp: this.now().toISOString(),
-      specialty,
-      professor: profile.name,
-      title,
-      content,
-    });
-    this.saveState();
+    this.publishFinding(specialty, `${title}: ${content}`);
   }
 
   addRating(specialty: ProfessorSpecialty, rating: number): void {
+    this.rateConsultation(specialty, rating);
+  }
+
+  publishFinding(
+    professorKey: ProfessorSpecialty | string,
+    finding: string,
+    context: Record<string, unknown> = {},
+  ): {
+    success: boolean;
+    findingId?: string;
+    professor?: string;
+    error?: string;
+  } {
+    const specialty = this.resolveSpecialty(professorKey);
+    if (!specialty) {
+      return { success: false, error: "Professor not found" };
+    }
     const profile = this.professors.get(specialty);
     if (!profile) {
-      return;
+      return { success: false, error: "Professor not found" };
+    }
+
+    profile.findingsPublished += 1;
+    const findingEntry: PublishedFinding = {
+      id: randomUUID(),
+      timestamp: this.now().toISOString(),
+      professor: profile.name,
+      specialty: profile.specialty,
+      finding,
+      context: { ...context },
+    };
+    this.findings.push(findingEntry);
+    this.saveState();
+
+    return {
+      success: true,
+      findingId: findingEntry.id,
+      professor: profile.name,
+    };
+  }
+
+  rateConsultation(
+    professorKey: ProfessorSpecialty | string,
+    rating: number,
+  ): boolean {
+    const specialty = this.resolveSpecialty(professorKey);
+    if (!specialty) {
+      return false;
+    }
+    const profile = this.professors.get(specialty);
+    if (!profile) {
+      return false;
     }
     const clamped = Math.max(1, Math.min(5, rating));
     profile.studentRatings.push(clamped);
     profile.averageRating = normalizeRating(profile.studentRatings);
     this.saveState();
+    return true;
+  }
+
+  getProfessorStats(): Record<
+    string,
+    {
+      name: string;
+      specialty: ProfessorSpecialty;
+      consultations: number;
+      findings: number;
+      rating: number;
+      avatar: string;
+    }
+  > {
+    const stats: Record<
+      string,
+      {
+        name: string;
+        specialty: ProfessorSpecialty;
+        consultations: number;
+        findings: number;
+        rating: number;
+        avatar: string;
+      }
+    > = {};
+
+    for (const [specialty, profile] of this.professors.entries()) {
+      stats[specialty] = {
+        name: profile.name,
+        specialty: profile.specialty,
+        consultations: profile.consultations,
+        findings: profile.findingsPublished,
+        rating: profile.averageRating,
+        avatar: profile.avatarEmoji,
+      };
+    }
+
+    return stats;
+  }
+
+  getAllProfessors(): Array<{
+    key: string;
+    name: string;
+    title: string;
+    specialty: string;
+    avatar: string;
+    greeting: string;
+    consultations: number;
+  }> {
+    return Array.from(this.professors.entries()).map(([specialty, profile]) => ({
+      key: specialty,
+      name: profile.name,
+      title: profile.title,
+      specialty: PROFESSOR_SPECIALTY_DESCRIPTION[specialty],
+      avatar: profile.avatarEmoji,
+      greeting: profile.greeting,
+      consultations: profile.consultations,
+    }));
   }
 
   getStats(): Record<string, unknown> {
@@ -538,7 +641,36 @@ export class ExtendedProfessorNetwork {
         }
       }
       if (Array.isArray(parsed.findings)) {
-        this.findings.push(...parsed.findings);
+        for (const finding of parsed.findings) {
+          if (typeof finding !== "object" || finding === null) {
+            continue;
+          }
+          const record = finding as Record<string, unknown>;
+          if (
+            typeof record.id === "string" &&
+            typeof record.timestamp === "string" &&
+            typeof record.professor === "string" &&
+            typeof record.specialty === "string" &&
+            typeof record.finding === "string"
+          ) {
+            const specialty = record.specialty as ProfessorSpecialty;
+            if (!Object.values(ProfessorSpecialty).includes(specialty)) {
+              continue;
+            }
+            const context =
+              typeof record.context === "object" && record.context !== null
+                ? (record.context as Record<string, unknown>)
+                : {};
+            this.findings.push({
+              id: record.id,
+              timestamp: record.timestamp,
+              professor: record.professor,
+              specialty,
+              finding: record.finding,
+              context,
+            });
+          }
+        }
       }
       if (typeof parsed.professorStats === "object" && parsed.professorStats) {
         const stats = parsed.professorStats as Record<string, unknown>;
