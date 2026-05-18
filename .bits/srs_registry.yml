@@ -60,3 +60,50 @@ SRS-PROVISION-ORCHESTRATOR-001:
     src/provision/types.ts. Public PRs against this repo target the spine,
     new stub stages, IdempotencyStore implementations, or alternate
     SubjectFormatters. Vendor implementations DO NOT belong in this repo.
+
+SRS-NEXUS-TAMAGOTCHI-001:
+  ep: AGENT-TAMAGOTCHI-001
+  status: in_progress
+  dispatch: AGENT-TAMAGOTCHI-001
+  phase: "§1 Core Types, Progression, and Governance Foundation"
+  paths:
+    - src/agents/nexus-tamagotchi/types.ts
+    - src/agents/nexus-tamagotchi/data/badges.ts
+    - src/agents/nexus-tamagotchi/data/professors.ts
+    - src/agents/nexus-tamagotchi/data/skills.ts
+    - src/agents/nexus-tamagotchi/data/reflexes.ts
+    - src/agents/nexus-tamagotchi/progression.ts
+    - src/agents/nexus-tamagotchi/audit.ts
+    - src/agents/nexus-tamagotchi/council.ts
+    - src/agents/nexus-tamagotchi/index.ts
+    - src/agents/nexus-tamagotchi/.sake
+    - docs/agents/nexus-tamagotchi/README.md
+  tests:
+    - tests/agents/nexus-tamagotchi/types.test.ts
+    - tests/agents/nexus-tamagotchi/audit.test.ts
+    - tests/agents/nexus-tamagotchi/progression.test.ts
+    - tests/agents/nexus-tamagotchi/council.test.ts
+  exports:
+    - maybeStartNexusTamagotchi
+    - BADGE_REGISTRY
+    - PROFESSOR_REGISTRY
+    - SKILL_REGISTRY
+    - REFLEX_PATTERNS
+    - MCPProgressionSheet
+    - AgentState
+    - AgentEvent
+  env:
+    - NEXUS_TAMAGOTCHI
+    - NEXUS_AGENT_ID
+    - NEXUS_NATS_PREFIX
+  public_contract: true
+  notes: |
+    Stage 1 of N for the Nexus Tamagotchi agent. This stage ports the core
+    type system, badge/professor/skill registries, MCP progression sheet,
+    SHA-256 audit trail, and council governance stub from the Python original
+    (citadel_nexus_pro.py, 100K+ LOC). Future stages add: gamification engine,
+    memory system (Mira), cognitive architecture, reflex execution, insight
+    engine, and full NATS event bus integration.
+
+    CGRF: All vendor implementations are stubs. No secrets, no private imports.
+    Real implementations live in CNWB on private GitLab.

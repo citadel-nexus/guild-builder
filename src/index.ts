@@ -1,4 +1,5 @@
 import GuildClient from './guild-client.js';
+import { maybeStartNexusTamagotchi } from './agents/nexus-tamagotchi/index.js';
 import { maybeStartProvisionBridge } from './provision/auto-start.js';
 
 const guild = new GuildClient({
@@ -25,4 +26,20 @@ void maybeStartProvisionBridge()
   .catch((err: unknown) => {
     const message = err instanceof Error ? err.message : String(err);
     console.warn(`[builder] provision orchestrator failed to start: ${message}`);
+  });
+
+void maybeStartNexusTamagotchi()
+  .then((result) => {
+    if (result.started) {
+      console.log('[builder] nexus tamagotchi started');
+    } else if (
+      result.reason &&
+      result.reason !== 'NEXUS_TAMAGOTCHI != on'
+    ) {
+      console.warn(`[builder] nexus tamagotchi skipped: ${result.reason}`);
+    }
+  })
+  .catch((err: unknown) => {
+    const message = err instanceof Error ? err.message : String(err);
+    console.warn(`[builder] nexus tamagotchi failed to start: ${message}`);
   });

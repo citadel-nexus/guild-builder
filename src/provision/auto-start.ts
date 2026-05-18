@@ -19,7 +19,7 @@ import {
   ProvisionNatsBridge,
   ProvisionOrchestrator,
   type NatsLikeClient,
-} from './provision/index.js';
+} from './index.js';
 
 export type ProvisionAutoStartResult = {
   started: boolean;

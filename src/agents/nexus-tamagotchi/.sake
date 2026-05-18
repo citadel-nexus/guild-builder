@@ -1,0 +1,31 @@
+# SAKE module stub — Nexus Tamagotchi (public foundation)
+
+module: nexus-tamagotchi
+guild: builder
+srs:
+  - SRS-NEXUS-TAMAGOTCHI-001
+dispatch: AGENT-TAMAGOTCHI-001
+phase: '1'
+owns:
+  - src/agents/nexus-tamagotchi/types.ts
+  - src/agents/nexus-tamagotchi/data/
+  - src/agents/nexus-tamagotchi/progression.ts
+  - src/agents/nexus-tamagotchi/audit.ts
+  - src/agents/nexus-tamagotchi/council.ts
+  - src/agents/nexus-tamagotchi/index.ts
+nats:
+  inbound:
+    - subject_env: NEXUS_NATS_PREFIX
+      description: |
+        Subject prefix for Nexus Tamagotchi event-space. Stage 1 only validates
+        and stores prefix configuration; later stages attach concrete subjects.
+  outbound:
+    - subject_env: NEXUS_NATS_PREFIX
+      description: |
+        Prefix used for all agent events. Full subject composition is added in
+        future stages to keep this foundation module vendor-neutral.
+public_contract: true
+notes: |
+  Stage 1 provides the public TypeScript foundation: core types, registries,
+  progression map, audit hash-chain, and constitutional council stub. Private
+  CNWB runtime behavior remains outside this repository.
