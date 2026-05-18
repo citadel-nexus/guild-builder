@@ -391,15 +391,60 @@ export type CompletionSummary = {
   completionPercentage: number;
 };
 
+export type ProgressionCategorySummary = {
+  total: number;
+  complete: number;
+  verified: number;
+  completionPercentage: number;
+};
+
 export type CategoryBreakdown = Record<
   string,
-  {
-    total: number;
-    complete: number;
-    verified: number;
-    completionPercentage: number;
-  }
+  ProgressionCategorySummary
 >;
+
+export type OverallProgress = {
+  totalCapabilities: number;
+  completed: number;
+  inProgress: number;
+  planned: number;
+  completionPercentage: number;
+  locEstimate: number;
+  locActual: number;
+  locPercentage: number;
+  byCategory: Record<string, { total: number; complete: number }>;
+  toolsRegistered: number;
+};
+
+export type CognitiveFrame = {
+  timestamp: string;
+  thought: string;
+  state: string;
+  archetype: string;
+  criticality: string;
+  progress: number;
+};
+
+export type McpManifest = {
+  name: string;
+  version: string;
+  description: string;
+  capabilities: {
+    tools: boolean;
+    resources: boolean;
+    prompts: boolean;
+  };
+  tools: Array<{
+    name: string;
+    description: string;
+    inputSchema: Record<string, unknown>;
+  }>;
+  progression: OverallProgress;
+};
+
+export type ProgressionSheetOptions = {
+  onFrameCaptured?: (frame: CognitiveFrame) => void;
+};
 
 function copyCapability(capability: ProgressionCapability): ProgressionCapability {
   return {
@@ -420,13 +465,23 @@ function authorityToIndex(authority: AuthorityTier): number {
   return AUTHORITY_ORDER.indexOf(authority);
 }
 
+function countByStatus(
+  capabilities: ProgressionCapability[],
+  status: ProgressionCapability['status'],
+): number {
+  return capabilities.filter((capability) => capability.status === status).length;
+}
+
 export class MCPProgressionSheet {
   private readonly capabilities: Record<string, ProgressionCapability>;
   private readonly tools: McpToolEntry[];
+  private readonly frames: CognitiveFrame[] = [];
+  private readonly onFrameCaptured?: (frame: CognitiveFrame) => void;
 
   constructor(
     capabilities: Record<string, ProgressionCapability> = CAPABILITIES,
     tools: McpToolEntry[] = TOOL_REGISTRY,
+    options: ProgressionSheetOptions = {},
   ) {
     const capabilityCopy: Record<string, ProgressionCapability> = {};
     for (const [key, value] of Object.entries(capabilities)) {
@@ -434,6 +489,7 @@ export class MCPProgressionSheet {
     }
     this.capabilities = capabilityCopy;
     this.tools = tools.map((tool) => copyTool(tool));
+    this.onFrameCaptured = options.onFrameCaptured;
   }
 
   getCapability(id: string): ProgressionCapability | undefined {
@@ -452,12 +508,10 @@ export class MCPProgressionSheet {
   getCompletionSummary(): CompletionSummary {
     const values = Object.values(this.capabilities);
     const total = values.length;
-    const planned = values.filter((capability) => capability.status === 'planned').length;
-    const inProgress = values.filter(
-      (capability) => capability.status === 'in_progress',
-    ).length;
-    const complete = values.filter((capability) => capability.status === 'complete').length;
-    const verified = values.filter((capability) => capability.status === 'verified').length;
+    const planned = countByStatus(values, 'planned');
+    const inProgress = countByStatus(values, 'in_progress');
+    const complete = countByStatus(values, 'complete');
+    const verified = countByStatus(values, 'verified');
 
     const completionSum = values.reduce(
       (sum, capability) => sum + capability.completionPercentage,
@@ -472,6 +526,47 @@ export class MCPProgressionSheet {
       complete,
       verified,
       completionPercentage,
+    };
+  }
+
+  getOverallProgress(): OverallProgress {
+    const values = Object.values(this.capabilities);
+    const totalCapabilities = values.length;
+    const completed = countByStatus(values, 'complete');
+    const inProgress = countByStatus(values, 'in_progress');
+    const planned = totalCapabilities - completed - inProgress;
+
+    const locEstimate = values.reduce((sum, capability) => sum + capability.locEstimate, 0);
+    const locActual = values.reduce((sum, capability) => sum + capability.locActual, 0);
+
+    const byCategory: Record<string, { total: number; complete: number }> = {};
+    for (const capability of values) {
+      const current = byCategory[capability.category];
+      if (!current) {
+        byCategory[capability.category] = {
+          total: 1,
+          complete: capability.status === 'complete' ? 1 : 0,
+        };
+        continue;
+      }
+      current.total += 1;
+      if (capability.status === 'complete') {
+        current.complete += 1;
+      }
+    }
+
+    return {
+      totalCapabilities,
+      completed,
+      inProgress,
+      planned,
+      completionPercentage:
+        totalCapabilities === 0 ? 0 : (completed / totalCapabilities) * 100,
+      locEstimate,
+      locActual,
+      locPercentage: locEstimate === 0 ? 0 : (locActual / locEstimate) * 100,
+      byCategory,
+      toolsRegistered: this.tools.length,
     };
   }
 
@@ -516,4 +611,56 @@ export class MCPProgressionSheet {
       .filter((tool) => authorityToIndex(tool.authorityTier) <= limit)
       .map((tool) => copyTool(tool));
   }
+
+  captureCognitiveFrame(
+    thought: string,
+    state: string = 'active',
+    archetype: string = 'adaptive',
+    criticality: string = 'low',
+  ): CognitiveFrame {
+    const frame: CognitiveFrame = {
+      timestamp: new Date().toISOString(),
+      thought,
+      state,
+      archetype,
+      criticality,
+      progress: this.getOverallProgress().completionPercentage,
+    };
+    this.frames.push(frame);
+
+    if (this.onFrameCaptured) {
+      try {
+        this.onFrameCaptured(frame);
+      } catch {
+        return frame;
+      }
+    }
+
+    return frame;
+  }
+
+  getFrames(): CognitiveFrame[] {
+    return this.frames.map((frame) => ({ ...frame }));
+  }
+
+  exportMcpManifest(): McpManifest {
+    return {
+      name: 'citadel-nexus-agent',
+      version: '4.0.0',
+      description: 'Citadel Nexus Tamagotchi Agent with gamification',
+      capabilities: {
+        tools: true,
+        resources: false,
+        prompts: false,
+      },
+      tools: this.tools.map((entry) => ({
+        name: entry.name,
+        description: entry.description,
+        inputSchema: structuredClone(entry.inputSchema),
+      })),
+      progression: this.getOverallProgress(),
+    };
+  }
 }
+
+export const PROGRESSION_SHEET = new MCPProgressionSheet();

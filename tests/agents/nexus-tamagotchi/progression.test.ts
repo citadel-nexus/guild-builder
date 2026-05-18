@@ -40,4 +40,30 @@ describe('MCPProgressionSheet', () => {
     expect(executeTools.some((tool) => tool.toolId === 'broadcast')).toBe(true);
     expect(TOOL_REGISTRY.length).toBeGreaterThanOrEqual(executeTools.length);
   });
+
+  it('reports overall progress with loc and category data', () => {
+    const sheet = new MCPProgressionSheet();
+    const progress = sheet.getOverallProgress();
+
+    expect(progress.totalCapabilities).toBe(Object.keys(CAPABILITIES).length);
+    expect(progress.locEstimate).toBeGreaterThan(0);
+    expect(progress.locActual).toBeGreaterThanOrEqual(0);
+    expect(progress.toolsRegistered).toBe(TOOL_REGISTRY.length);
+    expect(progress.byCategory.foundation.total).toBeGreaterThan(0);
+  });
+
+  it('captures cognitive frames and exports MCP manifest', () => {
+    const sheet = new MCPProgressionSheet();
+    const frame = sheet.captureCognitiveFrame('validate stage state');
+
+    expect(frame.thought).toBe('validate stage state');
+    expect(sheet.getFrames().length).toBe(1);
+
+    const manifest = sheet.exportMcpManifest();
+    expect(manifest.name).toBe('citadel-nexus-agent');
+    expect(manifest.tools.length).toBe(TOOL_REGISTRY.length);
+    expect(manifest.progression.totalCapabilities).toBe(
+      Object.keys(CAPABILITIES).length,
+    );
+  });
 });

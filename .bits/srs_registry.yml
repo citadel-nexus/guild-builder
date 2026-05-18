@@ -73,6 +73,8 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/data/skills.ts
     - src/agents/nexus-tamagotchi/data/reflexes.ts
     - src/agents/nexus-tamagotchi/progression.ts
+    - src/agents/nexus-tamagotchi/integration-router.ts
+    - src/agents/nexus-tamagotchi/srs.ts
     - src/agents/nexus-tamagotchi/audit.ts
     - src/agents/nexus-tamagotchi/council.ts
     - src/agents/nexus-tamagotchi/index.ts
@@ -83,6 +85,8 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/audit.test.ts
     - tests/agents/nexus-tamagotchi/progression.test.ts
     - tests/agents/nexus-tamagotchi/council.test.ts
+    - tests/agents/nexus-tamagotchi/integration-router.test.ts
+    - tests/agents/nexus-tamagotchi/srs.test.ts
   exports:
     - maybeStartNexusTamagotchi
     - BADGE_REGISTRY
@@ -90,6 +94,10 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - SKILL_REGISTRY
     - REFLEX_PATTERNS
     - MCPProgressionSheet
+    - PROGRESSION_SHEET
+    - CitadelIntegrationRouter
+    - OperationalSRSValidator
+    - SRS_REGISTRY
     - AgentState
     - AgentEvent
   env:

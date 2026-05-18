@@ -6,7 +6,20 @@ import { BADGE_REGISTRY } from './data/badges.js';
 import { PROFESSOR_REGISTRY } from './data/professors.js';
 import { REFLEX_PATTERNS } from './data/reflexes.js';
 import { SKILL_REGISTRY, SKILL_TREES } from './data/skills.js';
-import { MCPProgressionSheet } from './progression.js';
+import {
+  CITADEL_ROUTER,
+  CitadelIntegrationRouter,
+} from './integration-router.js';
+import {
+  MCPProgressionSheet,
+  PROGRESSION_SHEET,
+} from './progression.js';
+import {
+  OperationalSRSValidator,
+  SRS_REGISTRY,
+  getSrsSummary,
+  validateSrsCoverage,
+} from './srs.js';
 import type { AgentState, NexusTamagotchiConfig } from './types.js';
 
 function initialState(agentId: string): AgentState {
@@ -47,14 +60,19 @@ function initialState(agentId: string): AgentState {
 
 export class NexusTamagotchiRuntime {
   readonly progression = new MCPProgressionSheet();
+  readonly progressionSheet = PROGRESSION_SHEET;
   readonly auditTrail = new GuardianAuditTrail();
   readonly council = new ConstitutionalCouncil(this.auditTrail);
+  readonly integrationRouter: CitadelIntegrationRouter;
+  readonly srsValidator = new OperationalSRSValidator();
   private readonly state: AgentState;
 
   constructor(
     readonly config: NexusTamagotchiConfig,
     private readonly natsConnection: NatsConnection,
+    env: NodeJS.ProcessEnv = process.env,
   ) {
+    this.integrationRouter = new CitadelIntegrationRouter(env);
     this.state = initialState(config.agentId);
   }
 
@@ -109,13 +127,19 @@ export async function maybeStartNexusTamagotchi(
 
 export {
   BADGE_REGISTRY,
+  CITADEL_ROUTER,
   PROFESSOR_REGISTRY,
   REFLEX_PATTERNS,
+  SRS_REGISTRY,
   SKILL_REGISTRY,
   SKILL_TREES,
+  getSrsSummary,
+  validateSrsCoverage,
 };
 
 export * from './audit.js';
 export * from './council.js';
+export * from './integration-router.js';
 export * from './progression.js';
+export * from './srs.js';
 export * from './types.js';

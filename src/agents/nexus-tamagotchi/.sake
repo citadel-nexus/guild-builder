@@ -10,6 +10,8 @@ owns:
   - src/agents/nexus-tamagotchi/types.ts
   - src/agents/nexus-tamagotchi/data/
   - src/agents/nexus-tamagotchi/progression.ts
+  - src/agents/nexus-tamagotchi/integration-router.ts
+  - src/agents/nexus-tamagotchi/srs.ts
   - src/agents/nexus-tamagotchi/audit.ts
   - src/agents/nexus-tamagotchi/council.ts
   - src/agents/nexus-tamagotchi/index.ts

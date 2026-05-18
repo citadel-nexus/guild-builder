@@ -32,6 +32,8 @@ Implemented:
 - 6-skill-tree registry (`data/skills.ts`)
 - Reflex pattern library (`data/reflexes.ts`)
 - MCP progression sheet + tool registry (`progression.ts`)
+- Citadel integration router foundation (`integration-router.ts`)
+- SRS declarations + operational validator (`srs.ts`)
 - SHA-256 guardian audit chain (`audit.ts`)
 - Constitutional council stub pipeline (`council.ts`)
 - Auto-start entrypoint (`maybeStartNexusTamagotchi`)
@@ -153,10 +155,38 @@ Hashing uses `node:crypto` SHA-256 and validates chain integrity end-to-end.
 - capability registry (`CAPABILITIES`)
 - tool registry (`TOOL_REGISTRY`)
 - completion summary
+- overall progress summary (`getOverallProgress`)
 - category completion breakdown
 - authority-filtered tool discovery
+- cognitive frame capture (`captureCognitiveFrame`)
+- MCP manifest export (`exportMcpManifest`)
 
 This keeps Stage 1 aligned with larger multi-stage build-out tracking.
+
+## Citadel integration router foundation
+
+`CitadelIntegrationRouter` provides a public-safe integration gateway contract:
+
+- token discovery from environment
+- per-service availability checks
+- per-service rate limit buckets
+- policy gate hook support (`setPolicyContext`)
+- uniform async route contract (`route`)
+- stats reporting (`getStats`)
+
+Stage 1.6 implementation intentionally keeps dispatch behavior stubbed and does not call private or tenant-bound endpoints.
+
+## SRS declarations and operational validator
+
+`srs.ts` provides:
+
+- grouped SRS requirement registries
+- combined `SRS_REGISTRY`
+- `validateSrsCoverage(implementedCodes)`
+- `getSrsSummary()`
+- `OperationalSRSValidator` with executable requirement checks and compliance formatting
+
+This mirrors the declarative + operational compliance pattern from the source Python system while remaining public-repo safe.
 
 ## NATS subject catalog
 
