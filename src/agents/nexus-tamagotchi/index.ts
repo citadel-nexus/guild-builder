@@ -139,7 +139,15 @@ export {
 
 export * from './audit.js';
 export * from './council.js';
+export * from './diagnostics.js';
+export * from './gamification.js';
 export * from './integration-router.js';
+export * from './integrations-manager.js';
+export * from './memory.js';
+export * from './models.js';
+export * from './professor-network.js';
 export * from './progression.js';
+export * from './secure-key-vault.js';
 export * from './srs.js';
 export * from './types.js';
+export * from './web-enrichment.js';

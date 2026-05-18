@@ -1,6 +1,10 @@
 import { randomUUID } from 'node:crypto';
 
 import { GuardianAuditTrail } from './audit.js';
+import {
+  CouncilPipelineVerdict,
+  GovernanceDecision,
+} from './models.js';
 import { AUTHORITY_ORDER, type AuthorityTier } from './types.js';
 import type {
   AuditEntry,
@@ -146,5 +150,74 @@ export class ConstitutionalCouncil {
     const auditEntry = this.auditTrail.append('council.decision', actor, detail, timestamp);
     decision.hashChain = auditEntry.hash;
     return decision;
+  }
+}
+
+export class CouncilSystem {
+  private readonly decisions: GovernanceDecision[] = [];
+  private lastHash = '';
+  private decisionCount = 0;
+
+  compileDecision(decision: GovernanceDecision): {
+    verdict: CouncilPipelineVerdict;
+    confidence: number;
+    hash: string;
+    timestamp: string;
+  } {
+    decision.verdict = this.stageS00Intake(decision);
+    decision.verdict = this.stageS01PolicyMatch(decision);
+    decision.verdict = this.stageS02RiskAssess(decision);
+    decision.verdict = this.stageS03Verdict(decision);
+
+    decision.hashChain = decision.computeHash(this.lastHash);
+    this.lastHash = decision.hashChain;
+
+    this.decisions.push(decision);
+    this.decisionCount += 1;
+
+    return {
+      verdict: decision.verdict,
+      confidence: decision.confidence,
+      hash: decision.hashChain,
+      timestamp: decision.timestamp,
+    };
+  }
+
+  getDecisionCount(): number {
+    return this.decisionCount;
+  }
+
+  getLastHash(): string {
+    return this.lastHash;
+  }
+
+  getDecisions(): GovernanceDecision[] {
+    return this.decisions.map((decision) => new GovernanceDecision(decision.toDict()));
+  }
+
+  private stageS00Intake(_decision: GovernanceDecision): CouncilPipelineVerdict {
+    return CouncilPipelineVerdict.REVIEW;
+  }
+
+  private stageS01PolicyMatch(decision: GovernanceDecision): CouncilPipelineVerdict {
+    if (decision.decisionType.toLowerCase().includes('deployment')) {
+      decision.confidence = 0.9;
+      return CouncilPipelineVerdict.REVIEW;
+    }
+    return CouncilPipelineVerdict.ALLOW;
+  }
+
+  private stageS02RiskAssess(decision: GovernanceDecision): CouncilPipelineVerdict {
+    const riskLevel = decision.context.risk_level;
+    if (riskLevel === 'HIGH') {
+      decision.confidence = 0.7;
+      return CouncilPipelineVerdict.REVIEW;
+    }
+    return CouncilPipelineVerdict.ALLOW;
+  }
+
+  private stageS03Verdict(decision: GovernanceDecision): CouncilPipelineVerdict {
+    decision.confidence = Math.min(0.99, decision.confidence + 0.1);
+    return decision.verdict;
   }
 }

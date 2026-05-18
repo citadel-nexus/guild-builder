@@ -77,5 +77,11 @@ describe('SRS registry and validator', () => {
     const critical = validator.validateCritical();
     expect(critical.allPassed).toBe(false);
     expect(critical.failedCodes.length).toBeGreaterThan(0);
+
+    const compliance = validator.getComplianceJson();
+    expect(compliance.totalRequirements).toBe(Object.keys(results).length);
+    expect(compliance.passed).toBeGreaterThan(0);
+    expect(compliance.failed).toBeGreaterThan(0);
+    expect(compliance.results.length).toBe(Object.keys(results).length);
   });
 });

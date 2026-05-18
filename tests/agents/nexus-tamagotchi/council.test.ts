@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
-import { ConstitutionalCouncil } from '../../../src/agents/nexus-tamagotchi/council.js';
+import {
+  ConstitutionalCouncil,
+  CouncilSystem,
+} from '../../../src/agents/nexus-tamagotchi/council.js';
+import {
+  CouncilPipelineVerdict,
+  GovernanceDecision,
+} from '../../../src/agents/nexus-tamagotchi/models.js';
 
 describe('ConstitutionalCouncil', () => {
   it('approves valid actions through S03 in the public stub pipeline', () => {
@@ -49,5 +56,21 @@ describe('ConstitutionalCouncil', () => {
     expect(decision.stage).toBe('S02');
     expect(decision.verdict).toBe('denied');
     expect(council.getAuditTrail().length).toBeGreaterThan(0);
+  });
+
+  it('compiles governance decisions through the council system pipeline', () => {
+    const system = new CouncilSystem();
+    const decision = new GovernanceDecision({
+      decisionType: 'deployment',
+      context: {
+        risk_level: 'HIGH',
+      },
+      verdict: CouncilPipelineVerdict.REVIEW,
+    });
+
+    const result = system.compileDecision(decision);
+    expect(result.hash.length).toBe(64);
+    expect(result.verdict).toBe(CouncilPipelineVerdict.REVIEW);
+    expect(system.getDecisionCount()).toBe(1);
   });
 });

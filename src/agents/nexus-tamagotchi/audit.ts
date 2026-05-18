@@ -95,4 +95,10 @@ export class GuardianAuditTrail {
   getEntries(): readonly AuditEntry[] {
     return [...this.entries];
   }
+
+  recordEvent(eventType: string, data: Record<string, unknown>): string {
+    const detail = JSON.stringify(data);
+    const entry = this.append(eventType, 'system', detail);
+    return entry.hash;
+  }
 }

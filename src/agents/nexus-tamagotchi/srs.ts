@@ -263,6 +263,22 @@ export type SrsValidationResult = {
   implementingSection?: string;
 };
 
+export type ComplianceJsonReport = {
+  timestamp: string;
+  totalRequirements: number;
+  passed: number;
+  failed: number;
+  compliancePercentage: number;
+  results: Array<{
+    code: string;
+    title: string;
+    category: string;
+    satisfied: boolean;
+    evidence: string;
+    section?: string;
+  }>;
+};
+
 type SrsSpec = {
   spec: string;
   verifier: string;
@@ -451,6 +467,33 @@ export class OperationalSRSValidator {
 
   getResults(): SrsValidationResult[] {
     return this.results.map((result) => ({ ...result }));
+  }
+
+  getComplianceJson(): ComplianceJsonReport {
+    if (this.results.length === 0) {
+      this.validateAll();
+    }
+
+    const passed = this.results.filter((result) => result.satisfied).length;
+    const failed = this.results.length - passed;
+    const compliancePercentage =
+      this.results.length === 0 ? 0 : (passed / this.results.length) * 100;
+
+    return {
+      timestamp: this.validationTimestamp,
+      totalRequirements: this.results.length,
+      passed,
+      failed,
+      compliancePercentage,
+      results: this.results.map((result) => ({
+        code: result.code,
+        title: result.title,
+        category: result.category,
+        satisfied: result.satisfied,
+        evidence: result.evidence,
+        section: result.implementingSection,
+      })),
+    };
   }
 
   formatComplianceReport(): string {
