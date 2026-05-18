@@ -1,0 +1,37 @@
+# SAKE module stub — OBSERVABILITY-BRIDGE-001
+#
+# Datadog observability bridge for Builder Guild. Connects Datadog API
+# signals to NATS subjects so other guild agents can react in real time.
+
+module: datadog-bridge
+guild: builder
+srs:
+  - SRS-DATADOG-BRIDGE-001
+dispatch: OBSERVABILITY-BRIDGE-001
+phase: '1'
+owns:
+  - src/agents/datadog-bridge/types.ts
+  - src/agents/datadog-bridge/client.ts
+  - src/agents/datadog-bridge/monitor-watcher.ts
+  - src/agents/datadog-bridge/command-handler.ts
+  - src/agents/datadog-bridge/index.ts
+nats:
+  inbound:
+    - subject_env: DATADOG_NATS_PREFIX
+      description: |
+        Subscribes to ${DATADOG_NATS_PREFIX}.command.> for Datadog command
+        requests from other guild agents and services.
+  outbound:
+    - subject_env: DATADOG_NATS_PREFIX
+      description: |
+        Publishes monitor transitions to
+        ${DATADOG_NATS_PREFIX}.monitor.<alert|warn|ok|nodata> and heartbeat
+        events to ${DATADOG_NATS_PREFIX}.heartbeat.
+    - subject_env: DATADOG_NATS_PREFIX
+      description: |
+        Publishes command results to replySubject when provided, otherwise to
+        ${DATADOG_NATS_PREFIX}.result.<requestId>.
+public_contract: true
+notes: |
+  Uses only built-in Node.js fetch and the existing nats dependency.
+  Datadog credentials and endpoint site are fully environment-driven.

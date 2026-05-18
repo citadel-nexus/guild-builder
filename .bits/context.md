@@ -19,6 +19,8 @@ and tell the operator — that work belongs on GitLab, not here.
 
 - **Active SRS:** `SRS-PROVISION-ORCHESTRATOR-001` — complete, merged in
   PR #6 (`tenant-provision-orchestrator-types` → `main`).
+- **Active SRS:** `SRS-DATADOG-BRIDGE-001` — in progress under dispatch
+  `OBSERVABILITY-BRIDGE-001` (Datadog NATS observability bridge module).
 - **Parent dispatch:** `TENANT-PROVISION-FABRIC-001` (§6 — orchestrator
   spine = this repo's surface).
 - **Repo state:** spine + 9-stage stub registry + NATS bridge + auto-start

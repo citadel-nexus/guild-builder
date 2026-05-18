@@ -60,3 +60,38 @@ SRS-PROVISION-ORCHESTRATOR-001:
     src/provision/types.ts. Public PRs against this repo target the spine,
     new stub stages, IdempotencyStore implementations, or alternate
     SubjectFormatters. Vendor implementations DO NOT belong in this repo.
+
+SRS-DATADOG-BRIDGE-001:
+  ep: OBSERVABILITY-BRIDGE-001
+  status: in_progress
+  dispatch: OBSERVABILITY-BRIDGE-001
+  phase: "§1 Datadog NATS Bridge"
+  paths:
+    - src/agents/datadog-bridge/types.ts
+    - src/agents/datadog-bridge/client.ts
+    - src/agents/datadog-bridge/monitor-watcher.ts
+    - src/agents/datadog-bridge/command-handler.ts
+    - src/agents/datadog-bridge/index.ts
+    - src/agents/datadog-bridge/.sake
+  tests:
+    - tests/agents/datadog-bridge/client.test.ts
+    - tests/agents/datadog-bridge/monitor-watcher.test.ts
+    - tests/agents/datadog-bridge/command-handler.test.ts
+  exports:
+    - maybeStartDatadogBridge
+    - DatadogBridgeConfig
+    - DatadogEvent
+    - DatadogCommand
+  env:
+    - DATADOG_BRIDGE
+    - DD_API_KEY
+    - DD_APP_KEY
+    - DD_SITE
+    - DATADOG_NATS_PREFIX
+    - DATADOG_POLL_INTERVAL_MS
+  public_contract: true
+  notes: |
+    NATS↔Datadog observability bridge for the Builder Guild. Polls Datadog
+    monitor statuses and publishes state transitions to NATS. Accepts
+    commands from other agents to query metrics, logs, and services via
+    Datadog API. No runtime dependencies added (uses Node.js built-in fetch).
