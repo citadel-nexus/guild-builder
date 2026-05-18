@@ -63,5 +63,16 @@ describe('ShortTermMemoryBuffer', () => {
 
     const consolidation = buffer.getCandidatesForConsolidation(0.2, 48);
     expect(consolidation.length).toBeGreaterThan(0);
+
+    const stats = buffer.getStats() as {
+      totalEntries: number;
+      entriesWithEmbeddings: number;
+      sources: Record<string, number>;
+      emotions: Record<string, number>;
+    };
+    expect(stats.totalEntries).toBe(2);
+    expect(stats.entriesWithEmbeddings).toBeGreaterThan(0);
+    expect(stats.sources.interaction).toBe(2);
+    expect(stats.emotions.content).toBe(1);
   });
 });

@@ -31,6 +31,10 @@ owns:
   - src/agents/nexus-tamagotchi/distribution.ts
   - src/agents/nexus-tamagotchi/backend-auth.ts
   - src/agents/nexus-tamagotchi/short-term-memory.ts
+  - src/agents/nexus-tamagotchi/long-term-memory.ts
+  - src/agents/nexus-tamagotchi/domain-learning.ts
+  - src/agents/nexus-tamagotchi/context-rehydration.ts
+  - src/agents/nexus-tamagotchi/self-awareness.ts
   - src/agents/nexus-tamagotchi/progression.ts
   - src/agents/nexus-tamagotchi/agent-factory.ts
   - src/agents/nexus-tamagotchi/integration-router.ts

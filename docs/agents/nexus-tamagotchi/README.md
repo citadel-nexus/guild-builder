@@ -55,6 +55,10 @@ Implemented:
 - Distribution planning and service scaffolding contracts (`distribution.ts`)
 - Backend auth, feature-tier gating, and offline sync contracts (`backend-auth.ts`)
 - Short-term memory buffer with semantic search and pruning (`short-term-memory.ts`)
+- FAISS-style vector wrapper and multi-domain long-term memory (`long-term-memory.ts`)
+- Domain learning and recall routing surfaces (`domain-learning.ts`)
+- Session rehydration and context window builders (`context-rehydration.ts`)
+- Self-awareness and integration-health introspection contracts (`self-awareness.ts`)
 - Agent template factory contracts (`agent-factory.ts`)
 - Auto-installation environment scaffolding (`auto-installation.ts`)
 - Secure key vault contract (`secure-key-vault.ts`)
@@ -203,6 +207,10 @@ Stage 1 now includes public-safe runtime engines that mirror source semantics wi
 - `DistributionFramework` (cross-platform service installation planning)
 - `CitadelAuthClient` + `OfflineSyncStrategy` (auth/session/sync foundations)
 - `ShortTermMemoryBuffer` (JSONL-backed STM with semantic retrieval)
+- `AgentFAISSWrapper` + `LongTermMemory` (domain-separated LTM foundations)
+- `DomainLearningEngine` (learning/recall + domain stats)
+- `ContextRehydrator` (session restore + query-time memory aggregation)
+- `SelfAwarenessModule` (integration health + introspection reports)
 - `ZayaraEngagementEngine` (promotion messaging)
 
 All external service behavior remains routed through public stubs.

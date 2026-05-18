@@ -94,6 +94,10 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/distribution.ts
     - src/agents/nexus-tamagotchi/backend-auth.ts
     - src/agents/nexus-tamagotchi/short-term-memory.ts
+    - src/agents/nexus-tamagotchi/long-term-memory.ts
+    - src/agents/nexus-tamagotchi/domain-learning.ts
+    - src/agents/nexus-tamagotchi/context-rehydration.ts
+    - src/agents/nexus-tamagotchi/self-awareness.ts
     - src/agents/nexus-tamagotchi/progression.ts
     - src/agents/nexus-tamagotchi/agent-factory.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
@@ -138,6 +142,10 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/distribution.test.ts
     - tests/agents/nexus-tamagotchi/backend-auth.test.ts
     - tests/agents/nexus-tamagotchi/short-term-memory.test.ts
+    - tests/agents/nexus-tamagotchi/long-term-memory.test.ts
+    - tests/agents/nexus-tamagotchi/domain-learning.test.ts
+    - tests/agents/nexus-tamagotchi/context-rehydration.test.ts
+    - tests/agents/nexus-tamagotchi/self-awareness.test.ts
     - tests/agents/nexus-tamagotchi/agent-factory.test.ts
     - tests/agents/nexus-tamagotchi/auto-installation.test.ts
     - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
@@ -174,6 +182,11 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - CitadelAuthClient
     - OfflineSyncStrategy
     - ShortTermMemoryBuffer
+    - AgentFAISSWrapper
+    - LongTermMemory
+    - DomainLearningEngine
+    - ContextRehydrator
+    - SelfAwarenessModule
     - AgentFactory
     - AutoInstallationSystem
     - MultiChannelBroadcaster

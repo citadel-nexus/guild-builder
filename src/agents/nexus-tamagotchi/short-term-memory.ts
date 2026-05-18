@@ -250,8 +250,25 @@ export class ShortTermMemoryBuffer {
   }
 
   getStats(): Record<string, unknown> {
+    const totalEntries = this.entries.length;
+    const entriesWithEmbeddings = this.entries.filter(
+      (entry) => Array.isArray(entry.embedding) && entry.embedding.length > 0,
+    ).length;
+    const sources: Record<string, number> = {};
+    const emotions: Record<string, number> = {};
+    for (const entry of this.entries) {
+      sources[entry.source] = (sources[entry.source] ?? 0) + 1;
+      emotions[entry.emotion] = (emotions[entry.emotion] ?? 0) + 1;
+    }
+
     return {
-      entries: this.entries.length,
+      totalEntries,
+      entriesWithEmbeddings,
+      maxCapacity: this.maxEntries,
+      usagePercent: this.maxEntries === 0 ? 0 : (totalEntries / this.maxEntries) * 100,
+      sources,
+      emotions,
+      entries: totalEntries,
       storagePath: this.storagePath,
       maxEntries: this.maxEntries,
       pruneToSize: this.pruneToSize,
