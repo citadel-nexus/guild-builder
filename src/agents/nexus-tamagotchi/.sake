@@ -51,6 +51,11 @@ owns:
   - src/agents/nexus-tamagotchi/comprehensive-achievement-system.ts
   - src/agents/nexus-tamagotchi/comprehensive-leaderboard-system.ts
   - src/agents/nexus-tamagotchi/api-integration-layer.ts
+  - src/agents/nexus-tamagotchi/testing-validation-framework.ts
+  - src/agents/nexus-tamagotchi/nlu-engine.ts
+  - src/agents/nexus-tamagotchi/response-pipeline.ts
+  - src/agents/nexus-tamagotchi/oad-dashboard.ts
+  - src/agents/nexus-tamagotchi/z-up-integration.ts
   - src/agents/nexus-tamagotchi/progression.ts
   - src/agents/nexus-tamagotchi/agent-factory.ts
   - src/agents/nexus-tamagotchi/integration-router.ts

@@ -75,6 +75,11 @@ Implemented:
 - Achievement and badge progression runtime (`comprehensive-achievement-system.ts`)
 - Multi-metric leaderboard and competition runtime (`comprehensive-leaderboard-system.ts`)
 - API client + webhook integration layer (`api-integration-layer.ts`)
+- Testing/validation harness with schema and assertion tooling (`testing-validation-framework.ts`)
+- Natural language understanding pipeline (`nlu-engine.ts`)
+- Response formatting and templating pipeline (`response-pipeline.ts`)
+- Operator access dashboard runtime (`oad-dashboard.ts`)
+- CAPS/Z_UP metadata, reflex, and rehydration primitives (`z-up-integration.ts`)
 - Agent template factory contracts (`agent-factory.ts`)
 - Auto-installation environment scaffolding (`auto-installation.ts`)
 - Secure key vault contract (`secure-key-vault.ts`)
@@ -243,6 +248,11 @@ Stage 1 now includes public-safe runtime engines that mirror source semantics wi
 - `ComprehensiveAchievementSystem` (criteria-driven badges with rarity rewards)
 - `ComprehensiveLeaderboardSystem` (global + competition ranking surfaces)
 - `APIIntegrationLayer` (retry/rate-limit/circuit-breaker integration clients)
+- `TestRunner` + `DataValidator` + `SchemaValidator` (testing/validation framework)
+- `NLUPipeline` (intent/entity/sentiment/language/topic analysis)
+- `ResponsePipeline` + `ResponseTemplateEngine` (response formatting orchestration)
+- `OADServer` + `launchOAD` (operator dashboard rendering/runtime)
+- `ZUpIntegrationRuntime` (CAPS metadata/reflex/context/rehydration surfaces)
 - `ZayaraEngagementEngine` (promotion messaging)
 
 All external service behavior remains routed through public stubs.
