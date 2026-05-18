@@ -119,6 +119,8 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/response-pipeline.ts
     - src/agents/nexus-tamagotchi/oad-dashboard.ts
     - src/agents/nexus-tamagotchi/z-up-integration.ts
+    - src/agents/nexus-tamagotchi/mira-memory-engine.ts
+    - src/agents/nexus-tamagotchi/ags-cognition-engine.ts
     - src/agents/nexus-tamagotchi/progression.ts
     - src/agents/nexus-tamagotchi/agent-factory.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
@@ -188,6 +190,8 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/response-pipeline.test.ts
     - tests/agents/nexus-tamagotchi/oad-dashboard.test.ts
     - tests/agents/nexus-tamagotchi/z-up-integration.test.ts
+    - tests/agents/nexus-tamagotchi/mira-memory-engine.test.ts
+    - tests/agents/nexus-tamagotchi/ags-cognition-engine.test.ts
     - tests/agents/nexus-tamagotchi/agent-factory.test.ts
     - tests/agents/nexus-tamagotchi/auto-installation.test.ts
     - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
@@ -256,6 +260,29 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - ResponsePipeline
     - OADServer
     - ZUpIntegrationRuntime
+    - MiraMemorySystem
+    - MiraSTMBuffer
+    - MiraLTMManager
+    - MiraContextRehydrator
+    - MiraSelfAwarenessModule
+    - MiraMemoryAssociationNetwork
+    - MiraMemoryConsolidationScheduler
+    - MiraMemoryAnalyticsEngine
+    - AGSSystem
+    - AGSSystemFactory
+    - AGSPipeline
+    - SapientPacket
+    - SapientPacketFactory
+    - AGSIngressStage
+    - AGSGovernorStage
+    - AGSCouncilStage
+    - AGSExecutorStage
+    - AGSEgressStage
+    - AGSOutcomeTracker
+    - AGSLearningLoop
+    - AGSAnalytics
+    - AGSIntegrationRegistry
+    - AGSIntegrationOrchestrator
     - AgentFactory
     - AutoInstallationSystem
     - MultiChannelBroadcaster

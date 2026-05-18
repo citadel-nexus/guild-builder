@@ -80,6 +80,8 @@ Implemented:
 - Response formatting and templating pipeline (`response-pipeline.ts`)
 - Operator access dashboard runtime (`oad-dashboard.ts`)
 - CAPS/Z_UP metadata, reflex, and rehydration primitives (`z-up-integration.ts`)
+- Mira memory architecture (STM/LTM, attention, retention, consolidation, learning, introspection) (`mira-memory-engine.ts`)
+- AGS cognition engine (sapient packets, 5-stage pipeline, 15-agent council debate, outcomes, learning loop, governance analytics, integration orchestration) (`ags-cognition-engine.ts`)
 - Agent template factory contracts (`agent-factory.ts`)
 - Auto-installation environment scaffolding (`auto-installation.ts`)
 - Secure key vault contract (`secure-key-vault.ts`)
@@ -88,10 +90,8 @@ Implemented:
 
 Deferred to future stages:
 
-- live Mira-compatible memory orchestration,
-- deep cognitive architecture runtime loops,
 - full NATS command/event bus behavior,
-- external integration implementations.
+- production-grade external integration implementations.
 
 ## Gamification economy model
 
@@ -253,6 +253,9 @@ Stage 1 now includes public-safe runtime engines that mirror source semantics wi
 - `ResponsePipeline` + `ResponseTemplateEngine` (response formatting orchestration)
 - `OADServer` + `launchOAD` (operator dashboard rendering/runtime)
 - `ZUpIntegrationRuntime` (CAPS metadata/reflex/context/rehydration surfaces)
+- `MiraMemorySystem` + `MiraContextRehydrator` + `MiraSelfAwarenessModule` (Mira STM/LTM + memory introspection loop)
+- `AGSSystem` + `AGSPipeline` + `AGSCouncilDebateEngine` (Sapient Packet processing and governance deliberation)
+- `AGSIntegrationRegistry` + `AGSIntegrationOrchestrator` (integration health and multi-step orchestration)
 - `ZayaraEngagementEngine` (promotion messaging)
 
 All external service behavior remains routed through public stubs.

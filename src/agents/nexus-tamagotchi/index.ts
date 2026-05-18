@@ -657,6 +657,7 @@ export {
 export * from './audit.js';
 export * from './agent-factory.js';
 export * from './analytics-automation.js';
+export * from './ags-cognition-engine.js';
 export * from './advanced-quest-engine.js';
 export * from './api-integration-layer.js';
 export * from './auto-installation.js';
@@ -685,6 +686,7 @@ export * from './leaderboard.js';
 export * from './lingo.js';
 export * from './memory.js';
 export * from './memory-graph.js';
+export * from './mira-memory-engine.js';
 export * from './missions.js';
 export * from './models.js';
 export * from './multi-channel-broadcast.js';
