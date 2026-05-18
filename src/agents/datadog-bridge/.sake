@@ -1,0 +1,29 @@
+# SAKE module stub — SRS-DATADOG-BRIDGE-001
+#
+# Datadog Bridge exports a NATS-connected observability gateway for
+# monitor events, security posture, LLM metrics, automation commands,
+# and integration forwarding.
+
+module: datadog-bridge
+guild: builder
+srs:
+  - SRS-DATADOG-BRIDGE-001
+dispatch: TENANT-PROVISION-FABRIC-001
+phase: '6'
+owns:
+  - src/agents/datadog-bridge/
+nats:
+  inbound:
+    - subject_env: DATADOG_NATS_PREFIX
+      description: |
+        Root subject prefix for Datadog bridge command, automation, and
+        integration ingress subjects.
+  outbound:
+    - subject_env: DATADOG_NATS_PREFIX
+      description: |
+        Root subject prefix for Datadog bridge monitor, security, LLM,
+        posture, and heartbeat events.
+public_contract: true
+notes: |
+  API keys stay inside the bridge process. Other services interact through
+  NATS subjects only. All Datadog endpoint hosts are derived from DD_SITE.
