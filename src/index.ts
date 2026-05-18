@@ -1,4 +1,5 @@
 import GuildClient from './guild-client.js';
+import { maybeStartDatadogBridge } from './agents/datadog-bridge/auto-start.js';
 import { maybeStartProvisionBridge } from './provision/auto-start.js';
 
 const guild = new GuildClient({
@@ -25,4 +26,17 @@ void maybeStartProvisionBridge()
   .catch((err: unknown) => {
     const message = err instanceof Error ? err.message : String(err);
     console.warn(`[builder] provision orchestrator failed to start: ${message}`);
+  });
+
+void maybeStartDatadogBridge()
+  .then((result) => {
+    if (result.started) {
+      console.log('[builder] datadog bridge started');
+    } else if (result.reason && result.reason !== 'DATADOG_BRIDGE != on') {
+      console.warn(`[builder] datadog bridge skipped: ${result.reason}`);
+    }
+  })
+  .catch((err: unknown) => {
+    const message = err instanceof Error ? err.message : String(err);
+    console.warn(`[builder] datadog bridge failed to start: ${message}`);
   });
