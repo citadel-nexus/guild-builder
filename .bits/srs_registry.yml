@@ -104,6 +104,12 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/analytics-automation.ts
     - src/agents/nexus-tamagotchi/cognitive-integration.ts
     - src/agents/nexus-tamagotchi/extended-knowledge-graph.ts
+    - src/agents/nexus-tamagotchi/conversation-flow.ts
+    - src/agents/nexus-tamagotchi/notification-system.ts
+    - src/agents/nexus-tamagotchi/event-logging.ts
+    - src/agents/nexus-tamagotchi/configuration-manager.ts
+    - src/agents/nexus-tamagotchi/advanced-quest-engine.ts
+    - src/agents/nexus-tamagotchi/extended-professor-network.ts
     - src/agents/nexus-tamagotchi/progression.ts
     - src/agents/nexus-tamagotchi/agent-factory.ts
     - src/agents/nexus-tamagotchi/integration-router.ts
@@ -158,6 +164,12 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/analytics-automation.test.ts
     - tests/agents/nexus-tamagotchi/cognitive-integration.test.ts
     - tests/agents/nexus-tamagotchi/extended-knowledge-graph.test.ts
+    - tests/agents/nexus-tamagotchi/conversation-flow.test.ts
+    - tests/agents/nexus-tamagotchi/notification-system.test.ts
+    - tests/agents/nexus-tamagotchi/event-logging.test.ts
+    - tests/agents/nexus-tamagotchi/configuration-manager.test.ts
+    - tests/agents/nexus-tamagotchi/advanced-quest-engine.test.ts
+    - tests/agents/nexus-tamagotchi/extended-professor-network.test.ts
     - tests/agents/nexus-tamagotchi/agent-factory.test.ts
     - tests/agents/nexus-tamagotchi/auto-installation.test.ts
     - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
@@ -207,6 +219,13 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - AutomationEngine
     - integrateCognitiveSystems
     - KnowledgeGraph
+    - ConversationFlowManager
+    - NotificationManager
+    - EventLogger
+    - ConfigurationManager
+    - QuestEngine
+    - MissionGenerator
+    - ExtendedProfessorNetwork
     - AgentFactory
     - AutoInstallationSystem
     - MultiChannelBroadcaster

@@ -41,6 +41,12 @@ owns:
   - src/agents/nexus-tamagotchi/analytics-automation.ts
   - src/agents/nexus-tamagotchi/cognitive-integration.ts
   - src/agents/nexus-tamagotchi/extended-knowledge-graph.ts
+  - src/agents/nexus-tamagotchi/conversation-flow.ts
+  - src/agents/nexus-tamagotchi/notification-system.ts
+  - src/agents/nexus-tamagotchi/event-logging.ts
+  - src/agents/nexus-tamagotchi/configuration-manager.ts
+  - src/agents/nexus-tamagotchi/advanced-quest-engine.ts
+  - src/agents/nexus-tamagotchi/extended-professor-network.ts
   - src/agents/nexus-tamagotchi/progression.ts
   - src/agents/nexus-tamagotchi/agent-factory.ts
   - src/agents/nexus-tamagotchi/integration-router.ts

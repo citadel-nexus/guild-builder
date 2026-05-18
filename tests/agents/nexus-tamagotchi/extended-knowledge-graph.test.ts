@@ -65,4 +65,47 @@ describe("extended-knowledge-graph", () => {
     expect(snapshot.relationships.length).toBe(1);
     expect(snapshot.clusters.length).toBe(1);
   });
+
+  it("supports pathing, related concepts, and typed stats", () => {
+    const graph = new KnowledgeGraph();
+
+    graph.addRelationshipByName("deployment", "rollback", {
+      relationshipType: "depends_on",
+      strength: 0.9,
+      bidirectional: false,
+    });
+    graph.addRelationshipByName("rollback", "incident", {
+      relationshipType: "mitigates",
+      strength: 0.8,
+      bidirectional: false,
+    });
+
+    const path = graph.findPath("deployment", "incident");
+    expect(path).toBeDefined();
+    expect(path?.pathNodes.length).toBe(3);
+    expect(path?.relationshipTypes).toEqual(["depends_on", "mitigates"]);
+
+    const related = graph.getRelatedConcepts("deployment", 2, 0.1);
+    expect(related.length).toBeGreaterThan(0);
+    expect(related[0][0].name).toBe("rollback");
+
+    const typeEntities = graph.getEntitiesByType("concept");
+    expect(typeEntities.length).toBe(3);
+
+    const stats = graph.getStats();
+    expect(stats.totalEntities).toBe(3);
+    expect(stats.totalRelationships).toBe(2);
+    expect(stats.entityTypes.concept).toBe(3);
+  });
+
+  it("extracts entities from capitalized words", () => {
+    const graph = new KnowledgeGraph();
+    const entities = graph.extractEntitiesFromText(
+      "we reviewed Datadog Incident Commander workflows",
+    );
+    const names = entities.map((entity) => entity.name);
+    expect(names).toContain("Datadog");
+    expect(names).toContain("Incident");
+    expect(names).toContain("Commander");
+  });
 });
