@@ -2,13 +2,21 @@ import { connect, type NatsConnection, type Subscription } from 'nats';
 
 import { DatadogApiClient } from './client.js';
 import { DatadogCommandHandler } from './command-handler.js';
+import { CompositePublisher } from './integrations/composite-publisher.js';
+import { CustomerIoOutboundPublisher } from './integrations/customerio-outbound.js';
+import { PostHogOutboundPublisher } from './integrations/posthog-outbound.js';
 import { DatadogMonitorWatcher } from './monitor-watcher.js';
+import { makeDatadogBridgeSubjects } from './subjects.js';
 import type {
+  CustomerIoOutboundConfig,
   DatadogBridgeConfig,
   DatadogNatsClient,
   DatadogNatsMessage,
   DatadogNatsSubscription,
+  OutboundPublisher,
+  PostHogOutboundConfig,
 } from './types.js';
+import { DatadogMonitorReactor } from './watchers/monitor-reactor.js';
 
 const DEFAULT_SUBJECT_PREFIX = 'citadel.builder.datadog';
 const DEFAULT_SITE = 'us5.datadoghq.com';
@@ -100,6 +108,39 @@ function toNatsClient(nc: NatsConnection): DatadogNatsClient {
   };
 }
 
+function isEnabled(rawValue: string | undefined): boolean {
+  return (rawValue ?? '').toLowerCase() === 'on';
+}
+
+function makePostHogPublisher(env: NodeJS.ProcessEnv): OutboundPublisher | null {
+  const apiKey = env.POSTHOG_API_KEY;
+  const host = env.POSTHOG_HOST;
+  if (!apiKey || !host) {
+    return null;
+  }
+  const config: PostHogOutboundConfig = {
+    apiKey,
+    host,
+    distinctIdPrefix: env.POSTHOG_DISTINCT_ID_PREFIX,
+  };
+  return new PostHogOutboundPublisher(config);
+}
+
+function makeCustomerIoPublisher(env: NodeJS.ProcessEnv): OutboundPublisher | null {
+  const siteId = env.CUSTOMERIO_SITE_ID;
+  const trackApiKey = env.CUSTOMERIO_TRACK_API_KEY;
+  if (!siteId || !trackApiKey) {
+    return null;
+  }
+  const regionRaw = (env.CUSTOMERIO_REGION ?? 'us').toLowerCase();
+  const config: CustomerIoOutboundConfig = {
+    siteId,
+    trackApiKey,
+    region: regionRaw === 'eu' ? 'eu' : 'us',
+  };
+  return new CustomerIoOutboundPublisher(config);
+}
+
 export async function startDatadogBridge(
   config: DatadogBridgeConfig,
   env: NodeJS.ProcessEnv = process.env,
@@ -126,9 +167,33 @@ export async function startDatadogBridge(
   await monitorWatcher.start();
   await commandHandler.start();
 
+  let reactor: DatadogMonitorReactor | null = null;
+  if (isEnabled(env.DATADOG_OUTBOUND_ENABLED)) {
+    const publishers: OutboundPublisher[] = [];
+    const posthog = makePostHogPublisher(env);
+    const customerio = makeCustomerIoPublisher(env);
+    if (posthog) {
+      publishers.push(posthog);
+    }
+    if (customerio) {
+      publishers.push(customerio);
+    }
+    if (publishers.length > 0) {
+      reactor = new DatadogMonitorReactor({
+        natsClient,
+        subjectPrefix: config.subjectPrefix,
+        publisher: publishers.length === 1 ? publishers[0] : new CompositePublisher(publishers),
+      });
+      await reactor.start();
+    }
+  }
+
   return {
     started: true,
     stop: async () => {
+      if (reactor) {
+        await reactor.stop();
+      }
       await commandHandler.stop();
       await monitorWatcher.stop();
       await nc.drain();
@@ -139,7 +204,7 @@ export async function startDatadogBridge(
 export async function maybeStartDatadogBridge(
   env: NodeJS.ProcessEnv = process.env,
 ): Promise<DatadogBridgeStartResult> {
-  if ((env.DATADOG_BRIDGE ?? '').toLowerCase() !== 'on') {
+  if (!isEnabled(env.DATADOG_BRIDGE)) {
     return { started: false, reason: 'DATADOG_BRIDGE != on' };
   }
 
@@ -151,11 +216,16 @@ export async function maybeStartDatadogBridge(
   return startDatadogBridge(configResult.config, env);
 }
 
+export { makeDatadogBridgeSubjects } from './subjects.js';
+
 export type {
+  CustomerIoOutboundConfig,
   DatadogBridgeConfig,
   DatadogCommand,
   DatadogCommandResult,
   DatadogEvent,
   DatadogEventKind,
   DatadogSeverity,
+  OutboundPublisher,
+  PostHogOutboundConfig,
 } from './types.js';
