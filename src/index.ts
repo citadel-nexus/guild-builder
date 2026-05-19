@@ -1,5 +1,6 @@
 import GuildClient from './guild-client.js';
 import { maybeStartDatadogBridge } from './agents/datadog-bridge/auto-start.js';
+import { maybeStartNexusTamagotchi } from './agents/nexus-tamagotchi/index.js';
 
 import { maybeStartNexusTamagotchi } from './agents/nexus-tamagotchi/index.js';
 

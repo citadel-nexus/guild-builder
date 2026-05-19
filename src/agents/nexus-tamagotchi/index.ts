@@ -713,6 +713,9 @@ export * from './types.js';
 export * from './ui-system.js';
 export * from './web-enrichment.js';
 export * from './workshop.js';
+
+export * from './z-up-integration.js';
+
 export * from './z-up-integration.js';
 export {
   Quest,
@@ -720,3 +723,4 @@ export {
   QuestStatus,
   QuestType,
 } from './advanced-quest-engine.js';
+

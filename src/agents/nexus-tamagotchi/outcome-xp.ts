@@ -30,6 +30,7 @@ export class OutcomeXPEngine {
     baseXp: number,
     context: Record<string, unknown> = {},
   ): OutcomeScore {
+    const signals = {
     const signals: Record<string, number> = {
       response_quality: readNumber(context, 'coherence', 0.5),
       engagement_time: readNumber(context, 'session_duration', 0.5),

@@ -221,6 +221,18 @@ export type AutomationRule = {
 
 type AutomationAgentSurfaces = {
   stm?: {
+dd/bits/srs-nexus-tamagotchi-001-stage1
+    getCandidatesForConsolidation?: () => unknown[];
+  };
+  ltm?: {
+    consolidateFromStm?: (entries: unknown[]) => unknown;
+  };
+  workshopIntegration?: {
+    syncToWorkshop?: () => Promise<unknown> | unknown;
+  };
+  broadcastIntegrations?: {
+    broadcast?: (channel: string, payload: string) => Promise<void> | void;
+
     getCandidatesForConsolidation?(): unknown[];
   };
   ltm?: {
@@ -230,7 +242,7 @@ type AutomationAgentSurfaces = {
     syncToWorkshop?(): Promise<unknown> | unknown;
   };
   broadcastIntegrations?: {
-    broadcast?(channel: string, payload: string): Promise<void> | void;
+
   };
 };
 

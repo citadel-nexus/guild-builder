@@ -172,6 +172,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/missions.ts
     - src/agents/nexus-tamagotchi/quests.ts
     - src/agents/nexus-tamagotchi/outcome-xp.ts
+
     - src/agents/nexus-tamagotchi/leaderboard.ts
     - src/agents/nexus-tamagotchi/badge-system.ts
     - src/agents/nexus-tamagotchi/insight.ts
@@ -186,6 +187,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/domain-learning.ts
     - src/agents/nexus-tamagotchi/context-rehydration.ts
     - src/agents/nexus-tamagotchi/self-awareness.ts
+
     - src/agents/nexus-tamagotchi/memory-graph.ts
     - src/agents/nexus-tamagotchi/ui-system.ts
     - src/agents/nexus-tamagotchi/workshop.ts
@@ -240,6 +242,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/missions.test.ts
     - tests/agents/nexus-tamagotchi/quests.test.ts
     - tests/agents/nexus-tamagotchi/outcome-xp.test.ts
+
     - tests/agents/nexus-tamagotchi/leaderboard.test.ts
     - tests/agents/nexus-tamagotchi/badge-system.test.ts
     - tests/agents/nexus-tamagotchi/insight.test.ts
@@ -255,6 +258,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/domain-learning.test.ts
     - tests/agents/nexus-tamagotchi/context-rehydration.test.ts
     - tests/agents/nexus-tamagotchi/self-awareness.test.ts
+
     - tests/agents/nexus-tamagotchi/memory-graph.test.ts
     - tests/agents/nexus-tamagotchi/ui-system.test.ts
     - tests/agents/nexus-tamagotchi/workshop.test.ts
@@ -301,6 +305,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - MissionEngine
     - QuestSystem
     - OutcomeXPEngine
+
     - LeaderboardSystem
     - BadgeSystem
     - InsightEngine
@@ -317,6 +322,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - DomainLearningEngine
     - ContextRehydrator
     - SelfAwarenessModule
+
     - MemoryGraphRenderer
     - ResponseLengthConfig
     - AgentChatServer
@@ -366,4 +372,3 @@ SRS-NEXUS-TAMAGOTCHI-001:
 
     CGRF: All vendor implementations are stubs. No secrets, no private imports.
     Real implementations live in CNWB on private GitLab.
-
