@@ -256,11 +256,7 @@ export class AutomationEngine implements Watcher {
     handler: (payload: Record<string, unknown>) => Promise<Record<string, unknown>>,
   ): Promise<void> {
     const timestamp = this.options.now().toISOString();
- dd/bits/srs-nexus-tamagotchi-001-stage1-KQK42j
     let requestId: string = randomUUID();
-
-    let requestId = randomUUID();
-dd/bits/srs-nexus-tamagotchi-001-stage1
     let replySubject: string | undefined;
 
     try {
