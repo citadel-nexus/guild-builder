@@ -148,6 +148,7 @@ SRS-VAULT-CLIENT-001:
     are fetched from Vault at agent boot. This is the public spine —
     vault key names and tenant mappings live in CNWB.
 
+
 SRS-NEXUS-TAMAGOTCHI-001:
   ep: AGENT-TAMAGOTCHI-001
   status: in_progress
@@ -365,3 +366,4 @@ SRS-NEXUS-TAMAGOTCHI-001:
 
     CGRF: All vendor implementations are stubs. No secrets, no private imports.
     Real implementations live in CNWB on private GitLab.
+
