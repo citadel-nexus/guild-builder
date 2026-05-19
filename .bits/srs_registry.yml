@@ -186,6 +186,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/domain-learning.ts
     - src/agents/nexus-tamagotchi/context-rehydration.ts
     - src/agents/nexus-tamagotchi/self-awareness.ts
+    - src/agents/nexus-tamagotchi/self-model.ts
     - src/agents/nexus-tamagotchi/memory-graph.ts
     - src/agents/nexus-tamagotchi/ui-system.ts
     - src/agents/nexus-tamagotchi/workshop.ts
@@ -256,6 +257,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/domain-learning.test.ts
     - tests/agents/nexus-tamagotchi/context-rehydration.test.ts
     - tests/agents/nexus-tamagotchi/self-awareness.test.ts
+    - tests/agents/nexus-tamagotchi/self-model.test.ts
     - tests/agents/nexus-tamagotchi/memory-graph.test.ts
     - tests/agents/nexus-tamagotchi/ui-system.test.ts
     - tests/agents/nexus-tamagotchi/workshop.test.ts
@@ -321,6 +323,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - DomainLearningEngine
     - ContextRehydrator
     - SelfAwarenessModule
+    - SelfModelSystem
     - MemoryGraphRenderer
     - ResponseLengthConfig
     - AgentChatServer
