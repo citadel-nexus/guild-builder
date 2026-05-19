@@ -171,6 +171,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/missions.ts
     - src/agents/nexus-tamagotchi/quests.ts
     - src/agents/nexus-tamagotchi/outcome-xp.ts
+    - src/agents/nexus-tamagotchi/outcome-signals.ts
     - src/agents/nexus-tamagotchi/leaderboard.ts
     - src/agents/nexus-tamagotchi/badge-system.ts
     - src/agents/nexus-tamagotchi/insight.ts
@@ -239,6 +240,7 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/missions.test.ts
     - tests/agents/nexus-tamagotchi/quests.test.ts
     - tests/agents/nexus-tamagotchi/outcome-xp.test.ts
+    - tests/agents/nexus-tamagotchi/outcome-signals.test.ts
     - tests/agents/nexus-tamagotchi/leaderboard.test.ts
     - tests/agents/nexus-tamagotchi/badge-system.test.ts
     - tests/agents/nexus-tamagotchi/insight.test.ts
@@ -300,6 +302,9 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - MissionEngine
     - QuestSystem
     - OutcomeXPEngine
+    - OutcomeSignalAggregator
+    - QualityMultiplierCalculator
+    - EconomyPolicy
     - LeaderboardSystem
     - BadgeSystem
     - InsightEngine
