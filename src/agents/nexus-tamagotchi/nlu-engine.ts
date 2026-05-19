@@ -295,7 +295,8 @@ export class NLUTextPreprocessor {
       for (const [needle, replacement] of Object.entries(
         NLUTextPreprocessor.CONTRACTIONS,
       )) {
-        output = output.replaceAll(needle, replacement);
+        const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        output = output.replace(new RegExp(escaped, "gi"), replacement);
       }
     }
     if (lowercase) {
@@ -372,8 +373,10 @@ export class NLUIntentClassifier {
       let score = 0;
       const matched: string[] = [];
       for (const keyword of keywords) {
-        if (processed.includes(keyword.toLowerCase())) {
-          score += 1;
+        const lowered = keyword.toLowerCase();
+        const escaped = lowered.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        if (new RegExp(`(?:^|\\W)${escaped}(?:\\W|$)`).test(processed)) {
+          score += lowered.length;
           matched.push(keyword);
         }
       }
@@ -389,11 +392,13 @@ export class NLUIntentClassifier {
       if (!customIntent) {
         continue;
       }
-      const score = patterns.reduce(
-        (accumulator, pattern) =>
-          processed.includes(pattern.toLowerCase()) ? accumulator + 1 : accumulator,
-        scores.get(customIntent) ?? 0,
-      );
+      const score = patterns.reduce((accumulator, pattern) => {
+        const lowered = pattern.toLowerCase();
+        const escaped = lowered.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        return new RegExp(`(?:^|\\W)${escaped}(?:\\W|$)`).test(processed)
+          ? accumulator + lowered.length
+          : accumulator;
+      }, scores.get(customIntent) ?? 0);
       if (score > 0) {
         scores.set(customIntent, score);
       }
@@ -410,13 +415,13 @@ export class NLUIntentClassifier {
       return buildUnknownIntentResult();
     }
     const [primaryIntent, primaryScore] = sorted[0];
-    const maxConfidence = Math.min(primaryScore / 3, 1);
+    const maxConfidence = Math.min(primaryScore / 10, 1);
     return {
       primaryIntent,
       confidence: maxConfidence,
       secondaryIntents: sorted.slice(1, 4).map(([intent, score]) => ({
         intent,
-        confidence: Math.min(score / 3, 1),
+        confidence: Math.min(score / 10, 1),
       })),
       matchedKeywords: matchedKeywords.get(primaryIntent) ?? [],
       metadata: {},
@@ -443,7 +448,8 @@ export class NLUEntityExtractor {
     [EntityType.EMAIL]: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g,
     [EntityType.PHONE]: /\b(?:\+\d{1,3}\s?)?(?:\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}\b/g,
     [EntityType.URL]: /https?:\/\/[^\s]+/gi,
-    [EntityType.FILE_PATH]: /(?:[A-Za-z]:\\|\/)?(?:[\w.-]+[\\/])*[\w.-]+\.\w+/g,
+    [EntityType.FILE_PATH]:
+      /(?:[A-Za-z]:[\\/]|\/)(?:[\w.-]+[\\/])*[\w.-]+\.\w+|(?:[\w.-]+[\\/])+[\w.-]+\.\w+/g,
     [EntityType.CODE_SNIPPET]: /`[^`]+`/g,
     [EntityType.COMMAND]: /\/[a-z][\w-]*/gi,
     [EntityType.PARAMETER]: /--?[a-z][\w-]*/gi,

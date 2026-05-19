@@ -31,9 +31,10 @@ export class ReflexEngine {
     const now = Date.now();
 
     for (const [name, pattern] of Object.entries(this.patterns)) {
-      const triggered = pattern.patterns.some(
-        (token) => normalized.includes(token) || normalized.startsWith(token),
-      );
+      const triggered = pattern.patterns.some((token) => {
+        const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return new RegExp(`(?:^|\\W)${escaped}(?:\\W|$)`).test(normalized);
+      });
       if (!triggered) {
         continue;
       }
