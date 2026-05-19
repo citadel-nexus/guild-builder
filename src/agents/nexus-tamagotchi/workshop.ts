@@ -240,6 +240,7 @@ export class WorkshopIntegration {
 
     if (includeBrainMap) {
       const brainMap = await this.handleBrainMap({});
+      const brainMap = await this.handleBrainMap();
       if (!brainMap.error) {
         const response = await this.transport.post(
           "/api/v1/visualizations/brain-map",

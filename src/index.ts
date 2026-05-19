@@ -1,6 +1,9 @@
 import GuildClient from './guild-client.js';
 import { maybeStartDatadogBridge } from './agents/datadog-bridge/auto-start.js';
 import { maybeStartNexusTamagotchi } from './agents/nexus-tamagotchi/index.js';
+
+import { maybeStartNexusTamagotchi } from './agents/nexus-tamagotchi/index.js';
+
 import { maybeStartProvisionBridge } from './provision/auto-start.js';
 
 const guild = new GuildClient({
@@ -41,6 +44,7 @@ void maybeStartDatadogBridge()
     const message = err instanceof Error ? err.message : String(err);
     console.warn(`[builder] datadog bridge failed to start: ${message}`);
   });
+
 
 void maybeStartNexusTamagotchi()
   .then((result) => {

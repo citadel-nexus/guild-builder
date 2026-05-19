@@ -297,6 +297,7 @@ export class NLUTextPreprocessor {
       )) {
         const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         output = output.replace(new RegExp(escaped, "gi"), replacement);
+        output = output.replaceAll(needle, replacement);
       }
     }
     if (lowercase) {
@@ -377,6 +378,8 @@ export class NLUIntentClassifier {
         const escaped = lowered.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         if (new RegExp(`(?:^|\\W)${escaped}(?:\\W|$)`).test(processed)) {
           score += lowered.length;
+        if (processed.includes(keyword.toLowerCase())) {
+          score += 1;
           matched.push(keyword);
         }
       }
@@ -416,6 +419,7 @@ export class NLUIntentClassifier {
     }
     const [primaryIntent, primaryScore] = sorted[0];
     const maxConfidence = Math.min(primaryScore / 10, 1);
+    const maxConfidence = Math.min(primaryScore / 3, 1);
     return {
       primaryIntent,
       confidence: maxConfidence,

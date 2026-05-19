@@ -230,12 +230,19 @@ export class MemoryGraphRenderer {
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+
   <title>Brain Synapse Map</title>
   <style>
     body { font-family: system-ui, sans-serif; background: #111827; color: #f3f4f6; margin: 0; }
     header { padding: 16px 24px; border-bottom: 1px solid #1f2937; }
     h1 { margin: 0; font-size: 1.25rem; letter-spacing: 0.04em; }
     #graph { width: 100vw; height: calc(100vh - 64px); display: grid; place-items: center; }
+
+  <title>Nexus Memory Graph</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #111827; color: #f3f4f6; margin: 0; }
+    #graph { width: 100vw; height: 100vh; display: grid; place-items: center; }
+
     pre { max-width: 90vw; max-height: 85vh; overflow: auto; background: #0b1220; padding: 16px; border-radius: 8px; border: 1px solid #1f2937; }
   </style>
 </head>

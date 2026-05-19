@@ -35,6 +35,9 @@ export class ReflexEngine {
         const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         return new RegExp(`(?:^|\\W)${escaped}(?:\\W|$)`).test(normalized);
       });
+      const triggered = pattern.patterns.some(
+        (token) => normalized.includes(token) || normalized.startsWith(token),
+      );
       if (!triggered) {
         continue;
       }
