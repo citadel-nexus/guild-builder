@@ -147,3 +147,223 @@ SRS-VAULT-CLIENT-001:
     deployment config. All other secrets (DD_API_KEY, POSTHOG_KEY, etc.)
     are fetched from Vault at agent boot. This is the public spine —
     vault key names and tenant mappings live in CNWB.
+
+
+SRS-NEXUS-TAMAGOTCHI-001:
+  ep: AGENT-TAMAGOTCHI-001
+  status: in_progress
+  dispatch: AGENT-TAMAGOTCHI-001
+  phase: "§1 Extended Foundations: Runtime Systems and Governance"
+  paths:
+    - src/agents/nexus-tamagotchi/types.ts
+    - src/agents/nexus-tamagotchi/data/badges.ts
+    - src/agents/nexus-tamagotchi/data/professors.ts
+    - src/agents/nexus-tamagotchi/data/skills.ts
+    - src/agents/nexus-tamagotchi/data/reflexes.ts
+    - src/agents/nexus-tamagotchi/models.ts
+    - src/agents/nexus-tamagotchi/memory.ts
+    - src/agents/nexus-tamagotchi/diagnostics.ts
+    - src/agents/nexus-tamagotchi/gamification.ts
+    - src/agents/nexus-tamagotchi/brotherhood.ts
+    - src/agents/nexus-tamagotchi/authority.ts
+    - src/agents/nexus-tamagotchi/function-rewards.ts
+    - src/agents/nexus-tamagotchi/reflex-engine.ts
+    - src/agents/nexus-tamagotchi/engagement.ts
+    - src/agents/nexus-tamagotchi/missions.ts
+    - src/agents/nexus-tamagotchi/quests.ts
+    - src/agents/nexus-tamagotchi/outcome-xp.ts
+    - src/agents/nexus-tamagotchi/leaderboard.ts
+    - src/agents/nexus-tamagotchi/badge-system.ts
+    - src/agents/nexus-tamagotchi/insight.ts
+    - src/agents/nexus-tamagotchi/skill-tree-system.ts
+    - src/agents/nexus-tamagotchi/skill-tracker.ts
+    - src/agents/nexus-tamagotchi/lingo.ts
+    - src/agents/nexus-tamagotchi/cognitive-systems.ts
+    - src/agents/nexus-tamagotchi/distribution.ts
+    - src/agents/nexus-tamagotchi/backend-auth.ts
+    - src/agents/nexus-tamagotchi/short-term-memory.ts
+    - src/agents/nexus-tamagotchi/long-term-memory.ts
+    - src/agents/nexus-tamagotchi/domain-learning.ts
+    - src/agents/nexus-tamagotchi/context-rehydration.ts
+    - src/agents/nexus-tamagotchi/self-awareness.ts
+    - src/agents/nexus-tamagotchi/memory-graph.ts
+    - src/agents/nexus-tamagotchi/ui-system.ts
+    - src/agents/nexus-tamagotchi/workshop.ts
+    - src/agents/nexus-tamagotchi/analytics-automation.ts
+    - src/agents/nexus-tamagotchi/cognitive-integration.ts
+    - src/agents/nexus-tamagotchi/extended-knowledge-graph.ts
+    - src/agents/nexus-tamagotchi/conversation-flow.ts
+    - src/agents/nexus-tamagotchi/notification-system.ts
+    - src/agents/nexus-tamagotchi/event-logging.ts
+    - src/agents/nexus-tamagotchi/configuration-manager.ts
+    - src/agents/nexus-tamagotchi/advanced-quest-engine.ts
+    - src/agents/nexus-tamagotchi/extended-professor-network.ts
+    - src/agents/nexus-tamagotchi/comprehensive-skill-tree.ts
+    - src/agents/nexus-tamagotchi/comprehensive-achievement-system.ts
+    - src/agents/nexus-tamagotchi/comprehensive-leaderboard-system.ts
+    - src/agents/nexus-tamagotchi/api-integration-layer.ts
+    - src/agents/nexus-tamagotchi/testing-validation-framework.ts
+    - src/agents/nexus-tamagotchi/nlu-engine.ts
+    - src/agents/nexus-tamagotchi/response-pipeline.ts
+    - src/agents/nexus-tamagotchi/oad-dashboard.ts
+    - src/agents/nexus-tamagotchi/z-up-integration.ts
+    - src/agents/nexus-tamagotchi/progression.ts
+    - src/agents/nexus-tamagotchi/agent-factory.ts
+    - src/agents/nexus-tamagotchi/integration-router.ts
+    - src/agents/nexus-tamagotchi/integrations-manager.ts
+    - src/agents/nexus-tamagotchi/multi-channel-broadcast.ts
+    - src/agents/nexus-tamagotchi/auto-installation.ts
+    - src/agents/nexus-tamagotchi/professor-network.ts
+    - src/agents/nexus-tamagotchi/web-enrichment.ts
+    - src/agents/nexus-tamagotchi/secure-key-vault.ts
+    - src/agents/nexus-tamagotchi/srs.ts
+    - src/agents/nexus-tamagotchi/audit.ts
+    - src/agents/nexus-tamagotchi/council.ts
+    - src/agents/nexus-tamagotchi/index.ts
+    - src/agents/nexus-tamagotchi/.sake
+    - docs/agents/nexus-tamagotchi/README.md
+  tests:
+    - tests/agents/nexus-tamagotchi/types.test.ts
+    - tests/agents/nexus-tamagotchi/audit.test.ts
+    - tests/agents/nexus-tamagotchi/progression.test.ts
+    - tests/agents/nexus-tamagotchi/council.test.ts
+    - tests/agents/nexus-tamagotchi/models.test.ts
+    - tests/agents/nexus-tamagotchi/memory.test.ts
+    - tests/agents/nexus-tamagotchi/diagnostics.test.ts
+    - tests/agents/nexus-tamagotchi/gamification.test.ts
+    - tests/agents/nexus-tamagotchi/professor-network.test.ts
+    - tests/agents/nexus-tamagotchi/brotherhood.test.ts
+    - tests/agents/nexus-tamagotchi/authority.test.ts
+    - tests/agents/nexus-tamagotchi/function-rewards.test.ts
+    - tests/agents/nexus-tamagotchi/reflex-engine.test.ts
+    - tests/agents/nexus-tamagotchi/engagement.test.ts
+    - tests/agents/nexus-tamagotchi/missions.test.ts
+    - tests/agents/nexus-tamagotchi/quests.test.ts
+    - tests/agents/nexus-tamagotchi/outcome-xp.test.ts
+    - tests/agents/nexus-tamagotchi/leaderboard.test.ts
+    - tests/agents/nexus-tamagotchi/badge-system.test.ts
+    - tests/agents/nexus-tamagotchi/insight.test.ts
+    - tests/agents/nexus-tamagotchi/skill-tree-system.test.ts
+    - tests/agents/nexus-tamagotchi/skill-tracker.test.ts
+    - tests/agents/nexus-tamagotchi/lingo.test.ts
+    - tests/agents/nexus-tamagotchi/cognitive-systems.test.ts
+    - tests/agents/nexus-tamagotchi/index.test.ts
+    - tests/agents/nexus-tamagotchi/distribution.test.ts
+    - tests/agents/nexus-tamagotchi/backend-auth.test.ts
+    - tests/agents/nexus-tamagotchi/short-term-memory.test.ts
+    - tests/agents/nexus-tamagotchi/long-term-memory.test.ts
+    - tests/agents/nexus-tamagotchi/domain-learning.test.ts
+    - tests/agents/nexus-tamagotchi/context-rehydration.test.ts
+    - tests/agents/nexus-tamagotchi/self-awareness.test.ts
+    - tests/agents/nexus-tamagotchi/memory-graph.test.ts
+    - tests/agents/nexus-tamagotchi/ui-system.test.ts
+    - tests/agents/nexus-tamagotchi/workshop.test.ts
+    - tests/agents/nexus-tamagotchi/analytics-automation.test.ts
+    - tests/agents/nexus-tamagotchi/cognitive-integration.test.ts
+    - tests/agents/nexus-tamagotchi/extended-knowledge-graph.test.ts
+    - tests/agents/nexus-tamagotchi/conversation-flow.test.ts
+    - tests/agents/nexus-tamagotchi/notification-system.test.ts
+    - tests/agents/nexus-tamagotchi/event-logging.test.ts
+    - tests/agents/nexus-tamagotchi/configuration-manager.test.ts
+    - tests/agents/nexus-tamagotchi/advanced-quest-engine.test.ts
+    - tests/agents/nexus-tamagotchi/extended-professor-network.test.ts
+    - tests/agents/nexus-tamagotchi/comprehensive-skill-tree.test.ts
+    - tests/agents/nexus-tamagotchi/comprehensive-achievement-system.test.ts
+    - tests/agents/nexus-tamagotchi/comprehensive-leaderboard-system.test.ts
+    - tests/agents/nexus-tamagotchi/api-integration-layer.test.ts
+    - tests/agents/nexus-tamagotchi/testing-validation-framework.test.ts
+    - tests/agents/nexus-tamagotchi/nlu-engine.test.ts
+    - tests/agents/nexus-tamagotchi/response-pipeline.test.ts
+    - tests/agents/nexus-tamagotchi/oad-dashboard.test.ts
+    - tests/agents/nexus-tamagotchi/z-up-integration.test.ts
+    - tests/agents/nexus-tamagotchi/agent-factory.test.ts
+    - tests/agents/nexus-tamagotchi/auto-installation.test.ts
+    - tests/agents/nexus-tamagotchi/secure-key-vault.test.ts
+    - tests/agents/nexus-tamagotchi/web-enrichment.test.ts
+    - tests/agents/nexus-tamagotchi/multi-channel-broadcast.test.ts
+    - tests/agents/nexus-tamagotchi/integration-router.test.ts
+    - tests/agents/nexus-tamagotchi/srs.test.ts
+  exports:
+    - maybeStartNexusTamagotchi
+    - BADGE_REGISTRY
+    - PROFESSOR_REGISTRY
+    - SKILL_REGISTRY
+    - REFLEX_PATTERNS
+    - MCPProgressionSheet
+    - PROGRESSION_SHEET
+    - CitadelIntegrationRouter
+    - OperationalSRSValidator
+    - SRS_REGISTRY
+    - BrotherhoodSystem
+    - AuthorityGate
+    - FunctionRewardsMap
+    - ReflexEngine
+    - MissionEngine
+    - QuestSystem
+    - OutcomeXPEngine
+    - LeaderboardSystem
+    - BadgeSystem
+    - InsightEngine
+    - SkillTreeSystem
+    - SkillTracker
+    - LingoAdapter
+    - CognitiveSystemsRegistry
+    - DistributionFramework
+    - CitadelAuthClient
+    - OfflineSyncStrategy
+    - ShortTermMemoryBuffer
+    - AgentFAISSWrapper
+    - LongTermMemory
+    - DomainLearningEngine
+    - ContextRehydrator
+    - SelfAwarenessModule
+    - MemoryGraphRenderer
+    - ResponseLengthConfig
+    - AgentChatServer
+    - WorkshopIntegration
+    - AgentAnalytics
+    - AutomationEngine
+    - integrateCognitiveSystems
+    - KnowledgeGraph
+    - ConversationFlowManager
+    - NotificationManager
+    - EventLogger
+    - ConfigurationManager
+    - QuestEngine
+    - MissionGenerator
+    - ExtendedProfessorNetwork
+    - ComprehensiveSkillTreeSystem
+    - ComprehensiveAchievementSystem
+    - ComprehensiveLeaderboardSystem
+    - APIIntegrationLayer
+    - TestRunner
+    - DataValidator
+    - SchemaValidator
+    - IntegrationTestFramework
+    - NLUPipeline
+    - ResponsePipeline
+    - OADServer
+    - ZUpIntegrationRuntime
+    - AgentFactory
+    - AutoInstallationSystem
+    - MultiChannelBroadcaster
+    - ZayaraEngagementEngine
+    - SecureKeyVault
+    - AgentState
+    - AgentEvent
+  env:
+    - NEXUS_TAMAGOTCHI
+    - NEXUS_AGENT_ID
+    - NEXUS_NATS_PREFIX
+  public_contract: true
+  notes: |
+    Stage 1 of N for the Nexus Tamagotchi agent now includes expanded public
+    runtime foundations from the Python original (citadel_nexus_pro.py):
+    progression map, SRS validation surface, memory primitives, gamification,
+    authority gating, mission/quest lifecycle, outcome XP scoring, leaderboard,
+    insight generation, professor routing, and secure key-vault contracts.
+    Vendor-specific or tenant-bound integrations remain stubbed.
+
+    CGRF: All vendor implementations are stubs. No secrets, no private imports.
+    Real implementations live in CNWB on private GitLab.
+

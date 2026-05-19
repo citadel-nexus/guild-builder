@@ -256,7 +256,7 @@ export class AutomationEngine implements Watcher {
     handler: (payload: Record<string, unknown>) => Promise<Record<string, unknown>>,
   ): Promise<void> {
     const timestamp = this.options.now().toISOString();
-    let requestId = randomUUID();
+    let requestId: string = randomUUID();
     let replySubject: string | undefined;
 
     try {

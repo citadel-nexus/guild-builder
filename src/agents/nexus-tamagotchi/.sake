@@ -1,0 +1,87 @@
+# SAKE module stub — Nexus Tamagotchi (public foundation)
+
+module: nexus-tamagotchi
+guild: builder
+srs:
+  - SRS-NEXUS-TAMAGOTCHI-001
+dispatch: AGENT-TAMAGOTCHI-001
+phase: '1'
+owns:
+  - src/agents/nexus-tamagotchi/types.ts
+  - src/agents/nexus-tamagotchi/data/
+  - src/agents/nexus-tamagotchi/models.ts
+  - src/agents/nexus-tamagotchi/memory.ts
+  - src/agents/nexus-tamagotchi/diagnostics.ts
+  - src/agents/nexus-tamagotchi/gamification.ts
+  - src/agents/nexus-tamagotchi/brotherhood.ts
+  - src/agents/nexus-tamagotchi/authority.ts
+  - src/agents/nexus-tamagotchi/function-rewards.ts
+  - src/agents/nexus-tamagotchi/reflex-engine.ts
+  - src/agents/nexus-tamagotchi/engagement.ts
+  - src/agents/nexus-tamagotchi/missions.ts
+  - src/agents/nexus-tamagotchi/quests.ts
+  - src/agents/nexus-tamagotchi/outcome-xp.ts
+  - src/agents/nexus-tamagotchi/leaderboard.ts
+  - src/agents/nexus-tamagotchi/badge-system.ts
+  - src/agents/nexus-tamagotchi/insight.ts
+  - src/agents/nexus-tamagotchi/skill-tree-system.ts
+  - src/agents/nexus-tamagotchi/skill-tracker.ts
+  - src/agents/nexus-tamagotchi/lingo.ts
+  - src/agents/nexus-tamagotchi/cognitive-systems.ts
+  - src/agents/nexus-tamagotchi/distribution.ts
+  - src/agents/nexus-tamagotchi/backend-auth.ts
+  - src/agents/nexus-tamagotchi/short-term-memory.ts
+  - src/agents/nexus-tamagotchi/long-term-memory.ts
+  - src/agents/nexus-tamagotchi/domain-learning.ts
+  - src/agents/nexus-tamagotchi/context-rehydration.ts
+  - src/agents/nexus-tamagotchi/self-awareness.ts
+  - src/agents/nexus-tamagotchi/memory-graph.ts
+  - src/agents/nexus-tamagotchi/ui-system.ts
+  - src/agents/nexus-tamagotchi/workshop.ts
+  - src/agents/nexus-tamagotchi/analytics-automation.ts
+  - src/agents/nexus-tamagotchi/cognitive-integration.ts
+  - src/agents/nexus-tamagotchi/extended-knowledge-graph.ts
+  - src/agents/nexus-tamagotchi/conversation-flow.ts
+  - src/agents/nexus-tamagotchi/notification-system.ts
+  - src/agents/nexus-tamagotchi/event-logging.ts
+  - src/agents/nexus-tamagotchi/configuration-manager.ts
+  - src/agents/nexus-tamagotchi/advanced-quest-engine.ts
+  - src/agents/nexus-tamagotchi/extended-professor-network.ts
+  - src/agents/nexus-tamagotchi/comprehensive-skill-tree.ts
+  - src/agents/nexus-tamagotchi/comprehensive-achievement-system.ts
+  - src/agents/nexus-tamagotchi/comprehensive-leaderboard-system.ts
+  - src/agents/nexus-tamagotchi/api-integration-layer.ts
+  - src/agents/nexus-tamagotchi/testing-validation-framework.ts
+  - src/agents/nexus-tamagotchi/nlu-engine.ts
+  - src/agents/nexus-tamagotchi/response-pipeline.ts
+  - src/agents/nexus-tamagotchi/oad-dashboard.ts
+  - src/agents/nexus-tamagotchi/z-up-integration.ts
+  - src/agents/nexus-tamagotchi/progression.ts
+  - src/agents/nexus-tamagotchi/agent-factory.ts
+  - src/agents/nexus-tamagotchi/integration-router.ts
+  - src/agents/nexus-tamagotchi/integrations-manager.ts
+  - src/agents/nexus-tamagotchi/multi-channel-broadcast.ts
+  - src/agents/nexus-tamagotchi/auto-installation.ts
+  - src/agents/nexus-tamagotchi/professor-network.ts
+  - src/agents/nexus-tamagotchi/web-enrichment.ts
+  - src/agents/nexus-tamagotchi/secure-key-vault.ts
+  - src/agents/nexus-tamagotchi/srs.ts
+  - src/agents/nexus-tamagotchi/audit.ts
+  - src/agents/nexus-tamagotchi/council.ts
+  - src/agents/nexus-tamagotchi/index.ts
+nats:
+  inbound:
+    - subject_env: NEXUS_NATS_PREFIX
+      description: |
+        Subject prefix for Nexus Tamagotchi event-space. Stage 1 only validates
+        and stores prefix configuration; later stages attach concrete subjects.
+  outbound:
+    - subject_env: NEXUS_NATS_PREFIX
+      description: |
+        Prefix used for all agent events. Full subject composition is added in
+        future stages to keep this foundation module vendor-neutral.
+public_contract: true
+notes: |
+  Stage 1 provides the public TypeScript foundation: core types, registries,
+  progression map, audit hash-chain, and constitutional council stub. Private
+  CNWB runtime behavior remains outside this repository.
