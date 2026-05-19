@@ -221,16 +221,16 @@ export type AutomationRule = {
 
 type AutomationAgentSurfaces = {
   stm?: {
-    getCandidatesForConsolidation?: () => unknown[];
+    getCandidatesForConsolidation?(): unknown[];
   };
   ltm?: {
-    consolidateFromStm?: (entries: unknown[]) => unknown;
+    consolidateFromStm?(entries: unknown[], threshold?: number): unknown;
   };
   workshopIntegration?: {
-    syncToWorkshop?: () => Promise<unknown> | unknown;
+    syncToWorkshop?(): Promise<unknown> | unknown;
   };
   broadcastIntegrations?: {
-    broadcast?: (channel: string, payload: string) => Promise<void> | void;
+    broadcast?(channel: string, payload: string): Promise<void> | void;
   };
 };
 
