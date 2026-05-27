@@ -54,6 +54,15 @@ export function resolveDatadogBridgeConfig(
     ),
     llmModel: env.DATADOG_LLM_MODEL,
     llmApplication: env.DATADOG_LLM_APPLICATION,
+    governanceEnabled: isEnabled(env.DATADOG_GOVERNANCE_ENABLED),
+    governanceSourceUrl: env.GOVERNANCE_SOURCE_URL ?? '',
+    governancePollIntervalMs: parseNumber(env.GOVERNANCE_POLL_INTERVAL_MS, 3_600_000),
+    nimBaseUrl:
+      env.NVIDIA_NIM_BASE_URL ?? 'http://localhost:8000/v1/chat/completions',
+    nimModel: env.NVIDIA_NIM_MODEL ?? 'meta/llama-3.1-8b-instruct',
+    nimApiKey: env.NVIDIA_NIM_API_KEY ?? '',
+    nimMaxTokens: parseNumber(env.NVIDIA_NIM_MAX_TOKENS, 4_096),
+    nimTemperature: parseNumber(env.NVIDIA_NIM_TEMPERATURE, 0.1),
   };
 }
 
@@ -74,6 +83,9 @@ export function validateDatadogBridgeConfig(
   }
   if (!config.subjectPrefix) {
     return 'DATADOG_NATS_PREFIX is required';
+  }
+  if (config.governanceEnabled && !config.governanceSourceUrl) {
+    return 'GOVERNANCE_SOURCE_URL is required when DATADOG_GOVERNANCE_ENABLED=on';
   }
   return null;
 }
