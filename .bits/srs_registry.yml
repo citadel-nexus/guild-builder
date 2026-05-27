@@ -74,6 +74,7 @@ SRS-DATADOG-BRIDGE-001:
     - src/agents/datadog-bridge/client.ts
     - src/agents/datadog-bridge/watchers/security-watcher.ts
     - src/agents/datadog-bridge/watchers/llm-observer.ts
+    - src/agents/datadog-bridge/watchers/governance-synthesizer.ts
     - src/agents/datadog-bridge/automation-engine.ts
     - src/agents/datadog-bridge/integrations/integration-bridge.ts
     - src/agents/datadog-bridge/integrations/posthog.ts
@@ -91,6 +92,7 @@ SRS-DATADOG-BRIDGE-001:
   tests:
     - tests/agents/datadog-bridge/watchers/security-watcher.test.ts
     - tests/agents/datadog-bridge/watchers/llm-observer.test.ts
+    - tests/agents/datadog-bridge/watchers/governance-synthesizer.test.ts
     - tests/agents/datadog-bridge/automation-engine.test.ts
     - tests/agents/datadog-bridge/integrations/posthog.test.ts
     - tests/agents/datadog-bridge/integrations/customerio.test.ts
@@ -101,6 +103,7 @@ SRS-DATADOG-BRIDGE-001:
     - DatadogBridgeClient
     - SecurityWatcher
     - LlmObserver
+    - GovernanceSynthesizer
     - AutomationEngine
     - IntegrationBridge
     - createDefaultIntegrations
@@ -114,6 +117,14 @@ SRS-DATADOG-BRIDGE-001:
     - DATADOG_POLL_INTERVAL_MS
     - DATADOG_SECURITY_ENABLED
     - DATADOG_LLM_ENABLED
+    - DATADOG_GOVERNANCE_ENABLED
+    - GOVERNANCE_SOURCE_URL
+    - GOVERNANCE_POLL_INTERVAL_MS
+    - NVIDIA_NIM_BASE_URL
+    - NVIDIA_NIM_MODEL
+    - NVIDIA_NIM_API_KEY
+    - NVIDIA_NIM_MAX_TOKENS
+    - NVIDIA_NIM_TEMPERATURE
     - DATADOG_AUTOMATION_ENABLED
     - DATADOG_INTEGRATIONS_ENABLED
     - DATADOG_BRIDGE_DEBUG

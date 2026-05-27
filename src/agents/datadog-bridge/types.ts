@@ -37,6 +37,14 @@ export type DatadogBridgeBootstrapConfig = DatadogBridgeConfig & {
   llmCompletionTokenCostUsd: number;
   llmModel?: string;
   llmApplication?: string;
+  governanceEnabled: boolean;
+  governanceSourceUrl: string;
+  governancePollIntervalMs: number;
+  nimBaseUrl: string;
+  nimModel: string;
+  nimApiKey: string;
+  nimMaxTokens: number;
+  nimTemperature: number;
 };
 
 export type DatadogEvent = {
@@ -100,6 +108,25 @@ export type LlmTraceEvent = DatadogEvent & {
   completionTokens?: number;
   latencyMs?: number;
   mlApp?: string;
+};
+
+export type GovernanceDirective = {
+  priority: 'critical' | 'high' | 'medium' | 'low';
+  directive: string;
+  rationale: string;
+};
+
+export type GovernanceSynthesisResult = {
+  directives: GovernanceDirective[];
+  sourceChars: number;
+  outputChars: number;
+  model: string;
+  timestamp: string;
+};
+
+export type GovernanceSynthesisEvent = DatadogEvent & {
+  kind: 'governance.synthesized';
+  result: GovernanceSynthesisResult;
 };
 
 export type CostEvent = {
@@ -333,6 +360,7 @@ export type DatadogBridgeSubjects = {
   llmError: string;
   llmCost: string;
   llmLatency: string;
+  governanceSynthesized: string;
   commandWildcard: string;
   automationMute: string;
   automationCreateMonitor: string;

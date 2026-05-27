@@ -22,12 +22,38 @@ inputs:
   - kind: env
     name: DD_APP_KEY
     purpose: Datadog application authentication
+  - kind: env
+    name: DATADOG_GOVERNANCE_ENABLED
+    values: [on, off]
+    default: off
+  - kind: env
+    name: GOVERNANCE_SOURCE_URL
+    purpose: Governance instruction source URL or nats:// subject
+  - kind: env
+    name: GOVERNANCE_POLL_INTERVAL_MS
+    default: 3600000
+  - kind: env
+    name: NVIDIA_NIM_BASE_URL
+    default: http://localhost:8000/v1/chat/completions
+  - kind: env
+    name: NVIDIA_NIM_MODEL
+    default: meta/llama-3.1-8b-instruct
+  - kind: env
+    name: NVIDIA_NIM_API_KEY
+    purpose: Optional bearer token for NVIDIA NIM endpoint
+  - kind: env
+    name: NVIDIA_NIM_MAX_TOKENS
+    default: 4096
+  - kind: env
+    name: NVIDIA_NIM_TEMPERATURE
+    default: 0.1
 
 outputs:
   - maybeStartDatadogBridge
   - DatadogBridgeClient
   - SecurityWatcher
   - LlmObserver
+  - GovernanceSynthesizer
   - AutomationEngine
   - IntegrationBridge
   - DatadogBridgeSubjects
@@ -52,6 +78,7 @@ nodes:
     paths:
       - src/agents/datadog-bridge/watchers/security-watcher.ts
       - src/agents/datadog-bridge/watchers/llm-observer.ts
+      - src/agents/datadog-bridge/watchers/governance-synthesizer.ts
     depends_on: [client]
 
   - id: automation

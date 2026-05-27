@@ -1,4 +1,4 @@
-import { connect } from 'nats';
+import { StringCodec, connect } from 'nats';
 
 import { AutomationEngine } from './automation-engine.js';
 import { DatadogBridgeClient } from './client.js';
@@ -7,6 +7,7 @@ import { resolveDatadogBridgeConfig, validateDatadogBridgeConfig } from './confi
 import { IntegrationBridge, createDefaultIntegrations } from './integrations/integration-bridge.js';
 import { buildDatadogBridgeSubjects } from './subjects.js';
 import type { HeartbeatEvent, NatsLikeConnection, Watcher } from './types.js';
+import { GovernanceSynthesizer } from './watchers/governance-synthesizer.js';
 import { LlmObserver } from './watchers/llm-observer.js';
 import { SecurityWatcher } from './watchers/security-watcher.js';
 
@@ -82,6 +83,7 @@ export async function maybeStartDatadogBridge(
     servers: config.natsUrl,
     token: config.natsToken,
   });
+  const stringCodec = StringCodec();
   const nats: NatsLikeConnection = natsConnection;
   const subjects = buildDatadogBridgeSubjects(config.subjectPrefix);
   const client = new DatadogBridgeClient({ config });
@@ -112,6 +114,31 @@ export async function maybeStartDatadogBridge(
         completionTokenCostUsd: config.llmCompletionTokenCostUsd,
         model: config.llmModel,
         mlApp: config.llmApplication,
+      }),
+    );
+  }
+
+  if (config.governanceEnabled) {
+    watchers.push(
+      new GovernanceSynthesizer({
+        client,
+        publish: (subject, payload) => nats.publish(subject, encodeJson(payload)),
+        subjects,
+        sourceUrl: config.governanceSourceUrl,
+        pollIntervalMs: config.governancePollIntervalMs,
+        nimBaseUrl: config.nimBaseUrl,
+        nimModel: config.nimModel,
+        nimApiKey: config.nimApiKey,
+        nimMaxTokens: config.nimMaxTokens,
+        nimTemperature: config.nimTemperature,
+        requestNatsSource: async (subject) => {
+          const response = await natsConnection.request(
+            subject,
+            stringCodec.encode(''),
+            { timeout: 10_000 },
+          );
+          return stringCodec.decode(response.data);
+        },
       }),
     );
   }

@@ -24,6 +24,7 @@ export function buildDatadogBridgeSubjects(
     llmError: joinSubject(prefix, 'llm.error'),
     llmCost: joinSubject(prefix, 'llm.cost'),
     llmLatency: joinSubject(prefix, 'llm.latency'),
+    governanceSynthesized: joinSubject(prefix, 'governance.synthesized'),
     commandWildcard: joinSubject(prefix, 'command.>'),
     automationMute: joinSubject(prefix, 'automation.mute'),
     automationCreateMonitor: joinSubject(prefix, 'automation.create-monitor'),

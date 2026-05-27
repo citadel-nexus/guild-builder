@@ -6,6 +6,7 @@ export * from './subjects.js';
 export * from './types.js';
 export * from './watchers/security-watcher.js';
 export * from './watchers/llm-observer.js';
+export * from './watchers/governance-synthesizer.js';
 export * from './integrations/integration-bridge.js';
 export * from './integrations/posthog.js';
 export * from './integrations/customerio.js';
