@@ -383,3 +383,14 @@ SRS-NEXUS-TAMAGOTCHI-001:
 
     CGRF: All vendor implementations are stubs. No secrets, no private imports.
     Real implementations live in CNWB on private GitLab.
+
+SRS-CN-BUILDER-LIVINGWORLD-001:
+  ep: LIVING-WORLD-SYSTEMS-001
+  status: planned
+  phase: "Builder floor — public living-world contract"
+  paths:
+    - src/routes/realm.ts
+    - src/automation/livingworld-emitter.ts
+  notes: >
+    Public contract for the builder floor of the Aincrad living world — the
+    citadel.builder.* events + /realm/builder.json feed the game reads. Public-safe only.
