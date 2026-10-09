@@ -1,0 +1,33 @@
+schema: citadel.manifest/v1
+capabilities:
+- schema: citadel.capability/v1
+  id: builder.opportunity_terms
+  version: 0.1.0
+  title: Opportunity terms verifier (entry fees + rights transfer)
+  provider:
+    kind: application
+    id: app:guild-builder:terms-verifier
+    name: terms_verifier
+  provides:
+  - opportunity.verify.terms
+  - opportunity.verify.fees
+  - opportunity.verify.rights
+  accepts:
+  - text/plain
+  emits:
+  - application/json
+  interface:
+    kind: library
+    endpoint: capabilities/opportunity_terms/terms_verifier.py:detect_terms
+  maturity: experimental
+  runtime:
+    cpu: low
+    gpu: none
+  permissions:
+    network: none
+  owner:
+    guild: builder
+    maintainer:
+      kind: agent
+      id: gm:builder
+      name: Forge
