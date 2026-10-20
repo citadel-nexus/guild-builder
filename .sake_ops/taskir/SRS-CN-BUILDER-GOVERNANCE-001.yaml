@@ -1,0 +1,48 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .sake_ops/taskir/SRS-CN-BUILDER-GOVERNANCE-001.yaml
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-GOVERNANCE-builder
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# DAG Node:    none
+# Intent:      Expose the bounded governance task graph to all Builder Guild seats.
+# ───────────────────────────────────────────────────────────────
+
+id: SRS-CN-BUILDER-GOVERNANCE-001
+dispatch: DISP-GOVERNANCE-builder
+phase: Governance bootstrap
+guild: builder
+repo: github.com/citadel-nexus/guild-builder
+status: in_progress
+public_contract: true
+nodes:
+  - id: authorization
+    kind: governance
+    paths:
+      - .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+      - .bits/queue/DISP-GOVERNANCE-builder.md
+    gate: operator-authorized local bootstrap; no external VCC mutation
+  - id: ownership
+    kind: governance
+    depends_on: [authorization]
+    paths: [.github/CODEOWNERS, GOVERNANCE.md]
+    gate: explicit guildmaster, approval rules, admin activation instructions
+  - id: provenance
+    kind: workflow
+    depends_on: [ownership]
+    paths: [.github/workflows/provenance.yml]
+    gate: PR build succeeds; only canonical main push can sign
+  - id: evidence
+    kind: governance
+    depends_on: [provenance]
+    paths:
+      - .bits/out/DISP-GOVERNANCE-builder/report.md
+      - .bits/out/DISP-GOVERNANCE-builder/memory.json
+    gate: truthful validation report and connected memory metadata

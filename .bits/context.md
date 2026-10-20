@@ -1,3 +1,22 @@
+<!--
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .bits/context.md
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-GOVERNANCE-builder
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumType:    Doc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# DAG Node:    none
+# Intent:      Expose staging authorization and remaining governance activation work to future seats.
+# ───────────────────────────────────────────────────────────────
+-->
+
 # Citadel Nexus — Builder Guild · Standing Brief
 
 > Refresh this file whenever a PR lands or a blocker shifts. Agents read
@@ -77,3 +96,17 @@ CNWB on GitLab, and the per-IDE Claude sessions (Notion / IDE4). The
 contract is the 5-file shared surface: `AGENTS.md` + `CLAUDE.md` +
 `.bits/srs_registry.yml` + `.bits/context.md` + `.sake_ops/taskir/<srs>.yaml`.
 This repo holds its slice. CNWB and `cnwb-mirror` will hold theirs.
+
+
+## Builder governance bootstrap — 2026-10-20
+
+- SRS-CN-BUILDER-GOVERNANCE-001 / DISP-GOVERNANCE-builder: in_progress,
+  authorized by authenticated operator Dmitry Richard through Bits AI.
+- Staging scope: guildmaster ownership, charter, branch-protection requirements,
+  signed CI build archives, verification documentation. No deployment, settings
+  mutation, secrets, or private-stack work. Local dispatch is not an external VCC row.
+- Existing agent bootstrap files are present; no replacement is needed.
+- Admin follow-up: confirm Forge's GitHub identity in guild-builder-leads; activate
+  default-branch ruleset and allow attestation permissions/actions. See GOVERNANCE.md.
+- Sandbox has no installed TypeScript/Vitest dependencies; npm lint/test/build
+  require CI. No network installation attempted, per the standing sandbox guidance.

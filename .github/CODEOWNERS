@@ -1,5 +1,25 @@
-# Guild code owners — all PRs require review from the guild lead team
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .github/CODEOWNERS
+# Stage:       06_PLAN
+# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-GOVERNANCE-builder
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# DAG Node:    none
+# Intent:      Route Builder and SDK reviews to accountable existing GitHub teams.
+# ───────────────────────────────────────────────────────────────
+
+# Builder Guild guildmaster: Forge (GitLab @forge).
+# GitHub approval routes through Forge's existing guild-leads team/delegates.
+# Admin must confirm Forge membership and team write access; see GOVERNANCE.md.
 * @citadel-nexus/guild-builder-leads
 
-# Guild SDK public interface
-src/index.ts @citadel-nexus/sdk-core
+# Preserve SDK interface ownership and include Builder leads on the same rule.
+# GitHub accepts either team here; the charter requests SDK consultation.
+src/index.ts @citadel-nexus/guild-builder-leads @citadel-nexus/sdk-core

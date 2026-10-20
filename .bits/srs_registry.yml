@@ -1,3 +1,20 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .bits/srs_registry.yml
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-GOVERNANCE-builder
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# DAG Node:    none
+# Intent:      Register bounded Builder governance ownership alongside existing repository SRS entries.
+# ───────────────────────────────────────────────────────────────
+
 # Citadel Nexus — Builder Guild · SRS Registry
 #
 # Single source of truth for SRS codes that own files in THIS repository.
@@ -394,3 +411,30 @@ SRS-CN-BUILDER-LIVINGWORLD-001:
   notes: >
     Public contract for the builder floor of the Aincrad living world — the
     citadel.builder.* events + /realm/builder.json feed the game reads. Public-safe only.
+
+SRS-CN-BUILDER-GOVERNANCE-001:
+  ep: DISP-GOVERNANCE-builder
+  status: in_progress
+  dispatch: DISP-GOVERNANCE-builder
+  phase: Builder Guild governance bootstrap
+  cks_gate: B+/75
+  caps_minimum: B+
+  paths:
+    - .github/CODEOWNERS
+    - GOVERNANCE.md
+    - .github/workflows/provenance.yml
+    - .bits/srs_registry.yml
+    - .bits/context.md
+    - .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+    - .bits/queue/DISP-GOVERNANCE-builder.md
+    - .sake_ops/taskir/SRS-CN-BUILDER-GOVERNANCE-001.yaml
+    - .bits/out/DISP-GOVERNANCE-builder/report.md
+    - .bits/out/DISP-GOVERNANCE-builder/memory.json
+    - .bits/out/DISP-GOVERNANCE-builder/memory.json.cgrf.yaml
+  depends_on: []
+  public_contract: true
+  notes: >
+    Authenticated operator Dmitry Richard authorized local governance bootstrap
+    through Bits AI on 2026-10-20. Staging only; no external VCC or GitHub settings
+    mutations. Forge is guildmaster; confirm GitHub identity/team mapping with an
+    admin. Signed provenance covers CI archives only, not existing npm/GHCR releases.
