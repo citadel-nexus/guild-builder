@@ -1,14 +1,30 @@
+// ─── CGRF Header ───────────────────────────────────────────────
+// File:        src/index.ts
+// Stage:       11_COMMIT
+// SRS:         SRS-CN-BUILDER-INTEGRATION-001
+// CAPS:        pending
+// CK:          pending
+// Dispatch:    DISP-BUILDER-INTEGRATION-001
+// Seat:        BITS-CODEGEN
+// Owner:       Citadel Nexus Inc.
+// Created:     2026-10-20
+// Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// EnumType:    Scaffold
+// EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// DAG Node:    none
+// Intent:      Start the integrated opt-in services while preserving Datadog, provisioning and Tamagotchi startup.
+// ───────────────────────────────────────────────────────────────
+
+import { startBotListener } from './bots/index.js';
+import { maybeStartResearchSignalPipe } from './automation/auto-start.js';
 import GuildClient from './guild-client.js';
 import { maybeStartDatadogBridge } from './agents/datadog-bridge/auto-start.js';
 import { maybeStartNexusTamagotchi } from './agents/nexus-tamagotchi/index.js';
-
-import { maybeStartNexusTamagotchi } from './agents/nexus-tamagotchi/index.js';
-
 import { maybeStartProvisionBridge } from './provision/auto-start.js';
 
 const guild = new GuildClient({
-  name: 'builder',
-  natsPrefix: 'citadel.builder',
+  name: process.env.GUILD_NAME || 'builder',
+  natsPrefix: process.env.NATS_PREFIX || 'citadel.builder',
   port: Number(process.env.GUILD_PORT || 8443),
 });
 
@@ -60,4 +76,31 @@ void maybeStartNexusTamagotchi()
   .catch((err: unknown) => {
     const message = err instanceof Error ? err.message : String(err);
     console.warn(`[builder] nexus tamagotchi failed to start: ${message}`);
+  });
+
+if (process.env.BOT_TRACKER_DISABLED !== '1' && process.env.NATS_URL) {
+  startBotListener({
+    registry: guild.registry,
+    config: guild.subjectConfig,
+  }).catch((err) => {
+    console.error('[bots] listener failed to start', err);
+  });
+} else if (!process.env.NATS_URL) {
+  console.log('[bots] NATS_URL unset — tracker UI runs but receives no events');
+}
+
+void maybeStartResearchSignalPipe()
+  .then((result) => {
+    if (result.started) {
+      console.log('[builder] research signal pipe started');
+    } else if (
+      result.reason &&
+      result.reason !== 'RESEARCH_SIGNAL_PIPE != on'
+    ) {
+      console.warn(`[builder] research signal pipe skipped: ${result.reason}`);
+    }
+  })
+  .catch((err: unknown) => {
+    const message = err instanceof Error ? err.message : String(err);
+    console.warn(`[builder] research signal pipe failed to start: ${message}`);
   });

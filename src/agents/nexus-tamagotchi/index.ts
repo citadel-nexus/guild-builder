@@ -1,3 +1,20 @@
+// ─── CGRF Header ───────────────────────────────────────────────
+// File:        src/agents/nexus-tamagotchi/index.ts
+// Stage:       11_COMMIT
+// SRS:         SRS-CN-BUILDER-INTEGRATION-001
+// CAPS:        pending
+// CK:          pending
+// Dispatch:    DISP-BUILDER-INTEGRATION-001
+// Seat:        BITS-CODEGEN
+// Owner:       Citadel Nexus Inc.
+// Created:     2026-10-20
+// Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// EnumType:    Scaffold
+// EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// DAG Node:    none
+// Intent:      Expose Mira and AGS exports while preserving explicit resolution of existing public symbol collisions.
+// ───────────────────────────────────────────────────────────────
+
 import { connect, type NatsConnection } from 'nats';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -724,3 +741,7 @@ export {
   QuestType,
 } from './advanced-quest-engine.js';
 
+
+export * from './mira-memory-engine.js';
+
+export * from './ags-cognition-engine.js';

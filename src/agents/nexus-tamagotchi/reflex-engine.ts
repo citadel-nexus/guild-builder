@@ -1,3 +1,20 @@
+// ─── CGRF Header ───────────────────────────────────────────────
+// File:        src/agents/nexus-tamagotchi/reflex-engine.ts
+// Stage:       11_COMMIT
+// SRS:         SRS-CN-BUILDER-INTEGRATION-001
+// CAPS:        pending
+// CK:          pending
+// Dispatch:    DISP-BUILDER-INTEGRATION-001
+// Seat:        BITS-CODEGEN
+// Owner:       Citadel Nexus Inc.
+// Created:     2026-10-20
+// Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// EnumType:    Scaffold
+// EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// DAG Node:    none
+// Intent:      Preserve word-boundary reflex matching when integrating the remaining cognition surfaces.
+// ───────────────────────────────────────────────────────────────
+
 export type RuntimeReflexPattern = {
   name: string;
   patterns: string[];
@@ -35,9 +52,6 @@ export class ReflexEngine {
         const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         return new RegExp(`(?:^|\\W)${escaped}(?:\\W|$)`).test(normalized);
       });
-      const triggered = pattern.patterns.some(
-        (token) => normalized.includes(token) || normalized.startsWith(token),
-      );
       if (!triggered) {
         continue;
       }

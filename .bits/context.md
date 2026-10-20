@@ -2,18 +2,18 @@
 # ─── CGRF Header ───────────────────────────────────────────────
 # File:        .bits/context.md
 # Stage:       11_COMMIT
-# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
 # CAPS:        pending
 # CK:          pending
-# Dispatch:    DISP-GOVERNANCE-builder
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
 # Seat:        BITS-CODEGEN
 # Owner:       Citadel Nexus Inc.
 # Created:     2026-10-20
-# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
 # EnumType:    Doc
-# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
 # DAG Node:    none
-# Intent:      Expose staging authorization and remaining governance activation work to future seats.
+# Intent:      Keep the active integration scope, confirmed identities and unresolved master-control bindings visible to future seats.
 # ───────────────────────────────────────────────────────────────
 -->
 
@@ -112,3 +112,21 @@ This repo holds its slice. CNWB and `cnwb-mirror` will hold theirs.
   permissions/actions; verify team visibility/write access. See GOVERNANCE.md.
 - Sandbox has no installed TypeScript/Vitest dependencies; npm lint/test/build
   require CI. No network installation attempted, per the standing sandbox guidance.
+
+
+## Consolidated follow-up — 2026-10-20
+
+SRS-CN-BUILDER-INTEGRATION-001 / DISP-BUILDER-INTEGRATION-001 records the
+operator's explicit request to combine PRs #8, #9, #16 and #26 into one next PR,
+with meaningful operations, learning and audit tests. Base: main after merged
+PR #34. Public repository scope only; no private GitLab work or production action.
+The integration report records unavailable TypeScript/Vitest tooling separately
+from executed native Node and Python checks.
+
+The subsequent SRS-CN-GUILD-MASTER-RANK-001 directive is recorded as a CNWB
+handoff in .bits/handoffs/2026-10-20-BITS-CODEGEN-CMAX-B-master-rank.md. All eight
+existing masters are retained. Direct Bits incident/monitor reads succeeded;
+no matching active incident was returned and the ten returned GitLab/runner
+monitors reported OK. Forge delegation, provider permission mappings, durable
+mission/revocation enforcement, CNWB UI and independent VCC verification remain
+unbound. This session cannot attach the private GitLab repository.

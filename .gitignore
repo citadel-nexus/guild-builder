@@ -1,5 +1,24 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .gitignore
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# DAG Node:    none
+# Intent:      Keep local Python analysis caches and generated runtime output out of reviewed build sources.
+# ───────────────────────────────────────────────────────────────
+
 node_modules/
 dist/
 .env
 .env.local
 npm-debug.log*
+__pycache__/
+.mypy_cache/

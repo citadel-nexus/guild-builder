@@ -1,0 +1,29 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json.cgrf.yaml
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md, .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md; DEPENDS_ON .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json
+# DAG Node:    none
+# Intent:      Associate comment-free .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json with its governance metadata and evidence graph.
+# ───────────────────────────────────────────────────────────────
+
+file: .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json
+stage: 13_SAVE
+srs: SRS-CN-BUILDER-INTEGRATION-001
+dispatch: DISP-BUILDER-INTEGRATION-001
+seat: BITS-CODEGEN
+owner: Citadel Nexus Inc.
+caps: pending
+ck: pending
+intent: Preserve linked file intent and real validation evidence for post-merge operations, learning and audit recall.
+enum_edges:
+  - edge_type: DEPENDS_ON
+    target: .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md

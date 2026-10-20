@@ -1,0 +1,28 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        src/bots/.sake
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# DAG Node:    none
+# Intent:      Declare the bots public module inputs, outputs and ownership so integrated capabilities remain discoverable.
+# ───────────────────────────────────────────────────────────────
+
+module: bots
+guild: builder
+srs: [SRS-CN-BUILDER-INTEGRATION-001, SRS-BOT-TRACKER-001]
+dispatch: DISP-BUILDER-INTEGRATION-001
+contract: src/bots/bots.sake
+inputs: [NATS_PREFIX, BOT_TRACKER_SUBJECTS, BOT_TRACKER_INGEST_TOKEN]
+outputs: [BotRegistry, tryHandleBotRoute, startBotListener]
+invariants:
+  - HTTP ingestion enforces its configured token and 256 KiB limit
+  - public event snapshots and listeners cannot mutate retained evidence
+  - event retention is bounded and in memory

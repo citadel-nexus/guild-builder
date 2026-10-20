@@ -1,3 +1,20 @@
+// ─── CGRF Header ───────────────────────────────────────────────
+// File:        src/agents/nexus-tamagotchi/workshop.ts
+// Stage:       11_COMMIT
+// SRS:         SRS-CN-BUILDER-INTEGRATION-001
+// CAPS:        pending
+// CK:          pending
+// Dispatch:    DISP-BUILDER-INTEGRATION-001
+// Seat:        BITS-CODEGEN
+// Owner:       Citadel Nexus Inc.
+// Created:     2026-10-20
+// Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// EnumType:    Scaffold
+// EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// DAG Node:    none
+// Intent:      Retain the existing workshop call contract while removing the duplicated brain-map declaration.
+// ───────────────────────────────────────────────────────────────
+
 type ToolHandler = (
   args: Record<string, unknown>,
 ) => Promise<Record<string, unknown>>;
@@ -240,7 +257,6 @@ export class WorkshopIntegration {
 
     if (includeBrainMap) {
       const brainMap = await this.handleBrainMap({});
-      const brainMap = await this.handleBrainMap();
       if (!brainMap.error) {
         const response = await this.transport.post(
           "/api/v1/visualizations/brain-map",
