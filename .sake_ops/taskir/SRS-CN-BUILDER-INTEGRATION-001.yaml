@@ -1,0 +1,47 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .sake_ops/taskir/SRS-CN-BUILDER-INTEGRATION-001.yaml
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# DAG Node:    none
+# Intent:      Connect source coverage, operational regressions and master-control handoff tasks in the existing task graph.
+# ───────────────────────────────────────────────────────────────
+
+id: SRS-CN-BUILDER-INTEGRATION-001
+dispatch: DISP-BUILDER-INTEGRATION-001
+guild: builder
+status: in_progress
+public_contract: true
+nodes:
+  - id: sources
+    kind: governance
+    inputs: ["PR #8", "PR #9", "PR #16", "PR #26"]
+    gate: all input heads pinned in the integration report
+  - id: integration
+    kind: implementation
+    depends_on: [sources]
+    gate: imported capabilities and existing startup paths coexist
+  - id: operations_learning_audit
+    kind: test
+    depends_on: [integration]
+    paths:
+      - tests/integration/operations.checks.mjs
+      - tests/capabilities/test_terms_verifier.py
+    gate: failure recovery, evidence isolation, bounded restart and exact quotes
+  - id: review
+    kind: governance
+    depends_on: [operations_learning_audit, master_rank_handoff]
+    gate: CI gating, CGRF metadata and review evidence
+  - id: master_rank_handoff
+    kind: governance
+    depends_on: [operations_learning_audit]
+    target_srs: SRS-CN-GUILD-MASTER-RANK-001
+    gate: existing identities retained; missing private authority and verification bindings remain HOLD

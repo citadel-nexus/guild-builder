@@ -1,3 +1,20 @@
+// ─── CGRF Header ───────────────────────────────────────────────
+// File:        src/agents/nexus-tamagotchi/memory-graph.ts
+// Stage:       11_COMMIT
+// SRS:         SRS-CN-BUILDER-INTEGRATION-001
+// CAPS:        pending
+// CK:          pending
+// Dispatch:    DISP-BUILDER-INTEGRATION-001
+// Seat:        BITS-CODEGEN
+// Owner:       Citadel Nexus Inc.
+// Created:     2026-10-20
+// Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// EnumType:    Scaffold
+// EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// DAG Node:    none
+// Intent:      Keep a single valid public memory visualization document after reconciling overlapping source reviews.
+// ───────────────────────────────────────────────────────────────
+
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 
@@ -230,24 +247,14 @@ export class MemoryGraphRenderer {
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-
-  <title>Brain Synapse Map</title>
-  <style>
-    body { font-family: system-ui, sans-serif; background: #111827; color: #f3f4f6; margin: 0; }
-    header { padding: 16px 24px; border-bottom: 1px solid #1f2937; }
-    h1 { margin: 0; font-size: 1.25rem; letter-spacing: 0.04em; }
-    #graph { width: 100vw; height: calc(100vh - 64px); display: grid; place-items: center; }
-
   <title>Nexus Memory Graph</title>
   <style>
     body { font-family: system-ui, sans-serif; background: #111827; color: #f3f4f6; margin: 0; }
     #graph { width: 100vw; height: 100vh; display: grid; place-items: center; }
-
     pre { max-width: 90vw; max-height: 85vh; overflow: auto; background: #0b1220; padding: 16px; border-radius: 8px; border: 1px solid #1f2937; }
   </style>
 </head>
 <body>
-  <header><h1>Brain Synapse Map</h1></header>
   <div id="graph"><pre id="payload"></pre></div>
   <script>
     const payload = ${graphJson};

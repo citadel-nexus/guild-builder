@@ -1,0 +1,30 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        src/automation/.sake
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# DAG Node:    none
+# Intent:      Declare the automation public module inputs, outputs and ownership so integrated capabilities remain discoverable.
+# ───────────────────────────────────────────────────────────────
+
+module: automation
+guild: builder
+srs: [SRS-CN-BUILDER-INTEGRATION-001, SRS-PROVISION-ORCHESTRATOR-001]
+dispatch: DISP-BUILDER-INTEGRATION-001
+owns: [src/automation/research-pipe.ts, src/automation/auto-start.ts]
+inputs: [RESEARCH_PIPE_INBOUND_SUBJECT, RESEARCH_PIPE_OUTBOUND_PREFIX]
+outputs: [ResearchSignalPipe, maybeStartResearchSignalPipe]
+invariants:
+  - opt-in startup through RESEARCH_SIGNAL_PIPE
+  - preserve correlation fields when forwarding
+  - log failed subscriptions and allow explicit restart
+  - stop discards buffered messages before resolving
+  - core NATS delivery is not durable or exactly once

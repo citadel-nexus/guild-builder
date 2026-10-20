@@ -2,18 +2,18 @@
 # ─── CGRF Header ───────────────────────────────────────────────
 # File:        GOVERNANCE.md
 # Stage:       06_PLAN
-# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
 # CAPS:        pending
 # CK:          pending
-# Dispatch:    DISP-GOVERNANCE-builder
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
 # Seat:        BITS-CODEGEN
 # Owner:       Citadel Nexus Inc.
 # Created:     2026-10-20
-# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
 # EnumType:    Doc
-# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
 # DAG Node:    none
-# Intent:      Make Builder ownership, approval authority, and artifact trust independently reviewable.
+# Intent:      Bind the expanded Builder artifact and test contract to the existing ownership and signed-provenance policy.
 # ───────────────────────────────────────────────────────────────
 -->
 
@@ -109,8 +109,10 @@ No admin settings are changed by this PR.
 
 `.github/workflows/provenance.yml` builds on PRs targeting `main` and pushes to
 `main`. It runs `npm ci`, lint, tests, and TypeScript compilation on a GitHub-hosted
-runner, then creates `builder-<commit>.tar.gz` containing `dist/`, package metadata,
-the lockfile, and LICENSE. It installs no runtime dependencies in the archive;
+runner, then runs `npm run test:operations` (compiled integration checks and Python
+capability tests). It creates `builder-<commit>.tar.gz` containing `dist/`, the public
+Python `capabilities/`, `citadel.capability.yaml`, package metadata, the lockfile,
+and LICENSE. Python bytecode caches are excluded. It installs no runtime dependencies in the archive;
 consumers must install them separately if running the compiled service.
 
 A separate job downloads that exact archive from the same run and signs its

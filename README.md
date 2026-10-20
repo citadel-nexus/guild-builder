@@ -1,3 +1,22 @@
+<!--
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        README.md
+# Stage:       06_PLAN
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# EnumType:    Doc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# DAG Node:    none
+# Intent:      Describe the integrated bot observation and research forwarding surfaces for public contributors.
+# ───────────────────────────────────────────────────────────────
+-->
+
 # Guild: Builder
 
 > *"If it isn't built right, nothing else matters."*
@@ -233,3 +252,18 @@ Activate the inbound/outbound NATS bridge at process start by setting
 `PROVISION_ORCHESTRATOR=on` and providing the inbound subject + outbound
 prefix from your operator subject canon — the spine never hardcodes
 either.
+
+## Builder → Research signal pipe
+
+Use the optional research signal pipe to forward Builder telemetry events
+into a Research guild namespace for experiment evaluation automation.
+
+Set:
+- `RESEARCH_SIGNAL_PIPE=on`
+- `RESEARCH_PIPE_INBOUND_SUBJECT=<builder telemetry subject>`
+- `RESEARCH_PIPE_OUTBOUND_PREFIX=<operator prefix>`
+- Optional overrides: `RESEARCH_PIPE_SOURCE_GUILD`, `RESEARCH_PIPE_TARGET_GUILD`, `RESEARCH_PIPE_NAMESPACE`
+
+The pipe subscribes to the configured inbound subject, enriches each payload
+with forwarding metadata, and republishes under:
+`<RESEARCH_PIPE_OUTBOUND_PREFIX>.<target_guild>.<namespace>.<event_type>`

@@ -1,3 +1,20 @@
+// ─── CGRF Header ───────────────────────────────────────────────
+// File:        src/agents/nexus-tamagotchi/outcome-xp.ts
+// Stage:       11_COMMIT
+// SRS:         SRS-CN-BUILDER-INTEGRATION-001
+// CAPS:        pending
+// CK:          pending
+// Dispatch:    DISP-BUILDER-INTEGRATION-001
+// Seat:        BITS-CODEGEN
+// Owner:       Citadel Nexus Inc.
+// Created:     2026-10-20
+// Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// EnumType:    Scaffold
+// EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// DAG Node:    none
+// Intent:      Keep typed outcome scoring operational after reconciling duplicate declarations.
+// ───────────────────────────────────────────────────────────────
+
 import type { IntegrationsManager } from './integrations-manager.js';
 
 export type OutcomeScore = {
@@ -30,7 +47,6 @@ export class OutcomeXPEngine {
     baseXp: number,
     context: Record<string, unknown> = {},
   ): OutcomeScore {
-    const signals = {
     const signals: Record<string, number> = {
       response_quality: readNumber(context, 'coherence', 0.5),
       engagement_time: readNumber(context, 'session_duration', 0.5),

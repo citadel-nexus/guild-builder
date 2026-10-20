@@ -1,18 +1,18 @@
 # ─── CGRF Header ───────────────────────────────────────────────
 # File:        .github/workflows/provenance.yml
 # Stage:       11_COMMIT
-# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
 # CAPS:        pending
 # CK:          pending
-# Dispatch:    DISP-GOVERNANCE-builder
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
 # Seat:        BITS-CODEGEN
 # Owner:       Citadel Nexus Inc.
 # Created:     2026-10-20
-# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
 # EnumType:    Workflow
-# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
 # DAG Node:    none
-# Intent:      Bind reviewed Builder build archives to verifiable GitHub OIDC provenance.
+# Intent:      Require operational regressions before signing the archive containing the TypeScript and Python capabilities.
 # ───────────────────────────────────────────────────────────────
 
 name: Build provenance — guild-builder
@@ -42,13 +42,14 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+      - run: npm run test:operations
       - name: Package compiled build
         shell: bash
         run: |
           set -euo pipefail
           test -s dist/index.js
-          tar -czf "$RUNNER_TEMP/builder-$GITHUB_SHA.tar.gz" \
-            dist package.json package-lock.json LICENSE
+          tar --exclude=__pycache__ -czf "$RUNNER_TEMP/builder-$GITHUB_SHA.tar.gz" \
+            dist capabilities citadel.capability.yaml package.json package-lock.json LICENSE
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: builder-build-${{ github.sha }}

@@ -1,3 +1,20 @@
+// ─── CGRF Header ───────────────────────────────────────────────
+// File:        src/agents/nexus-tamagotchi/nlu-engine.ts
+// Stage:       11_COMMIT
+// SRS:         SRS-CN-BUILDER-INTEGRATION-001
+// CAPS:        pending
+// CK:          pending
+// Dispatch:    DISP-BUILDER-INTEGRATION-001
+// Seat:        BITS-CODEGEN
+// Owner:       Citadel Nexus Inc.
+// Created:     2026-10-20
+// Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// EnumType:    Scaffold
+// EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// DAG Node:    none
+// Intent:      Retain boundary-aware intent matching and preprocessing while resolving overlapping classifier fragments.
+// ───────────────────────────────────────────────────────────────
+
 import { createHash } from "node:crypto";
 
 export enum IntentCategory {
@@ -297,7 +314,6 @@ export class NLUTextPreprocessor {
       )) {
         const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         output = output.replace(new RegExp(escaped, "gi"), replacement);
-        output = output.replaceAll(needle, replacement);
       }
     }
     if (lowercase) {
@@ -378,8 +394,6 @@ export class NLUIntentClassifier {
         const escaped = lowered.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         if (new RegExp(`(?:^|\\W)${escaped}(?:\\W|$)`).test(processed)) {
           score += lowered.length;
-        if (processed.includes(keyword.toLowerCase())) {
-          score += 1;
           matched.push(keyword);
         }
       }
@@ -419,7 +433,6 @@ export class NLUIntentClassifier {
     }
     const [primaryIntent, primaryScore] = sorted[0];
     const maxConfidence = Math.min(primaryScore / 10, 1);
-    const maxConfidence = Math.min(primaryScore / 3, 1);
     return {
       primaryIntent,
       confidence: maxConfidence,

@@ -1,3 +1,20 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        src/agents/nexus-tamagotchi/.sake
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# DAG Node:    none
+# Intent:      Declare the nexus-tamagotchi public module inputs, outputs and ownership so integrated capabilities remain discoverable.
+# ───────────────────────────────────────────────────────────────
+
 # SAKE module stub — Nexus Tamagotchi (public foundation)
 
 module: nexus-tamagotchi
@@ -56,6 +73,8 @@ owns:
   - src/agents/nexus-tamagotchi/response-pipeline.ts
   - src/agents/nexus-tamagotchi/oad-dashboard.ts
   - src/agents/nexus-tamagotchi/z-up-integration.ts
+  - src/agents/nexus-tamagotchi/mira-memory-engine.ts
+  - src/agents/nexus-tamagotchi/ags-cognition-engine.ts
   - src/agents/nexus-tamagotchi/progression.ts
   - src/agents/nexus-tamagotchi/agent-factory.ts
   - src/agents/nexus-tamagotchi/integration-router.ts

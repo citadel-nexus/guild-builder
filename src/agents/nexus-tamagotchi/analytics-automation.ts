@@ -1,3 +1,20 @@
+// ─── CGRF Header ───────────────────────────────────────────────
+// File:        src/agents/nexus-tamagotchi/analytics-automation.ts
+// Stage:       11_COMMIT
+// SRS:         SRS-CN-BUILDER-INTEGRATION-001
+// CAPS:        pending
+// CK:          pending
+// Dispatch:    DISP-BUILDER-INTEGRATION-001
+// Seat:        BITS-CODEGEN
+// Owner:       Citadel Nexus Inc.
+// Created:     2026-10-20
+// Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// EnumType:    Scaffold
+// EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+// DAG Node:    none
+// Intent:      Preserve the current automation surfaces while removing duplicated declarations that prevent source parsing.
+// ───────────────────────────────────────────────────────────────
+
 import { randomUUID } from "node:crypto";
 
 export type AnalyticsEvent = {
@@ -221,7 +238,6 @@ export type AutomationRule = {
 
 type AutomationAgentSurfaces = {
   stm?: {
-dd/bits/srs-nexus-tamagotchi-001-stage1
     getCandidatesForConsolidation?: () => unknown[];
   };
   ltm?: {
@@ -232,17 +248,6 @@ dd/bits/srs-nexus-tamagotchi-001-stage1
   };
   broadcastIntegrations?: {
     broadcast?: (channel: string, payload: string) => Promise<void> | void;
-
-    getCandidatesForConsolidation?(): unknown[];
-  };
-  ltm?: {
-    consolidateFromStm?(entries: unknown[], threshold?: number): unknown;
-  };
-  workshopIntegration?: {
-    syncToWorkshop?(): Promise<unknown> | unknown;
-  };
-  broadcastIntegrations?: {
-
   };
 };
 

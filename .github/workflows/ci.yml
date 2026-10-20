@@ -1,3 +1,20 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .github/workflows/ci.yml
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# EnumType:    Workflow
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# DAG Node:    none
+# Intent:      Gate Builder compilation and existing publication jobs on operational, learning and audit regression tests.
+# ───────────────────────────────────────────────────────────────
+
 name: CI — guild-builder
 on:
   push:
@@ -16,6 +33,7 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+      - run: npm run test:operations
   docker:
     needs: build
     if: github.ref == 'refs/heads/main'

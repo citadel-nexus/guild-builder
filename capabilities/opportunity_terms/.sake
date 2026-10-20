@@ -1,0 +1,29 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        capabilities/opportunity_terms/.sake
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# EnumType:    ConfigDoc
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+# DAG Node:    none
+# Intent:      Declare the opportunity_terms public module inputs, outputs and ownership so integrated capabilities remain discoverable.
+# ───────────────────────────────────────────────────────────────
+
+module: opportunity_terms
+guild: builder
+srs: [SRS-CN-BUILDER-INTEGRATION-001]
+dispatch: DISP-BUILDER-INTEGRATION-001
+owns: [capabilities/opportunity_terms/terms_verifier.py]
+inputs: [nonempty listing text]
+outputs: [entry_fee evidence, rights evidence]
+invariants:
+  - exact text quotes accompany recognized evidence
+  - assignment evidence takes precedence over licensing evidence
+  - unsupported language is not an admission or legal decision
+  - no network, credentials, model calls or capability admission

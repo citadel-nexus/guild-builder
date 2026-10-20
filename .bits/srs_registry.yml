@@ -1,18 +1,18 @@
 # ─── CGRF Header ───────────────────────────────────────────────
 # File:        .bits/srs_registry.yml
 # Stage:       11_COMMIT
-# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# SRS:         SRS-CN-BUILDER-INTEGRATION-001
 # CAPS:        pending
 # CK:          pending
-# Dispatch:    DISP-GOVERNANCE-builder
+# Dispatch:    DISP-BUILDER-INTEGRATION-001
 # Seat:        BITS-CODEGEN
 # Owner:       Citadel Nexus Inc.
 # Created:     2026-10-20
-# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# Depends:     .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
 # EnumType:    ConfigDoc
-# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
 # DAG Node:    none
-# Intent:      Register bounded Builder governance ownership alongside existing repository SRS entries.
+# Intent:      Register the operator-authorized consolidation and its public source, test and evidence ownership.
 # ───────────────────────────────────────────────────────────────
 
 # Citadel Nexus — Builder Guild · SRS Registry
@@ -183,6 +183,8 @@ SRS-NEXUS-TAMAGOTCHI-001:
   dispatch: AGENT-TAMAGOTCHI-001
   phase: "§1 Extended Foundations: Runtime Systems and Governance"
   paths:
+    - src/agents/nexus-tamagotchi/mira-memory-engine.ts
+    - src/agents/nexus-tamagotchi/ags-cognition-engine.ts
     - src/agents/nexus-tamagotchi/types.ts
     - src/agents/nexus-tamagotchi/data/badges.ts
     - src/agents/nexus-tamagotchi/data/professors.ts
@@ -253,6 +255,8 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - src/agents/nexus-tamagotchi/.sake
     - docs/agents/nexus-tamagotchi/README.md
   tests:
+    - tests/agents/nexus-tamagotchi/mira-memory-engine.test.ts
+    - tests/agents/nexus-tamagotchi/ags-cognition-engine.test.ts
     - tests/agents/nexus-tamagotchi/types.test.ts
     - tests/agents/nexus-tamagotchi/audit.test.ts
     - tests/agents/nexus-tamagotchi/progression.test.ts
@@ -316,6 +320,29 @@ SRS-NEXUS-TAMAGOTCHI-001:
     - tests/agents/nexus-tamagotchi/integration-router.test.ts
     - tests/agents/nexus-tamagotchi/srs.test.ts
   exports:
+    - MiraMemorySystem
+    - MiraSTMBuffer
+    - MiraLTMManager
+    - MiraContextRehydrator
+    - MiraSelfAwarenessModule
+    - MiraMemoryAssociationNetwork
+    - MiraMemoryConsolidationScheduler
+    - MiraMemoryAnalyticsEngine
+    - AGSSystem
+    - AGSSystemFactory
+    - AGSPipeline
+    - SapientPacket
+    - SapientPacketFactory
+    - AGSIngressStage
+    - AGSGovernorStage
+    - AGSCouncilStage
+    - AGSExecutorStage
+    - AGSEgressStage
+    - AGSOutcomeTracker
+    - AGSLearningLoop
+    - AGSAnalytics
+    - AGSIntegrationRegistry
+    - AGSIntegrationOrchestrator
     - maybeStartNexusTamagotchi
     - BADGE_REGISTRY
     - PROFESSOR_REGISTRY
@@ -439,3 +466,88 @@ SRS-CN-BUILDER-GOVERNANCE-001:
     mutations. Operator confirmed @citadel-nexus/guild-builder as guildmaster
     owner and forge-builder-guildmaster as Forge's automation app/expected ruleset
     actor. Signed provenance covers CI archives only, not existing npm/GHCR releases.
+
+SRS-CN-BUILDER-INTEGRATION-001:
+  ep: DISP-BUILDER-INTEGRATION-001
+  status: in_progress
+  dispatch: DISP-BUILDER-INTEGRATION-001
+  phase: Consolidated operations, learning and audit review
+  cks_gate: B+/75
+  caps_minimum: B+
+  paths:
+    - .bits/context.md
+    - .bits/handoffs/2026-10-20-BITS-CODEGEN-CMAX-B-master-rank.md
+    - .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json
+    - .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json.cgrf.yaml
+    - .bits/out/DISP-BUILDER-INTEGRATION-001/report.md
+    - .bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json
+    - .bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json.cgrf.yaml
+    - .bits/queue/DISP-BUILDER-INTEGRATION-001.md
+    - .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md
+    - .bits/srs_registry.yml
+    - .env.example
+    - .github/workflows/ci.yml
+    - .github/workflows/provenance.yml
+    - .gitignore
+    - .sake_ops/taskir/SRS-CN-BUILDER-INTEGRATION-001.yaml
+    - GOVERNANCE.md
+    - README.md
+    - capabilities/opportunity_terms/.sake
+    - capabilities/opportunity_terms/terms_verifier.py
+    - citadel.capability.yaml
+    - docs/agents/nexus-tamagotchi/README.md
+    - docs/bot-tracker.md
+    - docs/builder-integration.md
+    - package.json
+    - package.json.cgrf.yaml
+    - src/agents/nexus-tamagotchi/.sake
+    - src/agents/nexus-tamagotchi/ags-cognition-engine.ts
+    - src/agents/nexus-tamagotchi/analytics-automation.ts
+    - src/agents/nexus-tamagotchi/audit.ts
+    - src/agents/nexus-tamagotchi/index.ts
+    - src/agents/nexus-tamagotchi/memory-graph.ts
+    - src/agents/nexus-tamagotchi/mira-memory-engine.ts
+    - src/agents/nexus-tamagotchi/nlu-engine.ts
+    - src/agents/nexus-tamagotchi/outcome-xp.ts
+    - src/agents/nexus-tamagotchi/reflex-engine.ts
+    - src/agents/nexus-tamagotchi/workshop.ts
+    - src/automation/.sake
+    - src/automation/auto-start.ts
+    - src/automation/research-pipe.ts
+    - src/bots/.sake
+    - src/bots/bots.sake
+    - src/bots/index.ts
+    - src/bots/listener.ts
+    - src/bots/registry.ts
+    - src/bots/routes.ts
+    - src/bots/sentinel.ts
+    - src/bots/sse.ts
+    - src/bots/static.ts
+    - src/bots/subjects.ts
+    - src/bots/types.ts
+    - src/guild-client.ts
+    - src/index.ts
+    - tests/agents/nexus-tamagotchi/ags-cognition-engine.test.ts
+    - tests/agents/nexus-tamagotchi/mira-memory-engine.test.ts
+    - tests/automation/auto-start.test.ts
+    - tests/automation/research-pipe.test.ts
+    - tests/bots/ingest.test.ts
+    - tests/bots/listener.test.ts
+    - tests/bots/registry.test.ts
+    - tests/bots/routes.test.ts
+    - tests/bots/sentinel.test.ts
+    - tests/bots/subjects.test.ts
+    - tests/capabilities/test_terms_verifier.py
+    - tests/integration/operations.checks.mjs
+    - tests/integration/sandbox-runner.mjs
+  depends_on: [SRS-CN-BUILDER-GOVERNANCE-001]
+  public_contract: true
+  source_prs: [8, 9, 16, 26]
+  notes: >
+    The authenticated operator explicitly requested all four open Builder reviews
+    in one next PR, with operational, learning and audit tests. This local staging
+    dispatch is not an external VCC record. Source SRS attribution remains in the
+    imported contracts. The later master-rank directive is a concrete CNWB handoff;
+    no private identity, authority, durable mission or VCC binding is claimed.
+    TypeScript/Vitest/build verification requires CI because sandbox dependencies
+    are absent; no network installation or production/settings action is authorized here.
