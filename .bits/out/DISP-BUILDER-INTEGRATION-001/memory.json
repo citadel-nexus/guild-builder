@@ -1,0 +1,3137 @@
+{
+  "vectors": [
+    {
+      "type": "A",
+      "file_path": ".bits/context.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 132,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Keep the active integration scope, confirmed identities and unresolved master-control bindings visible to future seats.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/handoffs/2026-10-20-BITS-CODEGEN-CMAX-B-master-rank.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 148,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Separate observed public capabilities from missing private authority, durable delegation and independent verification across all eight masters.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json",
+      "cket_stage": "13_SAVE",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 3137,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve linked file intent and real validation evidence for post-merge operations, learning and audit recall.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json"
+      ],
+      "lines": 29,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Associate comment-free .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json with its governance metadata and evidence graph.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-BUILDER-INTEGRATION-001/report.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 212,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Distinguish demonstrated integration behavior from unavailable CI gates and unbound master-control release evidence.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 225,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Pin every requested source review and account for the paths integrated or already present on the verified base.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json"
+      ],
+      "lines": 29,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Associate comment-free .bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json with its governance metadata and evidence graph.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/queue/DISP-BUILDER-INTEGRATION-001.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 57,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Record the operator authorization, bounded staging phases and required verification for the consolidated review.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "cket_stage": "04_HYPOTHESIZE",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/queue/DISP-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 57,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Define acceptance for consolidating four Builder reviews with failure recovery, trustworthy learning evidence and a bounded CNWB handoff.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/srs_registry.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 553,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Register the operator-authorized consolidation and its public source, test and evidence ownership.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".env.example",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 105,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Expose configurable bot ingestion and opt-in research forwarding without embedding tenant credentials.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/workflows/ci.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Workflow",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 55,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Gate Builder compilation and existing publication jobs on operational, learning and audit regression tests.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/workflows/provenance.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Workflow",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 115,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Require operational regressions before signing the archive containing the TypeScript and Python capabilities.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".gitignore",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 24,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Keep local Python analysis caches and generated runtime output out of reviewed build sources.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".sake_ops/taskir/SRS-CN-BUILDER-INTEGRATION-001.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 47,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Connect source coverage, operational regressions and master-control handoff tasks in the existing task graph.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "GOVERNANCE.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 195,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Bind the expanded Builder artifact and test contract to the existing ownership and signed-provenance policy.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "README.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 269,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Describe the integrated bot observation and research forwarding surfaces for public contributors.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "capabilities/opportunity_terms/.sake",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 29,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Declare the opportunity_terms public module inputs, outputs and ownership so integrated capabilities remain discoverable.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "capabilities/opportunity_terms/terms_verifier.py",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "EntryFee",
+        "Rights",
+        "TermsResult",
+        "InvalidTermsError",
+        "detect_terms",
+        "_selftest",
+        "selftest"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 124,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Extract exact fee and rights evidence for human review without inferring permission from unsupported legal language.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "citadel.capability.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 50,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Declare the experimental offline opportunity-terms capability without granting platform authority or registry admission.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "docs/agents/nexus-tamagotchi/README.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 414,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Document Mira and AGS public exports while keeping vendor-bound implementations in CNWB.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "docs/bot-tracker.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 227,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Explain configurable bot ingestion, live observation and sentinel normalization for operators.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "docs/builder-integration.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 133,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Explain source-review coverage, failure semantics, evidence limits, verification and rollback for the consolidated system.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "package.json",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 33,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Expose a dependency-free operational test command for CI after TypeScript compilation.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "package.json.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "package.json"
+      ],
+      "lines": 29,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Associate comment-free package.json with its governance metadata and evidence graph.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/.sake",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 106,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Declare the nexus-tamagotchi public module inputs, outputs and ownership so integrated capabilities remain discoverable.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/ags-cognition-engine.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "getLogger",
+        "toIso",
+        "clamp",
+        "sleep",
+        "asRecord",
+        "numberOr",
+        "SapientPacket",
+        "SapientPacketFactory",
+        "SapientPacketQueue",
+        "createStageConfig",
+        "AGSStage",
+        "AGSPipeline",
+        "AGSIntentClassifier",
+        "AGSEntityExtractor",
+        "AGSInputValidator",
+        "AGSSentimentAnalyzer",
+        "AGSIngressStage",
+        "AGSPolicyEngine",
+        "AGSRateLimiter",
+        "AGSResourceAllocator",
+        "AGSGovernorStage",
+        "AGSCouncilDebateEngine",
+        "AGSCouncilStage",
+        "AGSActionRegistry",
+        "AGSActionPlanner",
+        "AGSExecutorStage",
+        "createEgressConfig",
+        "AGSOutputFormatter",
+        "AGSDeliveryManager",
+        "AGSEgressStage",
+        "isAGSOutcome",
+        "copyOutcome",
+        "AGSOutcomeTracker",
+        "AGSLearningLoop",
+        "AGSAnalytics",
+        "AGSSystemConfig",
+        "AGSSystemFactory",
+        "AGSSystem",
+        "AGSIntegrationConfig",
+        "IntegrationDisabledError",
+        "RateLimitExceededError",
+        "AGSIntegrationError",
+        "AGSBaseIntegrationClient",
+        "AGSIntegrationRegistry",
+        "AGSIntegrationOrchestrator"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 3892,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Provide local cognition scaffolds with bounded, replay-aware outcome statistics and validated restart evidence.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/analytics-automation.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "AgentAnalytics",
+        "parseNumber",
+        "parseString",
+        "AutomationEngine"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 484,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve the current automation surfaces while removing duplicated declarations that prevent source parsing.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/audit.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "computeEntryHash",
+        "createAuditEntry",
+        "verifyChain",
+        "getChainHead",
+        "GuardianAuditTrail"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 127,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Protect local audit evidence from caller mutation and detect edits or trusted-head truncation using unambiguous hash inputs.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/index.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "initialState",
+        "mapGameRankToStateRank",
+        "parseRecord",
+        "parseNumber",
+        "parseString",
+        "parseGameRank",
+        "NexusTamagotchiRuntime",
+        "maybeStartNexusTamagotchi"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 747,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Expose Mira and AGS exports while preserving explicit resolution of existing public symbol collisions.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/memory-graph.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "parseIsoAgeHours",
+        "normalize",
+        "distance2d",
+        "tokenizeTheme",
+        "MemoryGraphRenderer"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 395,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Keep a single valid public memory visualization document after reconciling overlapping source reviews.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/mira-memory-engine.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "getLogger",
+        "nowIso",
+        "parseRecord",
+        "parseString",
+        "parseNumber",
+        "parseBoolean",
+        "parseStringArray",
+        "parseNumberArray",
+        "clamp",
+        "cosineSimilarity",
+        "normalizeVector",
+        "deterministicEmbedding",
+        "createMiraMemoryConfig",
+        "MiraSTMEntry",
+        "MiraLTMEntry",
+        "MiraSearchResult",
+        "MiraSTMBuffer",
+        "MiraLTMDomainIndex",
+        "MiraLTMManager",
+        "getMemoryTimestamp",
+        "MiraAttentionMechanism",
+        "MiraRetentionGate",
+        "MiraMemoryLearningAlgorithm",
+        "MiraMemorySystem",
+        "NestedRecursiveLearningController",
+        "StructuralMotifLearner",
+        "AutonomyPolicyGate",
+        "createMiraSessionState",
+        "MiraContextRehydrator",
+        "MiraMemoryAssociationNetwork",
+        "MiraMemoryConsolidationScheduler",
+        "MiraMemoryAnalyticsEngine",
+        "MiraSelfAwarenessModule",
+        "MiraMemoryFingerprinter",
+        "MiraMemoryTextProcessor",
+        "MiraMemoryExporter"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 3873,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Provide local memory capture, retrieval and rehydration contracts that retain valid evidence after interrupted writes.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/nlu-engine.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "buildUnknownIntentResult",
+        "buildNeutralSentimentResult",
+        "buildUnknownLanguageResult",
+        "buildGeneralTopicResult",
+        "NLUTextPreprocessor",
+        "NLUIntentClassifier",
+        "NLUEntityExtractor",
+        "NLUSentimentAnalyzer",
+        "NLULanguageDetector",
+        "NLUTopicClassifier",
+        "NLUTextSimilarity",
+        "NLUPipeline"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 1016,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Retain boundary-aware intent matching and preprocessing while resolving overlapping classifier fragments.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/outcome-xp.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "OutcomeXPEngine",
+        "readNumber"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 109,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Keep typed outcome scoring operational after reconciling duplicate declarations.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/reflex-engine.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "ReflexEngine"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 176,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve word-boundary reflex matching when integrating the remaining cognition surfaces.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/agents/nexus-tamagotchi/workshop.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "parseNumber",
+        "parseString",
+        "parseRecord",
+        "WorkshopIntegration"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 526,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Retain the existing workshop call contract while removing the duplicated brain-map declaration.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/automation/.sake",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 30,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Declare the automation public module inputs, outputs and ownership so integrated capabilities remain discoverable.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/automation/auto-start.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "maybeStartResearchSignalPipe"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 85,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Start research forwarding only with explicit enablement and configured connection and subject inputs.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/automation/research-pipe.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "normalizeSegment",
+        "defaultResearchSubjectFormatter",
+        "decodePayload",
+        "encodePayload",
+        "coerceRecord",
+        "resolveEventType",
+        "ResearchSignalPipe"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 220,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve attribution fields while recovering from signal and subscription failures with explicit stop and restart behavior.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/.sake",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 28,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Declare the bots public module inputs, outputs and ownership so integrated capabilities remain discoverable.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/bots.sake",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 88,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Declare the bots public module inputs, outputs and ownership so integrated capabilities remain discoverable.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/index.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 53,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Expose the bot tracking contracts through a single public module boundary.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/listener.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "startBotListener",
+        "consume",
+        "parseBody",
+        "optionalString",
+        "coerceKind",
+        "coerceStatus",
+        "coerceGeo",
+        "coercePayload"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 199,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Translate configured NATS bot subscriptions into bounded observable activity records.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/registry.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "BotRegistry",
+        "hashedGeo"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 201,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Retain bounded event evidence without allowing inputs, listeners or snapshots to rewrite stored observations.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/routes.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "tryHandleBotRoute",
+        "ingestSourceForUrl",
+        "handleDashboard",
+        "handleSnapshot",
+        "handleIngest",
+        "authorizeIngest",
+        "readBody",
+        "writeJson"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 217,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Provide observable sentinel ingestion with configured authentication, bounded request bodies and recoverable HTTP failures.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/sentinel.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "safeId",
+        "asObject",
+        "asString",
+        "asNumber",
+        "asGeo",
+        "wazuhLevelToStatus",
+        "suricataSeverityToStatus",
+        "severityWordToStatus",
+        "fromWazuhAlert",
+        "fromSuricataEve",
+        "fromNemesisAudit",
+        "fromGenericPayload",
+        "translate"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 315,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Normalize supported sentinel alerts into the shared public bot evidence shape.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/sse.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "attachSseClient",
+        "writeFrame"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 77,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Deliver current bot observations to HTTP subscribers while releasing disconnected clients.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/static.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "renderBotTrackerHtml"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 374,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Show local bot activity with explicit illustrative positions, canonical brand tokens and the public status link.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/subjects.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [
+        "readEnv",
+        "loadSubjectConfig",
+        "parseBotIdFromSubject",
+        "parseActionFromSubject",
+        "describeSubjects"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 120,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Resolve bot event subjects from operator configuration rather than tenant-specific runtime literals.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/bots/types.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 75,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Define the shared identity, status and evidence contracts used by bot ingestion and observers.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/guild-client.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 116,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Expose bot observations and accurately report configured ingestion authentication alongside existing guild health.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "src/index.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Scaffold",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md"
+      ],
+      "lines": 106,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Start the integrated opt-in services while preserving Datadog, provisioning and Tamagotchi startup.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/agents/nexus-tamagotchi/ags-cognition-engine.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "makeStorageDir",
+        "DummyIntegrationClient"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/agents/nexus-tamagotchi/ags-cognition-engine.ts"
+      ],
+      "lines": 150,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the ags-cognition-engine public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/agents/nexus-tamagotchi/mira-memory-engine.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "makeConfig"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/agents/nexus-tamagotchi/mira-memory-engine.ts"
+      ],
+      "lines": 139,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the mira-memory-engine public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/automation/auto-start.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/automation/auto-start.ts"
+      ],
+      "lines": 55,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the auto-start public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/automation/research-pipe.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "FakeSubscription",
+        "FakeNatsClient",
+        "waitFor"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/automation/research-pipe.ts"
+      ],
+      "lines": 266,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the research-pipe public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/bots/ingest.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "harness"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/bots/routes.ts"
+      ],
+      "lines": 185,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the ingest public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/bots/listener.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/bots/listener.ts"
+      ],
+      "lines": 81,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the listener public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/bots/registry.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/bots/registry.ts"
+      ],
+      "lines": 99,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the registry public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/bots/routes.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/bots/routes.ts"
+      ],
+      "lines": 100,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the routes public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/bots/sentinel.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/bots/sentinel.ts"
+      ],
+      "lines": 194,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the sentinel public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/bots/subjects.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "src/bots/subjects.ts"
+      ],
+      "lines": 91,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve source-review regression coverage for the subjects public contract.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/capabilities/test_terms_verifier.py",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "TermsVerifierTests"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "capabilities/opportunity_terms/terms_verifier.py"
+      ],
+      "lines": 69,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Reject fee and rights extraction regressions using exact-source evidence, negation, precedence and invalid-input cases.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/integration/operations.checks.mjs",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "Subscription",
+        "pipeHarness",
+        "packet"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "docs/builder-integration.md"
+      ],
+      "lines": 270,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Exercise operational recovery, attributed forwarding, learning replay and restart, evidence isolation and audit tamper rejection.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/integration/sandbox-runner.mjs",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-INTEGRATION-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "transformDirectory"
+      ],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+        "tests/integration/operations.checks.mjs"
+      ],
+      "lines": 59,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Run the operational regression suite with Node TypeScript transformation when the sandbox lacks the production compiler.",
+      "objective_id": "DISP-BUILDER-INTEGRATION-001",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILDER-INTEGRATION-001",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-INTEGRATION-001",
+        "operations-learning-audit"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "B",
+      "source": ".bits/context.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/context.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/handoffs/2026-10-20-BITS-CODEGEN-CMAX-B-master-rank.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/handoffs/2026-10-20-BITS-CODEGEN-CMAX-B-master-rank.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json.cgrf.yaml",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json.cgrf.yaml depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json.cgrf.yaml",
+      "target": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILDER-INTEGRATION-001/memory.json.cgrf.yaml depends_on .bits/out/DISP-BUILDER-INTEGRATION-001/memory.json under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILDER-INTEGRATION-001/report.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILDER-INTEGRATION-001/report.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json.cgrf.yaml",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json.cgrf.yaml depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json.cgrf.yaml",
+      "target": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json.cgrf.yaml depends_on .bits/out/DISP-BUILDER-INTEGRATION-001/source-prs.json under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/queue/DISP-BUILDER-INTEGRATION-001.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/queue/DISP-BUILDER-INTEGRATION-001.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "target": ".bits/queue/DISP-BUILDER-INTEGRATION-001.md",
+      "edge_type": "GATES",
+      "weight": 1.0,
+      "description": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md gates .bits/queue/DISP-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/srs_registry.yml",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/srs_registry.yml depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".env.example",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".env.example depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/ci.yml",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/ci.yml depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/provenance.yml",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/provenance.yml depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".gitignore",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".gitignore depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".sake_ops/taskir/SRS-CN-BUILDER-INTEGRATION-001.yaml",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".sake_ops/taskir/SRS-CN-BUILDER-INTEGRATION-001.yaml depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "GOVERNANCE.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "GOVERNANCE.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "README.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "README.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "capabilities/opportunity_terms/.sake",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "capabilities/opportunity_terms/.sake depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "capabilities/opportunity_terms/terms_verifier.py",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "capabilities/opportunity_terms/terms_verifier.py depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "citadel.capability.yaml",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "citadel.capability.yaml depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "docs/agents/nexus-tamagotchi/README.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "docs/agents/nexus-tamagotchi/README.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "docs/bot-tracker.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "docs/bot-tracker.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "docs/builder-integration.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "docs/builder-integration.md depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "package.json",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "package.json depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "package.json.cgrf.yaml",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "package.json.cgrf.yaml depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "package.json.cgrf.yaml",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "package.json.cgrf.yaml depends_on package.json under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/.sake",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/.sake depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/ags-cognition-engine.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/ags-cognition-engine.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/analytics-automation.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/analytics-automation.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/audit.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/audit.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/index.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/index.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/memory-graph.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/memory-graph.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/mira-memory-engine.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/mira-memory-engine.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/nlu-engine.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/nlu-engine.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/outcome-xp.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/outcome-xp.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/reflex-engine.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/reflex-engine.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/agents/nexus-tamagotchi/workshop.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/agents/nexus-tamagotchi/workshop.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/automation/.sake",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/automation/.sake depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/automation/auto-start.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/automation/auto-start.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/automation/research-pipe.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/automation/research-pipe.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/.sake",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/.sake depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/bots.sake",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/bots.sake depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/index.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/index.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/listener.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/listener.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/registry.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/registry.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/routes.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/routes.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/sentinel.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/sentinel.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/sse.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/sse.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/static.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/static.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/subjects.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/subjects.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/bots/types.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/bots/types.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/guild-client.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/guild-client.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "src/index.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "src/index.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/agents/nexus-tamagotchi/ags-cognition-engine.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/agents/nexus-tamagotchi/ags-cognition-engine.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/agents/nexus-tamagotchi/ags-cognition-engine.test.ts",
+      "target": "src/agents/nexus-tamagotchi/ags-cognition-engine.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/agents/nexus-tamagotchi/ags-cognition-engine.test.ts validates src/agents/nexus-tamagotchi/ags-cognition-engine.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/agents/nexus-tamagotchi/mira-memory-engine.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/agents/nexus-tamagotchi/mira-memory-engine.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/agents/nexus-tamagotchi/mira-memory-engine.test.ts",
+      "target": "src/agents/nexus-tamagotchi/mira-memory-engine.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/agents/nexus-tamagotchi/mira-memory-engine.test.ts validates src/agents/nexus-tamagotchi/mira-memory-engine.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/automation/auto-start.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/automation/auto-start.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/automation/auto-start.test.ts",
+      "target": "src/automation/auto-start.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/automation/auto-start.test.ts validates src/automation/auto-start.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/automation/research-pipe.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/automation/research-pipe.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/automation/research-pipe.test.ts",
+      "target": "src/automation/research-pipe.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/automation/research-pipe.test.ts validates src/automation/research-pipe.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/ingest.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/bots/ingest.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/ingest.test.ts",
+      "target": "src/bots/routes.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/bots/ingest.test.ts validates src/bots/routes.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/listener.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/bots/listener.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/listener.test.ts",
+      "target": "src/bots/listener.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/bots/listener.test.ts validates src/bots/listener.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/registry.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/bots/registry.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/registry.test.ts",
+      "target": "src/bots/registry.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/bots/registry.test.ts validates src/bots/registry.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/routes.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/bots/routes.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/routes.test.ts",
+      "target": "src/bots/routes.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/bots/routes.test.ts validates src/bots/routes.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/sentinel.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/bots/sentinel.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/sentinel.test.ts",
+      "target": "src/bots/sentinel.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/bots/sentinel.test.ts validates src/bots/sentinel.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/subjects.test.ts",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/bots/subjects.test.ts depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/bots/subjects.test.ts",
+      "target": "src/bots/subjects.ts",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/bots/subjects.test.ts validates src/bots/subjects.ts under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/capabilities/test_terms_verifier.py",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/capabilities/test_terms_verifier.py depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/capabilities/test_terms_verifier.py",
+      "target": "capabilities/opportunity_terms/terms_verifier.py",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/capabilities/test_terms_verifier.py validates capabilities/opportunity_terms/terms_verifier.py under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/integration/operations.checks.mjs",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/integration/operations.checks.mjs depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/integration/operations.checks.mjs",
+      "target": "docs/builder-integration.md",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/integration/operations.checks.mjs validates docs/builder-integration.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/integration/sandbox-runner.mjs",
+      "target": ".bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/integration/sandbox-runner.mjs depends_on .bits/srs/SRS-CN-BUILDER-INTEGRATION-001.md under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/integration/sandbox-runner.mjs",
+      "target": "tests/integration/operations.checks.mjs",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": "tests/integration/sandbox-runner.mjs validates tests/integration/operations.checks.mjs under the consolidated review contract.",
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": "tests/integration/operations.checks.mjs",
+      "description": "Native runtime regressions passed on Node 24, covering failure recovery, attributed forwarding, evidence isolation, learning replay/restart and audit tampering. TypeScript type-checking remains a separate CI gate. Verify: node --disable-warning=ExperimentalWarning tests/integration/sandbox-runner.mjs",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "timestamp": "2026-10-20T18:13:58.639Z",
+      "commit_sha": "aae464002d0f4f20dbdf8bc96bbb6ef46c8f2b7e",
+      "smoke_result": "14/14"
+    },
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": "tests/capabilities/test_terms_verifier.py",
+      "description": "Seven Python unittest cases passed for exact fee and rights evidence, phrase variants, negation, precedence and invalid input. Verify: python -m unittest discover -s tests/capabilities -p 'test_*.py'",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "timestamp": "2026-10-20T18:13:58.639Z",
+      "commit_sha": "aae464002d0f4f20dbdf8bc96bbb6ef46c8f2b7e",
+      "smoke_result": "7/7"
+    },
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": "capabilities/opportunity_terms/terms_verifier.py",
+      "description": "All five original opportunity-terms capability self-test assertions passed after the extraction corrections. Verify: python capabilities/opportunity_terms/terms_verifier.py --selftest",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "timestamp": "2026-10-20T18:13:58.639Z",
+      "commit_sha": "aae464002d0f4f20dbdf8bc96bbb6ef46c8f2b7e",
+      "smoke_result": "5/5"
+    },
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": "capabilities/opportunity_terms/terms_verifier.py",
+      "description": "Strict mypy reported no issues in the capability module; this does not measure coverage or TypeScript validity. Verify: python -m mypy --strict capabilities/opportunity_terms/terms_verifier.py",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "timestamp": "2026-10-20T18:13:58.639Z",
+      "commit_sha": "aae464002d0f4f20dbdf8bc96bbb6ef46c8f2b7e",
+      "smoke_result": "1/1"
+    },
+    {
+      "type": "C",
+      "event_type": "test_fail",
+      "file_path": "package.json",
+      "description": "Required npm lint, Vitest and build commands exited 127 because tsc/vitest are absent. No network installation was attempted; these checks and coverage remain release blockers. Verify: npm run lint",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+      "timestamp": "2026-10-20T18:13:58.639Z",
+      "commit_sha": "aae464002d0f4f20dbdf8bc96bbb6ef46c8f2b7e",
+      "smoke_result": "0/3"
+    }
+  ],
+  "summary": {
+    "type_a_count": 65,
+    "type_b_count": 81,
+    "type_c_count": 5,
+    "ioo_compliance": true,
+    "dkg_orphans": 0,
+    "dispatch_id": "DISP-BUILDER-INTEGRATION-001",
+    "srs_codes": [
+      "SRS-CN-BUILDER-INTEGRATION-001"
+    ],
+    "seat": "BITS-CODEGEN"
+  }
+}
