@@ -1,0 +1,29 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .bits/out/DISP-GOVERNANCE-builder/memory.json.cgrf.yaml
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-GOVERNANCE-builder
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumType:    Schema
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# DAG Node:    none
+# Intent:      Associate comment-free governance memory JSON with its CGRF provenance metadata.
+# ───────────────────────────────────────────────────────────────
+
+file: .bits/out/DISP-GOVERNANCE-builder/memory.json
+stage: 11_COMMIT
+srs: SRS-CN-BUILDER-GOVERNANCE-001
+dispatch: DISP-GOVERNANCE-builder
+seat: BITS-CODEGEN
+owner: Citadel Nexus Inc.
+caps: pending
+ck: pending
+intent: Preserve connected governance metadata and real validation events for post-merge ingest.
+enum_edges:
+  - edge_type: DEPENDS_ON
+    target: .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md

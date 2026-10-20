@@ -1,0 +1,114 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File:        .github/workflows/provenance.yml
+# Stage:       11_COMMIT
+# SRS:         SRS-CN-BUILDER-GOVERNANCE-001
+# CAPS:        pending
+# CK:          pending
+# Dispatch:    DISP-GOVERNANCE-builder
+# Seat:        BITS-CODEGEN
+# Owner:       Citadel Nexus Inc.
+# Created:     2026-10-20
+# Depends:     .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# EnumType:    Workflow
+# EnumEdges:   DEPENDS_ON .bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md
+# DAG Node:    none
+# Intent:      Bind reviewed Builder build archives to verifiable GitHub OIDC provenance.
+# ───────────────────────────────────────────────────────────────
+
+name: Build provenance — guild-builder
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: provenance-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - name: Package compiled build
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s dist/index.js
+          tar -czf "$RUNNER_TEMP/builder-$GITHUB_SHA.tar.gz" \
+            dist package.json package-lock.json LICENSE
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: builder-build-${{ github.sha }}
+          path: ${{ runner.temp }}/builder-${{ github.sha }}.tar.gz
+          if-no-files-found: error
+          retention-days: 30
+
+  attest:
+    name: provenance-attest
+    needs: build
+    if: >-
+      github.event_name == 'push' &&
+      github.repository == 'citadel-nexus/guild-builder' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: builder-build-${{ github.sha }}
+          path: ${{ runner.temp }}/builder-artifact
+      - name: Sign SLSA build provenance
+        id: provenance
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
+        with:
+          subject-path: ${{ runner.temp }}/builder-artifact/builder-${{ github.sha }}.tar.gz
+      - name: Verify signed archive and reject tampering
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUNDLE: ${{ steps.provenance.outputs.bundle-path }}
+        run: |
+          set -euo pipefail
+          artifact="$RUNNER_TEMP/builder-artifact/builder-$GITHUB_SHA.tar.gz"
+          policy=(
+            --bundle "$BUNDLE"
+            --repo "$GITHUB_REPOSITORY"
+            --signer-workflow "$GITHUB_REPOSITORY/.github/workflows/provenance.yml"
+            --source-ref refs/heads/main
+            --source-digest "$GITHUB_SHA"
+            --predicate-type https://slsa.dev/provenance/v1
+            --deny-self-hosted-runners
+          )
+          gh attestation verify "$artifact" "${policy[@]}"
+          cp "$artifact" "$RUNNER_TEMP/tampered.tar.gz"
+          printf '\ntampered\n' >> "$RUNNER_TEMP/tampered.tar.gz"
+          if gh attestation verify "$RUNNER_TEMP/tampered.tar.gz" "${policy[@]}"; then
+            echo 'FAIL: modified archive was accepted' >&2
+            exit 1
+          fi
+          cp "$BUNDLE" "$RUNNER_TEMP/provenance.sigstore.json"
+          echo 'PASS: signed archive verified; modified archive rejected'
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: builder-provenance-${{ github.sha }}
+          path: ${{ runner.temp }}/provenance.sigstore.json
+          if-no-files-found: error
+          retention-days: 30

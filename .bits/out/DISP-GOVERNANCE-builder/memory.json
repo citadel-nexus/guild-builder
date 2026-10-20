@@ -1,0 +1,517 @@
+{
+  "vectors": [
+    {
+      "type": "A",
+      "file_path": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "cket_stage": "04_HYPOTHESIZE",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [],
+      "lines": 63,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Define the authorized public Builder Guild ownership and build provenance contract.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/queue/DISP-GOVERNANCE-builder.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 70,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Record operator authorization and bounded staging tasks for Builder governance.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".sake_ops/taskir/SRS-CN-BUILDER-GOVERNANCE-001.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 48,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Expose the bounded governance task graph to all Builder Guild seats.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "GOVERNANCE.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 193,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Make Builder ownership, approval authority, and artifact trust independently reviewable.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/workflows/provenance.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "Workflow",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 114,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Bind reviewed Builder build archives to verifiable GitHub OIDC provenance.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/CODEOWNERS",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 25,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Route Builder and SDK reviews to accountable existing GitHub teams.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/srs_registry.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 441,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Register bounded Builder governance ownership alongside existing repository SRS entries.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/context.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 114,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Expose staging authorization and remaining governance activation work to future seats.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-GOVERNANCE-builder/report.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 117,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve reviewable evidence and outstanding admin gates for the staging bootstrap.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "partial",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-GOVERNANCE-builder/memory.json.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 29,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Associate comment-free governance memory JSON with its CGRF provenance metadata.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-GOVERNANCE-builder/memory.json",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-BUILDER-GOVERNANCE-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
+      ],
+      "lines": 517,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve connected governance metadata and real validation events for post-merge ingest.",
+      "objective_id": "DISP-GOVERNANCE-builder",
+      "outcome": "stored",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-builder",
+        "BITS-CODEGEN",
+        "SRS-CN-BUILDER-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "B",
+      "source": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "target": "SRS-CN-BUILDER-GOVERNANCE-001",
+      "edge_type": "PRODUCES",
+      "weight": 1.0,
+      "description": "Define the authorized public Builder Guild ownership and build provenance contract.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/queue/DISP-GOVERNANCE-builder.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Record operator authorization and bounded staging tasks for Builder governance.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".sake_ops/taskir/SRS-CN-BUILDER-GOVERNANCE-001.yaml",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Expose the bounded governance task graph to all Builder Guild seats.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "GOVERNANCE.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Make Builder ownership, approval authority, and artifact trust independently reviewable.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/provenance.yml",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Bind reviewed Builder build archives to verifiable GitHub OIDC provenance.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/CODEOWNERS",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Route Builder and SDK reviews to accountable existing GitHub teams.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/srs_registry.yml",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Register bounded Builder governance ownership alongside existing repository SRS entries.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/context.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Expose staging authorization and remaining governance activation work to future seats.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-GOVERNANCE-builder/report.md",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Preserve reviewable evidence and outstanding admin gates for the staging bootstrap.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-GOVERNANCE-builder/memory.json.cgrf.yaml",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Associate comment-free governance memory JSON with its CGRF provenance metadata.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-GOVERNANCE-builder/memory.json",
+      "target": ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "Preserve connected governance metadata and real validation events for post-merge ingest.",
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": ".github/workflows/provenance.yml",
+      "description": "Six focused static/shell checks passed, including packaging fixtures and mocked verification failure paths; no live cryptographic validation.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "timestamp": "2026-10-20T17:33:47.731328+00:00",
+      "commit_sha": null,
+      "smoke_result": "6/6"
+    },
+    {
+      "type": "C",
+      "event_type": "failure",
+      "file_path": ".github/workflows/provenance.yml",
+      "description": "npm lint/test/build unavailable: tsc and vitest absent (exit 127); repository guidance precludes network installation. GitHub CI remains required.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "timestamp": "2026-10-20T17:33:47.731328+00:00",
+      "commit_sha": null,
+      "smoke_result": "0/3 unavailable"
+    },
+    {
+      "type": "C",
+      "event_type": "smoke_run",
+      "file_path": ".bits/out/DISP-GOVERNANCE-builder/report.md",
+      "description": "Initial bootstrap review records prepared; CI and admin activation remain outstanding. Operator identity confirmation is recorded in the subsequent event.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "timestamp": "2026-10-20T17:33:47.731328+00:00",
+      "commit_sha": null,
+      "smoke_result": null
+    },
+    {
+      "type": "C",
+      "event_type": "smoke_run",
+      "file_path": "GOVERNANCE.md",
+      "description": "Applied operator-confirmed guild-builder code-owner team and forge-builder-guildmaster app/expected ruleset actor under the existing SRS/dispatch; removed identity-confirmation follow-up without granting bypass rights.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "timestamp": "2026-10-20T17:38:08.949008+00:00",
+      "commit_sha": null,
+      "smoke_result": null
+    }
+  ],
+  "summary": {
+    "type_a_count": 11,
+    "type_b_count": 11,
+    "type_c_count": 4,
+    "ioo_compliance": true,
+    "dkg_orphans": 0,
+    "dispatch_id": "DISP-GOVERNANCE-builder",
+    "srs_codes": [
+      "SRS-CN-BUILDER-GOVERNANCE-001"
+    ],
+    "seat": "BITS-CODEGEN"
+  }
+}
