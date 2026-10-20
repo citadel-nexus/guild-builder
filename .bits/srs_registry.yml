@@ -436,5 +436,6 @@ SRS-CN-BUILDER-GOVERNANCE-001:
   notes: >
     Authenticated operator Dmitry Richard authorized local governance bootstrap
     through Bits AI on 2026-10-20. Staging only; no external VCC or GitHub settings
-    mutations. Forge is guildmaster; confirm GitHub identity/team mapping with an
-    admin. Signed provenance covers CI archives only, not existing npm/GHCR releases.
+    mutations. Operator confirmed @citadel-nexus/guild-builder as guildmaster
+    owner and forge-builder-guildmaster as Forge's automation app/expected ruleset
+    actor. Signed provenance covers CI archives only, not existing npm/GHCR releases.

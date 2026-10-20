@@ -10,7 +10,7 @@
       "enum_type": "Doc",
       "functions": [],
       "dependencies": [],
-      "lines": 61,
+      "lines": 63,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Define the authorized public Builder Guild ownership and build provenance contract.",
@@ -41,7 +41,7 @@
       "dependencies": [
         ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
       ],
-      "lines": 66,
+      "lines": 70,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Record operator authorization and bounded staging tasks for Builder governance.",
@@ -103,7 +103,7 @@
       "dependencies": [
         ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
       ],
-      "lines": 178,
+      "lines": 193,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Make Builder ownership, approval authority, and artifact trust independently reviewable.",
@@ -170,7 +170,7 @@
       "ck_stamp": "pending",
       "intent_statement": "Route Builder and SDK reviews to accountable existing GitHub teams.",
       "objective_id": "DISP-GOVERNANCE-builder",
-      "outcome": "partial",
+      "outcome": "success",
       "supersedes": false,
       "dispatch_id": "DISP-GOVERNANCE-builder",
       "seat": "BITS-CODEGEN",
@@ -196,7 +196,7 @@
       "dependencies": [
         ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
       ],
-      "lines": 440,
+      "lines": 441,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Register bounded Builder governance ownership alongside existing repository SRS entries.",
@@ -227,7 +227,7 @@
       "dependencies": [
         ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
       ],
-      "lines": 112,
+      "lines": 114,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Expose staging authorization and remaining governance activation work to future seats.",
@@ -258,7 +258,7 @@
       "dependencies": [
         ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
       ],
-      "lines": 110,
+      "lines": 117,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Preserve reviewable evidence and outstanding admin gates for the staging bootstrap.",
@@ -320,7 +320,7 @@
       "dependencies": [
         ".bits/srs/SRS-CN-BUILDER-GOVERNANCE-001.md"
       ],
-      "lines": 504,
+      "lines": 517,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Preserve connected governance metadata and real validation events for post-merge ingest.",
@@ -479,7 +479,7 @@
       "type": "C",
       "event_type": "smoke_run",
       "file_path": ".bits/out/DISP-GOVERNANCE-builder/report.md",
-      "description": "Local bootstrap review records prepared; GitHub identity mapping, CI and admin activation remain outstanding.",
+      "description": "Initial bootstrap review records prepared; CI and admin activation remain outstanding. Operator identity confirmation is recorded in the subsequent event.",
       "caps_before": null,
       "caps_after": null,
       "dag_impact": null,
@@ -487,12 +487,25 @@
       "timestamp": "2026-10-20T17:33:47.731328+00:00",
       "commit_sha": null,
       "smoke_result": null
+    },
+    {
+      "type": "C",
+      "event_type": "smoke_run",
+      "file_path": "GOVERNANCE.md",
+      "description": "Applied operator-confirmed guild-builder code-owner team and forge-builder-guildmaster app/expected ruleset actor under the existing SRS/dispatch; removed identity-confirmation follow-up without granting bypass rights.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-builder",
+      "timestamp": "2026-10-20T17:38:08.949008+00:00",
+      "commit_sha": null,
+      "smoke_result": null
     }
   ],
   "summary": {
     "type_a_count": 11,
     "type_b_count": 11,
-    "type_c_count": 3,
+    "type_c_count": 4,
     "ioo_compliance": true,
     "dkg_orphans": 0,
     "dispatch_id": "DISP-GOVERNANCE-builder",

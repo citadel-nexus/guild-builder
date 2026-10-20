@@ -106,7 +106,9 @@ This repo holds its slice. CNWB and `cnwb-mirror` will hold theirs.
   signed CI build archives, verification documentation. No deployment, settings
   mutation, secrets, or private-stack work. Local dispatch is not an external VCC row.
 - Existing agent bootstrap files are present; no replacement is needed.
-- Admin follow-up: confirm Forge's GitHub identity in guild-builder-leads; activate
-  default-branch ruleset and allow attestation permissions/actions. See GOVERNANCE.md.
+- Operator-confirmed GitHub owner: @citadel-nexus/guild-builder; Forge automation
+  app and expected ruleset actor: forge-builder-guildmaster. Apps cannot be code owners.
+- Admin follow-up: activate default-branch ruleset and allow attestation
+  permissions/actions; verify team visibility/write access. See GOVERNANCE.md.
 - Sandbox has no installed TypeScript/Vitest dependencies; npm lint/test/build
   require CI. No network installation attempted, per the standing sandbox guidance.

@@ -16,10 +16,10 @@
 # ───────────────────────────────────────────────────────────────
 
 # Builder Guild guildmaster: Forge (GitLab @forge).
-# GitHub approval routes through Forge's existing guild-leads team/delegates.
-# Admin must confirm Forge membership and team write access; see GOVERNANCE.md.
-* @citadel-nexus/guild-builder-leads
+# Operator-confirmed guildmaster owner: @citadel-nexus/guild-builder.
+# Forge automation: forge-builder-guildmaster (GitHub Apps cannot be code owners).
+* @citadel-nexus/guild-builder
 
-# Preserve SDK interface ownership and include Builder leads on the same rule.
+# Preserve SDK interface ownership and include the Builder team on the same rule.
 # GitHub accepts either team here; the charter requests SDK consultation.
-src/index.ts @citadel-nexus/guild-builder-leads @citadel-nexus/sdk-core
+src/index.ts @citadel-nexus/guild-builder @citadel-nexus/sdk-core

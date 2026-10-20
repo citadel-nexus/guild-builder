@@ -45,7 +45,9 @@ under physical CKET directories.
 
 1. Name Forge (GitLab @forge) as Builder Guild guildmaster, with scope covering
    infrastructure, CI/CD, GitLab, site availability, and NATS; record Datadog
-   team handle guild-builder separately from GitHub identity.
+   team handle guild-builder separately from GitHub identity. Operator-confirmed
+   GitHub code owner is @citadel-nexus/guild-builder; forge-builder-guildmaster is
+   Forge's automation app and expected ruleset actor, not a CODEOWNERS entry.
 2. Define decisions, approval rules, delegation, and escalation to the
    guildmasters group. Preserve SDK review ownership.
 3. Document an admin-enforced default-branch ruleset requiring code-owner review,

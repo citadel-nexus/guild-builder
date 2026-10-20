@@ -27,6 +27,10 @@
 - authorization_source: authenticated operator directive through Bits AI,
   2026-10-20: "create those", followed by explicit authorization to bootstrap
   missing prerequisites and create this SRS/dispatch for governance and provenance.
+- identity_authorization: operator confirmed through Datadog guild-builder links
+  that @citadel-nexus/guild-builder is the guildmaster code-owner team and
+  forge-builder-guildmaster is Forge's GitHub App automation identity; directed
+  this ownership correction under the same SRS and dispatch.
 - external_vcc_status: not queried or changed; local bootstrap authorization only
 - memory_brief: supplied conversation contains no governance prior art or issue
   Memory Brief; no external memory recalled

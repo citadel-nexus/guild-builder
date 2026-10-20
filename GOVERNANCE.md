@@ -27,12 +27,18 @@ The guildmaster is **Forge (GitLab @forge)**. The Datadog team handle is
 Citadel Nexus Inc. owns this public repository; private-stack implementation and
 production operations remain in the private CNWB repository.
 
-GitHub reviews route through the existing **@citadel-nexus/guild-builder-leads**
-team in `.github/CODEOWNERS`, representing Forge and authorized delegates. An
-admin must confirm Forge's GitHub identity, team membership, team visibility,
-and explicit write access before treating this route as guildmaster enforcement.
-Do not assume GitHub @forge is the same person as GitLab @forge.
-The SDK team retains interface review ownership alongside Builder leads.
+The operator confirmed Forge's GitHub identities through the Datadog
+**guild-builder** team links:
+
+- Guildmaster code owner: **@citadel-nexus/guild-builder**
+  (https://github.com/orgs/citadel-nexus/teams/guild-builder).
+- Forge automation identity: the **forge-builder-guildmaster** GitHub App
+  (https://github.com/apps/forge-builder-guildmaster).
+
+GitHub reviews route through that team in `.github/CODEOWNERS`, representing
+Forge and authorized delegates. GitHub Apps cannot be code owners; the app is
+an automation actor, not a substitute for required team review. The SDK team
+retains interface review ownership alongside the Builder team.
 
 ## Decisions, approval, and escalation
 
@@ -40,8 +46,8 @@ The SDK team retains interface review ownership alongside Builder leads.
   A non-author code owner reviews before merge; resolve review threads and pass
   required checks. Authors cannot approve their own changes.
 - Forge is accountable for the guild roadmap and decisions within its scope.
-  Builder leads may approve routine work delegated by Forge. Record delegation
-  and decisions in the PR so the accountable reviewer is visible.
+  Authorized Builder team members may approve routine work delegated by Forge.
+  Record delegation and decisions in the PR so the accountable reviewer is visible.
 - Changes to ownership, this charter, workflow permissions, signing identity,
   or branch protection require Forge's explicit approval. SDK interface changes
   also request SDK review. CODEOWNERS accepts approval from either listed team;
@@ -71,6 +77,15 @@ branch (`main` today; use the default-branch selector). Configure:
 | Passing PR checks | Require `build` from `CI — guild-builder` and `provenance-build` from `Build provenance — guild-builder`; select the GitHub Actions source |
 | Current base | Require branches to be up to date before merging |
 | Protected history | Block force pushes and deletion; apply to administrators with no routine bypass actors |
+
+The expected Forge automation actor in ruleset administration is the
+**forge-builder-guildmaster** GitHub App. Identify it by that app slug when
+reviewing automation access; this does not grant it bypass rights. Do not add
+it as a routine bypass actor. Its changes must satisfy the same PR, code-owner
+review, signed-commit, and required-check rules. The required CI checks above
+are produced by **GitHub Actions**, not by the Forge app; retain GitHub Actions
+as their expected source. No app installation, permissions, or bypass settings
+are changed by this document.
 
 Wait for a PR to emit both check contexts before selecting them. `build` is the
 existing CI job ID; `provenance-build` is the new explicit job name. Do not require

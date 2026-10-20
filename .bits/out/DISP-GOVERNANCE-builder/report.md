@@ -28,14 +28,14 @@
 - Tasks: 4/4 staging deliverables prepared; external activation outstanding
 - Smoke: 8/11 local checks passed; 3 unavailable (npm lint, test, build)
 - CKS Gate: B+/75 target; CKS: pending; CAPS: pending; CK: pending
-- Commits: one focused session change; resolve its SHA with `git log -1 --format=%H`
+- Commits: bootstrap plus identity correction; inspect with `git log --format="%H %s" b3b1e1e96f5d15342770deb726b0ef7be0da3f6f..HEAD`
 
 ## §2 TASK RESULTS
 
 | Task | Status | Output | Verify | CKET |
 | --- | --- | --- | --- | --- |
 | A — authorization | PASS | Local SRS, registry, dispatch, TaskIR, standing brief | `python /tmp/verify-builder-governance.py GovernanceChecks.test_bootstrap_records` | 04_HYPOTHESIZE / 11_COMMIT |
-| B — governance | PARTIAL | Charter, team-based Forge ownership route, admin runbook; individual GitHub mapping unconfirmed | `python /tmp/verify-builder-governance.py GovernanceChecks.test_ownership_and_admin_documentation` | 06_PLAN |
+| B — governance | PASS | Operator-confirmed owner team and Forge app documented; admin activation remains separate | `python /tmp/verify-builder-governance.py GovernanceChecks.test_ownership_and_admin_documentation` | 06_PLAN |
 | C — provenance | PARTIAL | PR build and isolated main-only signer; local static/mock validation passed | `python /tmp/verify-builder-governance.py` plus npm commands below | 11_COMMIT |
 | D — review evidence | PASS | This report and connected memory payload | `python /tmp/verify-builder-governance.py GovernanceChecks.test_cgrf_and_memory_integrity` | 11_COMMIT |
 
@@ -55,7 +55,7 @@ Run `python /tmp/verify-builder-governance.py` for checks 1–8 (expected: PASS)
 5. Archive contents and rejection of missing build output (fixtures): PASS.
 6. Verification control flow: intact archive accepted, tampering rejected; simulated
    verifier accepting all inputs or rejecting all inputs fails the job: PASS.
-7. Existing owner routes, SDK ownership, and admin requirements: PASS.
+7. Confirmed owner team, Forge automation actor, SDK ownership, and admin requirements: PASS.
 8. CGRF metadata, registry coverage, memory summary and connected edges: PASS.
 9. `npm run lint`: UNAVAILABLE — exit 127, `tsc: not found`.
 10. `npm test`: UNAVAILABLE — exit 127, `vitest: not found`.
@@ -69,9 +69,15 @@ configuration/docs change. No live OIDC/Sigstore operation, GitHub setting chang
 registry publishing, production action, or deployment was performed. Action refs
 are SHA-pinned; remote action contents were not fetched in this sandbox.
 
+Identity follow-up: three targeted checks (bootstrap records, ownership/admin
+policy, memory consistency) passed using the session-local audit command:
+`python /tmp/verify-builder-governance.py GovernanceChecks.test_bootstrap_records GovernanceChecks.test_ownership_and_admin_documentation GovernanceChecks.test_cgrf_and_memory_integrity`.
+Runtime/workflow checks were not rerun for this ownership/docs-only correction;
+previous npm and live-signing limitations remain.
+
 ## §4 MEMORY INGEST
 
-- Type A count: 11; Type B count: 11; Type C count: 3
+- Type A count: 11; Type B count: 11; Type C count: 4
 - IOO compliance: true; DKG orphans: 0
 - Payload: `.bits/out/DISP-GOVERNANCE-builder/memory.json`
 - Metadata records prepared review artifacts; no external memory ingest or CK stamping.
@@ -98,9 +104,10 @@ are SHA-pinned; remote action contents were not fetched in this sandbox.
 ## §7 NEXT ACTIONS
 
 - Require GitHub CI lint/test/build and the first main-push signing/verification run.
-- Admin: confirm Forge's GitHub identity/team membership and visible write-enabled
-  CODEOWNERS teams; activate the documented default-branch protection ruleset and
-  permitted Actions/OIDC/attestation policy. Existing signing config is preserved.
+- Admin: ensure CODEOWNERS teams are visible with explicit write access; activate
+  the documented default-branch protection ruleset and Actions/OIDC/attestation
+  policy. Expected Forge automation actor: forge-builder-guildmaster, without
+  routine bypass privileges. Existing signing config is preserved.
 - Maintainer: obtain Forge approval, independent review, and apply labels:
   bits:codegen, srs:srs-cn-builder-governance-001,
   dispatch:disp-governance-builder, verified:static-only, verified:manual-review.
